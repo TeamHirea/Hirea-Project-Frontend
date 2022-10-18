@@ -9,10 +9,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<PublicRoute />}></Route>
-
-        <Route element={<PrivateRoute />}></Route>
-
         <Route path="/" element={<Home />} />
+        <Route element={<PrivateRoute />}></Route>
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,15 @@
+.header--button--nav--notLogin__style button:first-child {
+  background-color: transparent;
+  border: 1px solid var(--purple) !important;
+  color: var(--purple);
+}
+
+.header--button--nav--notLogin__style button:last-child {
+  background-color: var(--purple);
+  border: 1px solid var(--purple) !important;
+  color: white;
+}
+
+.header--icon--lggedin__size {
+  width: 80%;
+}
