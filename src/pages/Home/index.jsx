@@ -1,13 +1,12 @@
-import React from "react";
+import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 function index() {
   return (
-    <div>
-      Hello World
+    <>
+      <Header />
+      <h1>HOME</h1>
       <Footer />
-    </div>
-  );
-}
+    </>
 
 export default index;

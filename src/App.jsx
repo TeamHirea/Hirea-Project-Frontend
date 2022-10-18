@@ -9,10 +9,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<PublicRoute />}></Route>
-        <Route path="/SignupJobSeeker" element={<SignupJobSeeker />} />
-
         <Route element={<PrivateRoute />}></Route>
         <Route path="/" element={<Home />} />
+        <Route path="/SignupJobSeeker" element={<SignupJobSeeker />} />
       </Routes>
     </BrowserRouter>
   );
