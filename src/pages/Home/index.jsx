@@ -8,5 +8,6 @@ function index() {
       <h1>HOME</h1>
       <Footer />
     </>
-
+  );
+}
 export default index;
