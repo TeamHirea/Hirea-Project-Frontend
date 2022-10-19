@@ -5,6 +5,8 @@ import PublicRoute from "./utils/routes/PublicRoute.js";
 import PrivateRoute from "./utils/routes/PrivateRoute";
 import SignupJobSeeker from "./pages/SignupJobSeeker";
 
+import SignupRecruiter from "./pages/SignupRecruiter";
+import Hire from "./pages/Hire";
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +17,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Home />} />
         <Route path="/SignupJobSeeker" element={<SignupJobSeeker />} />
+        <Route path="/SignupRecruiter" element={<SignupRecruiter />} />
+        <Route path="/hire" element={<Hire />} />
       </Routes>
     </BrowserRouter>
   );
