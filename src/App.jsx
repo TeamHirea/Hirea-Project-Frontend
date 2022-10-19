@@ -8,6 +8,7 @@ import Landing from "./pages/Landing";
 
 import SignupRecruiter from "./pages/SignupRecruiter";
 import SigninRecruiter from "./pages/SigninRecruiter";
+import SigninJobSeeker from "./pages/SigninJobSeeker";
 import Hire from "./pages/Hire";
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/SignupJobSeeker" element={<SignupJobSeeker />} />
         <Route path="/SignupRecruiter" element={<SignupRecruiter />} />
         <Route path="/SigninRecruiter" element={<SigninRecruiter />} />
+        <Route path="/SigninJobSeeker" element={<SigninJobSeeker />} />
         <Route path="/hire" element={<Hire />} />
       </Routes>
     </BrowserRouter>
