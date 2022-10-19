@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+}
+.container-fluid {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.home {
+  width: 100%;
+}
+.main-section {
+  background-color: #E5E5E5;
+  padding-bottom: 5%;
+}
+.home-bar {
+  padding: 2% 8%;
+  background: rgba(94, 80, 161, 1);
+}
+.home-bar-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+.row-search {
+  background-color: white;
+  border: none;
+  border-radius: 15px;
+}
+.search-section {
+  margin: 0 8%;
+  padding: 3% 0;  
+}
+.search-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  padding-left: 5%;
+  width: 70%;
+  border: none;
+  border-radius: 15px;
+}
+.category {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  height: 50px;
+  padding-left: 5%;
+  width: 20%;
+  border: none;
+  border-radius: 15px;
+}
+.search-button {
+  height: 40px;
+  margin: 1%;
+  width: 8%;
+  border: none;
+  border-radius: 10px;
+  background: rgba(94, 80, 161, 1);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+.search-button:hover {
+  background-color: rgb(38, 14, 158);
+}
+.card-profile {
+  display: flex;
+  flex-direction: column;
+  margin: 0 8% 5% 8%;
+  background-color: white;
+  border-radius: 15px;
+}
+.row-card {
+  display: flex;
+  flex-direction: row;
+  padding: 2% 5%;
+  align-items: center;
+}
+.profile-image {
+  width: 20%;
+  padding-right: 5%;
+}
+.description-column {
+  width: 80%;
+}
+.card-name {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+}
+.card-description {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(158, 160, 165, 1);
+}
+.card-location {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(158, 160, 165, 1);
+}
+.button-skill {
+  border: 1px solid rgba(251, 176, 23, 1);
+  background-color: rgba(251, 176, 23, 1);
+  border-radius: 5px;
+  margin-right: 2%;
+  padding: 1% 3%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+}
+.button-skill:hover {
+  background-color: rgb(228, 154, 6);  
+}
+.button-check-profile {
+  height: 50px;
+  width: 15%;
+  border-radius: 5px;
+  border: none;
+  background: rgba(94, 80, 161, 1);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  align-items: center;
+}
+.button-check-profile:hover {
+  background-color: rgb(38, 14, 158);
+}
+.pagination {
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .search-text{
+    height: 30px;
+  }
+  .category{
+    height: 30px;
+  }
+  .search-button{
+    height: 30px;
+  }
+  
+}
+
+
