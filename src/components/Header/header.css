@@ -10,6 +10,95 @@
   color: white;
 }
 
+.mobile__style {
+  background: white;
+  position: relative;
+  border-bottom-right-radius: 20px;
+}
+
+.header--wave {
+  display: none;
+}
+
+.header--icon {
+  cursor: pointer;
+}
+
+.mobile__none {
+  display: none;
+}
+
+.header--image--popup__size {
+  background-image: url("../../assets/images/popUp.png");
+  height: 20vh;
+  background-size: cover;
+  /* background: red; */
+  /* background: red; */
+  width: 30vh;
+  height: 30vh;
+  background-repeat: no-repeat;
+  top: 15px;
+  overflow: auto;
+  /* right: 1px; */
+  left: -100px;
+  position: absolute;
+}
+
+.nav-item {
+  position: relative;
+}
+
 .header--icon--lggedin__size {
   width: 80%;
+}
+
+@media only screen and (max-width: 600px) {
+  .header--icon--lggedin__size {
+    display: none;
+  }
+
+  .mobile__style {
+    background-image: url("../../assets/images/header_background.png");
+    position: relative;
+    border-bottom-right-radius: 20px;
+    padding-top: 5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .header--wave {
+    position: absolute;
+    bottom: 0;
+    display: block;
+  }
+
+  .header--container--bell__size {
+    /* background: red; */
+    width: 5.5%;
+    margin-right: 2rem;
+    /* flex: 1; */
+    position: relative;
+  }
+
+  .header--red--dot {
+    width: 0.6rem !important;
+    height: 0.6rem;
+    background: red;
+    border-radius: 50%;
+    border: 2px solid white;
+    position: absolute;
+    right: 0;
+  }
+
+  .header--main__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    line-height: 0.1px;
+  }
+
+  .header--user--logeddin__container {
+    flex: 1.8;
+    color: white;
+    padding-left: 1rem;
+  }
 }
