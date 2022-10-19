@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import PublicRoute from "./utils/routes/PublicRoute.js";
 import PrivateRoute from "./utils/routes/PrivateRoute";
 import SignupJobSeeker from "./pages/SignupJobSeeker";
+import Landing from "./pages/Landing";
 
 import SignupRecruiter from "./pages/SignupRecruiter";
 import Hire from "./pages/Hire";
@@ -13,7 +14,8 @@ function App() {
       <Routes>
         <Route element={<PublicRoute />}></Route>
         <Route element={<PrivateRoute />}></Route>
-
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Home />} />
         <Route path="/SignupJobSeeker" element={<SignupJobSeeker />} />
