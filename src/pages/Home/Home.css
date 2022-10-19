@@ -37,13 +37,13 @@
 }
 .search-section {
   margin: 0 8%;
-  padding: 5% 0;  
+  padding: 3% 0;  
 }
 .search-text {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  height: 50px;
+  height: 40px;
   padding-left: 5%;
   width: 70%;
   border: none;
@@ -60,7 +60,7 @@
   border-radius: 15px;
 }
 .search-button {
-  height: 50px;
+  height: 40px;
   margin: 1%;
   width: 8%;
   border: none;
@@ -142,6 +142,19 @@
 }
 .pagination {
   margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .search-text{
+    height: 30px;
+  }
+  .category{
+    height: 30px;
+  }
+  .search-button{
+    height: 30px;
+  }
+  
 }
 
 
