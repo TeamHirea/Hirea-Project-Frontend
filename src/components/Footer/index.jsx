@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import Logo from "../../assets/images/hirea white.png";
+import Logo from "../../assets/images/logo6.png";
 
 function div() {
   return (
@@ -8,12 +8,13 @@ function div() {
       This footer
       <footer>
         <div className="footer container-fluid">
-          <div className="row col-12">
-            <div className="tittle_footer col col-md-2 ">
-              <div className="img">
-                <img src={Logo} alt="" width={50} height={50} />
+          <div className="footer_title">
+            <div className="tittle_footer col col-md-1 bg-primary">
+              <div className="p-0 m-0">
+                <img src={Logo} alt="" width={40} height={40} />
               </div>
             </div>
+            <div className="col col-md-1 my-3 coname bg-primary">Hirea</div>
           </div>
           <div className="footer_main_container row col-12">
             <div className="desc_footer col col-md-4 px-0">
