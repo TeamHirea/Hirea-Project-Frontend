@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/images/hirea white.png";
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 export default function SigninRecruiter() {
+  const navigate = useNavigate();
+  console.log(navigate);
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+  const handleChangeForm = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
   return (
     <div>
       <div className="container py-0 ">
@@ -19,12 +29,18 @@ export default function SigninRecruiter() {
                 <p className="title-auth"> Halo, Pewpeople</p>
                 <p className="desc-auth">Lorem ipsum dolor sit amet.</p>
                 <p className="label">Email</p>
-                <input type="text" name="name" placeholder="Input Your Email" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Input Your Email"
+                  onChange={handleChangeForm}
+                />
                 <p className="label">Password</p>
                 <input
                   type="text"
                   name="email"
                   placeholder="Input Your Password"
+                  onChange={handleChangeForm}
                 />
 
                 <p className="ask">Forgot Your Password?</p>
