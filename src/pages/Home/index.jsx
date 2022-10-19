@@ -20,7 +20,7 @@ function Home() {
                   placeholder="Search for any skill"
                 />
                 <input
-                  className="search-text"
+                  className="category"
                   type="text"
                   placeholder="Category"
                 />
