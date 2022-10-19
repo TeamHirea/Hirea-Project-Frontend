@@ -1,11 +1,15 @@
 import React from "react";
 import "./Home.css";
 
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+
 import profile from "../../assets/images/profile.png";
 
 function Home() {
   return (
     <>
+      <Header />
       <div className="container-fluid">
         <main className="home">
           <div className="home-bar">
@@ -118,6 +122,7 @@ function Home() {
           </section>
         </main>
       </div>
+      <Footer />
     </>
   );
 }
