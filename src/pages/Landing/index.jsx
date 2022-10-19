@@ -2,8 +2,10 @@ import React from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 function Landing() {
+  const navigate = useNavigate();
   return (
     <div>
       <Header />
@@ -17,7 +19,14 @@ function Landing() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
               euismod ipsum et dui rhoncus auctor.
             </div>
-            <div className="landing-section-button">Mulai Dari Sekarang</div>
+            <div
+              className="landing-section-button"
+              onClick={() => {
+                navigate("/home");
+              }}
+            >
+              Mulai Dari Sekarang
+            </div>
           </div>
           <div className="col col-sm-12 col-md-12 col-lg-6 landing-right-container">
             <img
@@ -186,7 +195,14 @@ function Landing() {
         </section>
         <section className="landing_box">
           <div className="landing_box-text">Hirea</div>
-          <div className="landing_box-button">Mulai Sekarang</div>
+          <div
+            className="landing_box-button"
+            onClick={() => {
+              navigate("/home");
+            }}
+          >
+            Mulai Sekarang
+          </div>
         </section>
       </main>
       <Footer />
