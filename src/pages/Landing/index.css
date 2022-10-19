@@ -128,12 +128,16 @@
   font-size: 36px;
   line-height: 56px;
   color: #1f2a36;
+  text-align: center;
 }
 .landing_opinion-box-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   column-gap: 20px;
+  row-gap: 20px;
 }
 .landing_opinion-box {
   background: #ffffff;
