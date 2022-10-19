@@ -7,6 +7,7 @@ import SignupJobSeeker from "./pages/SignupJobSeeker";
 import Landing from "./pages/Landing";
 
 import SignupRecruiter from "./pages/SignupRecruiter";
+import SigninRecruiter from "./pages/SigninRecruiter";
 import Hire from "./pages/Hire";
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/SignupJobSeeker" element={<SignupJobSeeker />} />
         <Route path="/SignupRecruiter" element={<SignupRecruiter />} />
+        <Route path="/SigninRecruiter" element={<SigninRecruiter />} />
         <Route path="/hire" element={<Hire />} />
       </Routes>
     </BrowserRouter>
