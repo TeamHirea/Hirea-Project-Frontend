@@ -10,3 +10,11 @@ h6 {
 .footer_main_container {
   border-bottom: 2px solid white;
 }
+.coname {
+  color: #fff;
+}
+.footer_title {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: flex-start;
+}
