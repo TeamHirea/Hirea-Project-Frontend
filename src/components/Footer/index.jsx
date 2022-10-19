@@ -5,28 +5,26 @@ import Logo from "../../assets/images/logo6.png";
 function div() {
   return (
     <footer>
-      <div className="footer container-fluid">
+      <div className="footer">
         <div className="footer_title">
-          <div className="tittle_footer col col-md-1 bg-primary">
-            <div className="p-0 m-0">
-              <img src={Logo} alt="" width={40} height={40} />
-            </div>
+          <div className="tittle_footer px-0">
+            <img src={Logo} alt="" width={40} height={40} />
           </div>
-          <div className="col col-md-1 my-3 coname bg-primary">Hirea</div>
+          <div className="">Hirea</div>
         </div>
-        <div className="footer_main_container row col-12">
+        <div className="footer_main_container row mx-0">
           <div className="desc_footer col col-md-4 px-0">
-            <h6>
+            <div className="footer_text">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Explicabo architecto rerum unde vel ipsum numquam esse error
               inventore magni quae incidunt repellat deleniti eum perspiciatis
               nostrum modi, omnis totam veritatis!
-            </h6>
+            </div>
           </div>
         </div>
-        <div className="row my-3 col-12">
-          <div className="col col-md-10 mx-0 px-0 col-sm-4">
-            <h6>2022 Hirea, All right reserved</h6>
+        <div className="row my-3 mx-0 col-12">
+          <div className="col col-md-10 px-0 col-sm-4">
+            <h6>2022 Hirea. All right reserved</h6>
           </div>
           <div className="col col-md-1 col-sm-4 px-0 d-flex justify-content-end">
             <h6>Phone</h6>

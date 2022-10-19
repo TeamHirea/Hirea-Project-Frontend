@@ -2,8 +2,7 @@
 
 .footer {
   background-color: #5e50a1;
-  padding: 10px 5vw !important;
-  margin-bottom: 10px;
+  padding: 40px 5vw !important;
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 300;
@@ -12,16 +11,22 @@
   color: #ffffff;
 }
 .footer_text {
-  margin: 30px 0px;
+  margin: 20px 0px 50px;
 }
 .footer_main_container {
   border-bottom: 2px solid white;
-}
-.coname {
-  color: #fff;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .footer_title {
-  display: flex !important;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 28px;
+  color: #ffffff;
 }
