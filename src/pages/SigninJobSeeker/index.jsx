@@ -3,7 +3,7 @@ import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
 
-export default function SigninRecruiter() {
+export default function SigninJobSeeker() {
   const navigate = useNavigate();
   console.log(navigate);
   const [form, setForm] = useState({
