@@ -1,0 +1,12 @@
+.footer {
+  background-color: #5e50a1;
+  padding: 10px 5vw !important;
+  margin-bottom: 10px;
+}
+h6 {
+  color: #fff;
+  font-family: sans-serif;
+}
+.footer_main_container {
+  border-bottom: 2px solid white;
+}
