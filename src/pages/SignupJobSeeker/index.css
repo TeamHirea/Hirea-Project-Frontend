@@ -16,7 +16,7 @@
   /* margin: 0 -200px; */
   height: 600px;
 }
-.col-left {
+.col-left-js {
   background-image: url("../../assets/images/bgauth.png");
   object-fit: cover;
   background-repeat: no-repeat;

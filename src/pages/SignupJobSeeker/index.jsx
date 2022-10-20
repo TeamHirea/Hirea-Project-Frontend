@@ -1,5 +1,5 @@
 // import React from "react";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -21,7 +21,7 @@ export default function SignupJobSeeker() {
     <div className="container-signup py-0">
       <div className=" container-auth ">
         <div className="row row-auth ">
-          <div className="col-6 col-left">
+          <div className="col-6 col-left-js">
             <img src={logo} alt="" className="logo-auth" />
             <h1 className="desc-left">
               Temukan developer berbakat & terbaik di berbagai bidang keahlian

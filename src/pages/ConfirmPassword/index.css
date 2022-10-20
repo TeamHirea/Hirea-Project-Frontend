@@ -1,0 +1,19 @@
+.auth-right-cp {
+  margin: 130px 20px;
+}
+@media (max-width: 575.98px) {
+  /* * {
+          background: #e5e5e5;
+        } */
+  .col-left-ea {
+    display: none;
+  }
+  .col-right-cp {
+    width: 100% !important;
+    margin: -40px !important;
+  }
+  .auth-right-cp {
+    margin: 120px 0;
+    width: 350px !important;
+  }
+}
