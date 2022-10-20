@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+.contchat {
+  min-height: 100vh;
+  display: flex;
+  background-color: #a9acac;
+  justify-content: center;
+}
+.text1 {
+  margin-left: 10px;
+  color: black;
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+}
+.text2 {
+  margin-left: 60px;
+}
+
+.cardchat {
+  /* height: 200px; */
+  min-height: 50vh;
+  background-color: #fff;
+  /* position: relative; */
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+}
+.upperborder1 {
+  height: 30px !important;
+  width: 500px !important;
+  border-bottom: 3px solid #a9acac;
+  font-family: "Open Sans", sans-serif;
+
+  /* background-color: #f2f2f2; */
+  /* border-bottom: #a9acac;
+  border-color: #a9acac !important; */
+}
+.upperborder2 {
+  height: 40px !important;
+  width: 730px !important;
+  border-bottom: 3px solid #a9acac;
+}
+.bottomborder {
+  margin-top: 50vh;
+}
+.image {
+  margin-top: 30px;
+  margin-left: 40px;
+}
+.chat-box-tray {
+  background: #eee;
+  display: flex;
+  align-items: baseline;
+  padding: 10px 15px;
+  align-items: center;
+  margin-top: 19px;
+  bottom: 0;
+}
+.input {
+  border: none;
+  border-radius: 30px;
+  width: 80%;
+}
+.friend-drawer {
+  padding: 6px 10px;
+  display: flex;
+  background: #fff;
+  width: 500px;
+  height: 100px;
+}
+.text3 {
+  margin-left: 12px;
+  width: 90%;
+}
+.img {
+  height: 90px;
+  width: 90px;
+}
+.profile-image {
+  height: 100px;
+  width: 100px;
+}
+.icon_inbox {
+  margin-left: 10px;
+}
+/* @media only screen and (max-width: 600px) {
+  .cont1 {
+    min-height: auto;
+    display: flex;
+  }
+  .upperborder {
+    height: 50vw !important;
+    width: 100vw;
+  }
+  .card {
+    width: 50vh !important;
+  }
+  .image span {
+    left: 130px;
+  }
+} */

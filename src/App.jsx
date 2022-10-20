@@ -18,6 +18,7 @@ import EmailActivation from "./pages/EmailActivation";
 import ConfirmPassword from "./pages/ConfirmPassword";
 import RequestResetPassword from "./pages/RequestResetPassword";
 import Chat from "./pages/Chat";
+import Inbox from "./pages/Chat/inbox";
 function App() {
   return (
     <BrowserRouter>
@@ -36,6 +37,7 @@ function App() {
         <Route path="/CompanyProfile" element={<CompanyProfile />} />
         <Route path="/hire" element={<Hire />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/inbox" element={<Inbox />} />
         <Route
           path="/editProfileRecruiter"
           element={<EditProfileRecruiter />}
