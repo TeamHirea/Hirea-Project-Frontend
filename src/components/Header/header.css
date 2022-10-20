@@ -24,12 +24,8 @@
   cursor: pointer;
 }
 
-.mobile__none {
-  display: none;
-}
-
 .header--image--popup__size {
-  background-image: url("../../assets/images/popUp.png");
+  background-image: url("../../assets/vectors/rectangle.png");
   height: 20vh;
   background-size: cover;
   /* background: red; */
@@ -37,10 +33,12 @@
   width: 30vh;
   height: 30vh;
   background-repeat: no-repeat;
-  top: 15px;
+  top: 30px;
   overflow: auto;
+  border: 1px solid rgba(0, 0, 0, 0.188);
   /* right: 1px; */
   left: -100px;
+  z-index: 1;
   position: absolute;
 }
 
@@ -55,6 +53,18 @@
 @media only screen and (max-width: 600px) {
   .header--icon--lggedin__size {
     display: none;
+  }
+
+  .mobile__none {
+    display: none;
+  }
+
+  .navbar-brand {
+    height: 9vh;
+  }
+
+  .header--logo--image__size img {
+    width: 20vw !important;
   }
 
   .mobile__style {
