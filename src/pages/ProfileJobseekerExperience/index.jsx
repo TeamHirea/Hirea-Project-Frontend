@@ -2,17 +2,17 @@ import React from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Profile from "../../components/ProfileJobseeker";
-import Portofolio from "../../components/Portofolio";
+import Experience from "../../components/Experience";
 
-import "./ProfileJobseeker.css";
+import "./ProfileJobseekerExperience.css";
 
-export default function ProfileJobseeker() {
+export default function ProfileJobseekerExperience() {
   return (
     <>
       <Header />
       <main className="profile-jobseeker">
         <Profile />
-        <Portofolio />
+        <Experience />
       </main>
       <Footer />
     </>
