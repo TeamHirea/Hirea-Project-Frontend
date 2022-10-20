@@ -34,7 +34,8 @@ function App() {
         <Route path="/hire" element={<Hire />} />
         <Route
           path="/editProfileRecruiter"
-          element={<EditProfileRecruiter />} />
+          element={<EditProfileRecruiter />}
+        />
         <Route path="/EmailActivation" element={<EmailActivation />} />
         <Route path="/ConfirmPassword" element={<ConfirmPassword />} />
         <Route
