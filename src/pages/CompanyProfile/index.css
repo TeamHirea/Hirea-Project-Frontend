@@ -23,6 +23,7 @@
 }
 .text p {
   font-size: 12px;
+  text-align: center;
 }
 .image span {
   height: 90px;
@@ -45,7 +46,6 @@
 }
 .overlay img {
   object-fit: cover;
-  transition: all 2s;
   height: 100%;
   width: 100%;
 }
@@ -58,4 +58,20 @@
   overflow: hidden;
   font-family: "Open Sans", sans-serif;
   cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .cont1 {
+    min-height: auto;
+    display: flex;
+  }
+  .upperborder {
+    height: 50vw !important;
+    width: 100vw;
+  }
+  .card {
+    width: 50vh !important;
+  }
+  .image span {
+    left: 130px;
+  }
 }
