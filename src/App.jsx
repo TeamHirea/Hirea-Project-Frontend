@@ -17,6 +17,9 @@ import EditProfileRecruiter from "./pages/EditProfileRecruiter";
 import EmailActivation from "./pages/EmailActivation";
 import ConfirmPassword from "./pages/ConfirmPassword";
 import RequestResetPassword from "./pages/RequestResetPassword";
+import ProfileJobseekerPortofolio from "./pages/ProfileJobseekerPortofolio";
+import ProfileJobseekerExperience from "./pages/ProfileJobseekerExperience";
+
 import Chat from "./pages/Chat";
 function App() {
   return (
@@ -45,6 +48,14 @@ function App() {
         <Route
           path="/RequestResetPassword"
           element={<RequestResetPassword />}
+        />
+        <Route
+          path="/ProfileJobseekerPortofolio"
+          element={<ProfileJobseekerPortofolio />}
+        />
+        <Route
+          path="/ProfileJobseekerExperience"
+          element={<ProfileJobseekerExperience />}
         />
       </Routes>
     </BrowserRouter>
