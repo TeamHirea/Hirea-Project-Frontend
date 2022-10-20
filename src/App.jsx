@@ -21,6 +21,7 @@ import ProfileJobseekerPortofolio from "./pages/ProfileJobseekerPortofolio";
 import ProfileJobseekerExperience from "./pages/ProfileJobseekerExperience";
 
 import Chat from "./pages/Chat";
+import Inbox from "./pages/Chat/inbox";
 function App() {
   return (
     <BrowserRouter>
@@ -39,6 +40,7 @@ function App() {
         <Route path="/CompanyProfile" element={<CompanyProfile />} />
         <Route path="/hire" element={<Hire />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/inbox" element={<Inbox />} />
         <Route
           path="/editProfileRecruiter"
           element={<EditProfileRecruiter />}
