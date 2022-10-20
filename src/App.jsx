@@ -11,6 +11,7 @@ import SignupRecruiter from "./pages/SignupRecruiter";
 import SigninRecruiter from "./pages/SigninRecruiter";
 import SigninJobSeeker from "./pages/SigninJobSeeker";
 import ResetPassword from "./pages/ResetPassword";
+import CompanyProfile from "./pages/CompanyProfile";
 import Hire from "./pages/Hire";
 import EditProfileRecruiter from "./pages/EditProfileRecruiter";
 import EmailActivation from "./pages/EmailActivation";
@@ -19,6 +20,7 @@ import RequestResetPassword from "./pages/RequestResetPassword";
 import ProfileJobseekerPortofolio from "./pages/ProfileJobseekerPortofolio";
 import ProfileJobseekerExperience from "./pages/ProfileJobseekerExperience";
 
+import Chat from "./pages/Chat";
 function App() {
   return (
     <BrowserRouter>
@@ -34,7 +36,9 @@ function App() {
         <Route path="/SigninRecruiter" element={<SigninRecruiter />} />
         <Route path="/SigninJobSeeker" element={<SigninJobSeeker />} />
         <Route path="/ResetPassword" element={<ResetPassword />} />
+        <Route path="/CompanyProfile" element={<CompanyProfile />} />
         <Route path="/hire" element={<Hire />} />
+        <Route path="/chat" element={<Chat />} />
         <Route
           path="/editProfileRecruiter"
           element={<EditProfileRecruiter />}
