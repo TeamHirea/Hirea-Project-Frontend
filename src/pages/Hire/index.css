@@ -5,8 +5,75 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
+  /* background: #e5e5e5; */
+}
+.profile-seeker {
+  width: 30%;
+  background-color: white;
+  justify-content: center;
+  margin: 5% 8%;
+  border-radius: 15px;
+}
+.col-profile-seeker {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5%;
+}
+.img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.img-profile {
+  margin: 10% 0;
+  width: 50%;
+}
+.name {
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: 600;
+}
+.description {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(158, 160, 165, 1);
+  margin: 0;
+}
+.location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 2% 0;
+}
+.location img {
+  margin-right: 5%;
+  height: 5%;
+}
+.location p {
+  align-items: center;
+  margin: 0;
 }
 
+.button-skill {
+  padding: 2% 5%;
+  border: none;
+  border-radius: 5px;
+  margin: 2% 2%;
+}
+.social-media {
+  margin-bottom: 20%;
+}
+.social-media-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5%;
+}
+.social-media-input img {
+  margin: 0 5% 0 0;
+}
 .hire-title {
   font-family: "Open Sans";
   font-style: normal;

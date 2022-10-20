@@ -13,6 +13,9 @@ import SigninJobSeeker from "./pages/SigninJobSeeker";
 import ResetPassword from "./pages/ResetPassword";
 import Hire from "./pages/Hire";
 import EditProfileRecruiter from "./pages/EditProfileRecruiter";
+import EmailActivation from "./pages/EmailActivation";
+import ConfirmPassword from "./pages/ConfirmPassword";
+import RequestResetPassword from "./pages/RequestResetPassword";
 function App() {
   return (
     <BrowserRouter>
@@ -31,7 +34,12 @@ function App() {
         <Route path="/hire" element={<Hire />} />
         <Route
           path="/editProfileRecruiter"
-          element={<EditProfileRecruiter />}
+          element={<EditProfileRecruiter />} />
+        <Route path="/EmailActivation" element={<EmailActivation />} />
+        <Route path="/ConfirmPassword" element={<ConfirmPassword />} />
+        <Route
+          path="/RequestResetPassword"
+          element={<RequestResetPassword />}
         />
       </Routes>
     </BrowserRouter>

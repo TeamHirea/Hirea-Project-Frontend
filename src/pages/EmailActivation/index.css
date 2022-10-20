@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  /* background: #e5e5e5; */
+}
+.col-left-ea {
+  background-image: url("../../assets/images/bgauth.png");
+  object-fit: cover;
+  background-repeat: no-repeat;
+  /* margin: 0 20px; */
+  margin: 40px 0;
+  height: 100%;
+}
+@media (max-width: 575.98px) {
+  /* * {
+        background: #e5e5e5;
+      } */
+  .col-left-ea {
+    display: none;
+  }
+}
