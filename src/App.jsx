@@ -12,6 +12,7 @@ import SigninRecruiter from "./pages/SigninRecruiter";
 import SigninJobSeeker from "./pages/SigninJobSeeker";
 import ResetPassword from "./pages/ResetPassword";
 import Hire from "./pages/Hire";
+import EditProfileRecruiter from "./pages/EditProfileRecruiter";
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +29,10 @@ function App() {
         <Route path="/SigninJobSeeker" element={<SigninJobSeeker />} />
         <Route path="/ResetPassword" element={<ResetPassword />} />
         <Route path="/hire" element={<Hire />} />
+        <Route
+          path="/editProfileRecruiter"
+          element={<EditProfileRecruiter />}
+        />
       </Routes>
     </BrowserRouter>
   );
