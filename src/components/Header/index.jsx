@@ -1,16 +1,18 @@
 import React from "react";
 import { useState } from "react";
-import logo from "../../assets/vectors/logo.png";
+import logo from "../../assets/vectors/hirea.png";
 import mail from "../../assets/vectors/mail.png";
 import bell from "../../assets/vectors/bell.png";
+// import bell from "../../assets/vectors/triangle.png";
 import user from "../../assets/images/user.png";
 import bell__header from "../../assets/vectors/bell__header.png";
 import wave from "../../assets/images/wave.png";
 import noNotif from "../../assets/images/no_notification.png";
 import "./header.css";
+import { Link } from "react-router-dom";
 
 function Header() {
-  const [isLoggedin] = useState(false);
+  const [isLoggedin] = useState(true);
   const [togglePopNotif, setTogglePopNotif] = useState(false);
   const [togglePopMsg, setTogglePopMsg] = useState(false);
   const [data] = useState([]);
@@ -18,21 +20,34 @@ function Header() {
   const handleTogglePopNotif = (e) => {
     e.preventDefault();
     setTogglePopNotif(!togglePopNotif);
+    if (!togglePopNotif) {
+      setTogglePopMsg(false);
+    }
   };
 
   const handleToggleMessage = (e) => {
     e.preventDefault();
     setTogglePopMsg(!togglePopMsg);
+    if (!togglePopMsg) {
+      setTogglePopNotif(false);
+    }
   };
 
   return (
     <>
       {isLoggedin ? (
-        <nav className="container navbar navbar-expand-lg navbar-light bg-white mobile__style">
+        <nav className="container navbar navbar-expand-lg navbar-light bg-white mobile__style fixed-top bg-white">
           <img src={wave} className="w-100 header--wave" alt="" />
-          <a className="navbar-brand" href="#">
-            <img src={logo} alt="" />
-          </a>
+          <Link to={"/"} className=" w-75">
+            <a className="navbar-brand   w-75" href="#">
+              <img
+                src={logo}
+                alt=""
+                className="mobile__none"
+                style={{ width: "10%" }}
+              />
+            </a>
+          </Link>
           <div className="header--main__container d-lg-none">
             <div className="header--user--logeddin__container">
               <p>Sen, 21 April 2020</p>
@@ -64,7 +79,7 @@ function Header() {
                   <img src={mail} className="header--icon--lggedin__size" />
                 </a>
                 {togglePopNotif && (
-                  <div className="header--image--popup__size p-5">
+                  <div className="header--image--popup__size bg-white p-5">
                     {data.length ? (
                       <>
                         <h1>test</h1>
@@ -92,26 +107,29 @@ function Header() {
                   <img src={bell} className="header--icon--lggedin__size" />
                 </a>
                 {togglePopMsg && (
-                  <div className="header--image--popup__size p-5">
-                    {data.length ? (
-                      <>
-                        <h1>test</h1>
-                        <h1>test</h1>
-                        <h1>test</h1>
-                        <h1>test</h1>
-                        <h1>test</h1>
-                      </>
-                    ) : (
-                      <>
-                        <img className="pt-4" src={noNotif} />
-                        <p
-                          className="mt-3"
-                          style={{ textAlign: "center", fontSize: "0.8rem" }}
-                        >
-                          Belum ada Notifikasi
-                        </p>
-                      </>
-                    )}
+                  // <img />
+                  <div className="header--image--popup__container">
+                    <div className="header--image--popup__size bg-white p-5">
+                      {data.length ? (
+                        <>
+                          <h1>test</h1>
+                          <h1>test</h1>
+                          <h1>test</h1>
+                          <h1>test</h1>
+                          <h1>test</h1>
+                        </>
+                      ) : (
+                        <>
+                          <img className="pt-4" src={noNotif} />
+                          <p
+                            className="mt-3"
+                            style={{ textAlign: "center", fontSize: "0.8rem" }}
+                          >
+                            Belum ada Notifikasi
+                          </p>
+                        </>
+                      )}
+                    </div>
                   </div>
                 )}
               </li>
@@ -124,10 +142,12 @@ function Header() {
           </div>
         </nav>
       ) : (
-        <nav className="container navbar navbar-expand-lg navbar-light bg-white">
-          <a className="navbar-brand" href="#">
-            <img src={logo} alt="" />
-          </a>
+        <nav className="container navbar navbar-expand-lg navbar-light fixed-top bg-white">
+          <Link to={"/"}>
+            <a className="navbar-brand header--logo--image__size w-50" href="#">
+              <img src={logo} alt="" className="" style={{ width: "10%" }} />
+            </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
