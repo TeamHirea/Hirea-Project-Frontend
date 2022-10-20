@@ -16,7 +16,7 @@
   /* margin: 0 -200px; */
   height: 600px;
 }
-.col-left-js {
+.col-left-rec {
   background-image: url("../../assets/images/bgauth.png");
   object-fit: cover;
   background-repeat: no-repeat;
@@ -80,6 +80,7 @@ input::placeholder {
   font: 15px/3 sans-serif;
 }
 .ask {
+  text-decoration: none;
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
@@ -100,10 +101,10 @@ input::placeholder {
   /* * {
     background: #e5e5e5;
   } */
-  .col-left {
+  .col-left-rec {
     display: none;
   }
-  .col-right {
+  .col-right-rec {
     width: 800px !important;
     padding: 0;
     /* margin-left: 40px !important; */

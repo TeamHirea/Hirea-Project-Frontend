@@ -16,12 +16,18 @@
   /* margin: 0 -200px; */
   height: 600px;
 }
-.col-left-js {
-  background-image: url("../../assets/images/bgauth.png");
-  object-fit: cover;
+.col-left {
+  height: fit-content;
+  width: fit-content;
+  background-image: linear-gradient(
+      rgb(161, 80, 253, 0.8),
+      rgba(141, 41, 255, 0.8)
+    ),
+    url("../../assets/images/bannersign.png");
+  background-size: cover;
   background-repeat: no-repeat;
-  /* margin: 0 20px; */
-  margin: 40px 0;
+  margin: 10px 0;
+  object-fit: cover;
 }
 .logo-auth {
   width: 100px;

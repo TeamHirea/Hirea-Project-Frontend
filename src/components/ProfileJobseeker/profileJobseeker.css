@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+}
+
+.profile-seeker {
+  width: 30%;
+  background-color:white;
+  justify-content: center;
+  margin: 5% 8%;
+  border-radius: 15px;
+}
+.col-profile-seeker {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5%;
+}
+.img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.img-profile {
+  margin: 10% 0;
+  width: 50%;
+}
+.name {
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: 600;
+}
+.description {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(158, 160, 165, 1);
+  margin: 0;
+}
+.location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 2% 0;
+}
+.location img {
+  margin-right: 5%;
+  height: 5%;
+}
+.location p {
+  align-items: center;
+  margin: 0;
+}
+.hire-button {
+  background: rgba(94, 80, 161, 1);
+  color: white;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  padding: 5% 0%;
+  border-radius: 5px;
+  margin: 10% 0;
+}
+.hire-button:hover {
+  background: rgb(46, 8, 238);
+}
+.button-skill {
+  padding: 2% 5%;
+  border: none;
+  border-radius: 5px;
+  margin: 2% 2%;
+}
+.social-media {
+  margin-bottom: 20%;
+}
+.social-media-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5%;
+}
+.social-media-input img {
+  margin: 0 5% 0 0;
+}
+
+@media (max-width: 425px) {
+  .profile-seeker {
+    width: 100%;
+    margin: 0;
+  }
+  .name {
+    font-size: 14px;
+  }
+  .description {
+    font-size: 8px;
+  }
+  .location img {
+    height: 3%;
+  }
+  .hire-button {
+    font-size: 12px;
+  }
+  .button-skill {
+    font-size: 8px;
+  }
+  .social-media-img {
+    height: 15px;
+  }
+}

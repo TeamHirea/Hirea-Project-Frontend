@@ -1,0 +1,192 @@
+.landing-section {
+  margin: 10vh 10vw !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+.landing-left-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  justify-content: center;
+}
+.landing-right-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.landing-section-title {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 70px;
+  color: #1f2a36;
+}
+.landing-section-text {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #46505c;
+}
+.landing-section-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  background: #5e50a1;
+  border-radius: 4px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+}
+.landing-section-button:hover {
+  background: #443781;
+}
+.landing-section-button:active {
+  background: #2e226b;
+}
+.landing_banner {
+  height: 35vw !important;
+  width: 35vw;
+}
+.landing_banner-title {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 56px;
+  color: #1f2a36;
+}
+.landing_banner-check {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+.landing_section-check-double {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+.landing_section-check-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.landing_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #5e50a1;
+  border-radius: 40px 8px;
+  height: 150px;
+  margin: 10vh 10vw;
+  padding: 0px 5%;
+}
+.landing_box-text {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 56px;
+  color: #ffffff;
+}
+.landing_box-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #796eaf;
+
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+.landing_box-button:active {
+  background: #d2b1e6;
+}
+.landing_opinion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+}
+.landing_opinion-title {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 56px;
+  color: #1f2a36;
+  text-align: center;
+}
+.landing_opinion-box-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+.landing_opinion-box {
+  background: #ffffff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  height: 50vh;
+  width: 50vh;
+}
+.landing_opinion-image {
+  border-radius: 65px;
+  border: 7px solid rgba(251, 176, 23, 0.37);
+  height: 130px;
+  width: 130px;
+}
+.landing_opinion-name {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 56px;
+  color: #1f2a36;
+}
+.landing_opinion-job {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 28px;
+  color: #9ea0a5;
+}
+.landing_opinion-message {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 28px;
+  text-align: center;
+  color: #46505c;
+}
+@media only screen and (max-width: 600px) {
+  .landing-section {
+    margin: 10px 10vw !important;
+  }
+  .landing_banner {
+    height: 70vw !important;
+    width: 70vw;
+  }
+}
