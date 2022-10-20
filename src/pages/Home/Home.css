@@ -12,12 +12,42 @@
   padding: 0 !important;
   margin: 0 !important;
 }
+.navbar-search {
+ margin: 0 5% 2% 5%;
+ border-radius: 10px;
+ padding: 1% 2%;
+ background-color: white;
+}
+.input-searchbar {
+  width: 100%;
+  height: 50px;
+}
+/* .collapse {
+  padding: 0 2%;
+} */
+.dropdown-searchbar {
+  margin: 0 2%;
+  font-size: 16px;
+}
+.btn-search {
+  background: rgba(94, 80, 161, 1);
+  border: none;
+  border-radius: 5px;
+  padding: 1% 3%;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+.btn-search:hover {
+  background-color: rgb(38, 14, 158);
+}
 .home {
   width: 100%;
 }
 .main-section {
   background-color: #E5E5E5;
-  padding-bottom: 5%;
+  padding: 2% 2%;
 }
 .home-bar {
   padding: 2% 8%;
@@ -30,54 +60,10 @@
   color: white;
   margin: 0;
 }
-.row-search {
-  background-color: white;
-  border: none;
-  border-radius: 15px;
-}
-.search-section {
-  margin: 0 8%;
-  padding: 3% 0;  
-}
-.search-text {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  height: 40px;
-  padding-left: 5%;
-  width: 70%;
-  border: none;
-  border-radius: 15px;
-}
-.category {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  height: 50px;
-  padding-left: 5%;
-  width: 20%;
-  border: none;
-  border-radius: 15px;
-}
-.search-button {
-  height: 40px;
-  margin: 1%;
-  width: 8%;
-  border: none;
-  border-radius: 10px;
-  background: rgba(94, 80, 161, 1);
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: white;
-}
-.search-button:hover {
-  background-color: rgb(38, 14, 158);
-}
 .card-profile {
   display: flex;
   flex-direction: column;
-  margin: 0 8% 5% 8%;
+  margin: 0 5% 5% 5%;
   background-color: white;
   border-radius: 15px;
 }
@@ -141,7 +127,7 @@
   background-color: rgb(38, 14, 158);
 }
 .pagination {
-  margin: 0;
+  margin-bottom: 3%;
 }
 
 @media (max-width: 1024px) {
@@ -154,7 +140,61 @@
   .search-button{
     height: 30px;
   }
-  
+}
+
+@media (max-width: 425px) {
+  .main-section {
+    padding: 3% 0 ;
+  }
+  .card-profile {
+    margin: 0 3%;
+  }
+  .navbar-search {
+    margin: 0 3% 3%;
+  }
+  .home-bar-title {
+    font-size: 16px;
+  }
+  .btn-search {
+    font-size: 10px;
+  }
+  .input-searchbar {
+    height: 30px;
+  }
+  .dropdown-searchbar {
+    font-size: 12px !important;
+  }
+  .form-control input {
+    font-size: 12px;
+  }
+  .profile-image {
+    width: 30%;
+  }
+  .description-column {
+    width: 50%;
+  }
+  .card-name {
+    font-size: 16px;
+  }
+  .card-description{
+    font-size: 14px;
+  }
+  .card-location {
+    font-size: 14px;
+  }
+  .button-skill {
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .button-check-profile {
+    font-size: 8px;
+    padding: 1% 4%;
+    width: max-content;
+    height: auto;
+  }
+  .pagination {
+    margin-top: 5%;
+  }
 }
 
 

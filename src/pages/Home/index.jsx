@@ -16,21 +16,45 @@ function Home() {
             <h1 className="home-bar-title">Top Jobs</h1>
           </div>
           <section className="main-section">
-            <div className="search-section">
-              <div className="row-search">
-                <input
-                  className="search-text"
-                  type="text"
-                  placeholder="Search for any skill"
-                />
-                <input
-                  className="category"
-                  type="text"
-                  placeholder="Category"
-                />
-                <button className="search-button">Search</button>
+            <nav className="navbar-search navbar-expand-xl">
+              <div className="collapse-search navbar-collapse">
+                <form className="input-searchbar d-flex">
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Search"
+                  />
+                  <a
+                    className="dropdown-searchbar nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                  >
+                    Sort
+                  </a>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Sortir berdasarkan Skill
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Sortir berdasarkan Freelance
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Sortir berdasarkan Fulltime
+                      </a>
+                    </li>
+                  </ul>
+                  <button className="btn-search" type="button">
+                    Search
+                  </button>
+                </form>
               </div>
-            </div>
+            </nav>
             <div className="card-profile">
               <div className="row-card">
                 <img className="profile-image" src={profile} alt="" />
