@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+.contchat {
+  min-height: 100vh;
+  display: flex;
+  background-color: #a9acac;
+  justify-content: center;
+}
+.text1 {
+  margin-left: 10px;
+  color: black;
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+}
+.text2 {
+  margin-left: 60px;
+}
+
+.cardchat {
+  /* height: 200px; */
+  min-height: 50vh;
+  background-color: #fff;
+  /* position: relative; */
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+}
+.upperborder1 {
+  height: 30px !important;
+  width: 300px !important;
+  border-bottom: 3px solid #a9acac;
+  font-family: "Open Sans", sans-serif;
+
+  /* background-color: #f2f2f2; */
+  /* border-bottom: #a9acac;
+  border-color: #a9acac !important; */
+}
+.upperborder2 {
+  height: 30px !important;
+  width: 700px !important;
+  border-bottom: 3px solid #a9acac;
+}
+.image {
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+/* @media only screen and (max-width: 600px) {
+  .cont1 {
+    min-height: auto;
+    display: flex;
+  }
+  .upperborder {
+    height: 50vw !important;
+    width: 100vw;
+  }
+  .card {
+    width: 50vh !important;
+  }
+  .image span {
+    left: 130px;
+  }
+} */
