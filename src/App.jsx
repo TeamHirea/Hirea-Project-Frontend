@@ -15,7 +15,7 @@ import CompanyProfile from "./pages/CompanyProfile";
 import Hire from "./pages/Hire";
 import EditProfileRecruiter from "./pages/EditProfileRecruiter";
 import EmailActivation from "./pages/EmailActivation";
-import ConfirmPassword from "./pages/ConfirmPassword";
+import SendResetPassword from "./pages/SendResetPassword";
 import RequestResetPassword from "./pages/RequestResetPassword";
 import ProfileJobseekerPortofolio from "./pages/ProfileJobseekerPortofolio";
 import ProfileJobseekerExperience from "./pages/ProfileJobseekerExperience";
@@ -51,7 +51,7 @@ function App() {
           element={<EditProfileRecruiter />}
         />
         <Route path="/EmailActivation" element={<EmailActivation />} />
-        <Route path="/ConfirmPassword" element={<ConfirmPassword />} />
+        <Route path="/SendResetPassword" element={<SendResetPassword />} />
         <Route
           path="/RequestResetPassword"
           element={<RequestResetPassword />}

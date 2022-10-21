@@ -7,12 +7,15 @@ export default function SignupRecruiter() {
   const navigate = useNavigate();
   console.log(navigate);
   const [form, setForm] = useState({
-    email: "",
-    password: "",
+    newPassword: "",
+    confirmPassword: "",
   });
 
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const handleConfirmResetPassword = () => {
+    console.log(form);
   };
   return (
     <div className="container-signup  mt-5 ">
@@ -32,27 +35,28 @@ export default function SignupRecruiter() {
               <p className="title-auth">Please login with your account</p>
               <p className="desc-auth">Lorem ipsum dolor sit amet.</p>
 
-              <p className="label">Email</p>
+              <p className="label">New Password</p>
               <input
-                type="text"
-                name="email"
-                placeholder="Input Your Email"
+                type="password"
+                name="newPassword"
+                placeholder="Input Your New Password"
                 onChange={handleChangeForm}
               />
 
-              <p className="label">Password</p>
+              <p className="label">Confirm Password</p>
               <input
                 type="password"
-                name="password"
+                name="confirmPassword"
                 onChange={handleChangeForm}
-                placeholder="Input Your Password"
+                placeholder="Input Your Confirm Password"
               />
 
               <button
                 type="button"
                 className="btn w-100 btn-auth btn-warning text-white mt-5"
+                onClick={handleConfirmResetPassword}
               >
-                Masuk
+                Reset Password
               </button>
             </div>{" "}
           </div>
