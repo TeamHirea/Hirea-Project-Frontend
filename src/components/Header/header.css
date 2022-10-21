@@ -55,6 +55,15 @@
   border-bottom-right-radius: 0;
 }
 
+.header--toggle--profile__popup {
+  position: absolute;
+  list-style: none;
+  width: 10vw;
+  left: -20px;
+  height: 200px;
+  top: 30px;
+}
+
 @media only screen and (max-width: 560px) {
   .header--icon--lggedin__size {
     display: none;
@@ -133,5 +142,9 @@
     flex: 1.8;
     color: white;
     padding-left: 1rem;
+  }
+
+  .header--container__mobile {
+    overflow: hidden;
   }
 }
