@@ -20,6 +20,7 @@ import SendResetPassword from "./pages/SendResetPassword";
 import RequestResetPassword from "./pages/RequestResetPassword";
 import ProfileJobseekerPortofolio from "./pages/ProfileJobseekerPortofolio";
 import ProfileJobseekerExperience from "./pages/ProfileJobseekerExperience";
+import MyProfile from "./pages/MyProfile";
 
 import Chat from "./pages/Chat";
 import Inbox from "./pages/Chat/inbox";
@@ -69,6 +70,7 @@ function App() {
           path="/ProfileJobseekerExperience"
           element={<ProfileJobseekerExperience />}
         />
+        <Route path="/MyProfile" element={<MyProfile />} />
       </Routes>
     </BrowserRouter>
   );
