@@ -23,10 +23,15 @@ import ProfileJobseekerExperience from "./pages/ProfileJobseekerExperience";
 import Chat from "./pages/Chat";
 import Inbox from "./pages/Chat/inbox";
 function App() {
+  const Test = () => {
+    return <h1>test</h1>;
+  };
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<PublicRoute />}></Route>
+        <Route element={<PublicRoute />}>
+          <Route element={<Test />} path="/test" />
+        </Route>
         <Route element={<RecruiterRoute />}></Route>
         <Route element={<JobseekerRoute />}></Route>
 
