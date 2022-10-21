@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
+import axios from "../../utils/axios";
 
 export default function SigninJobSeeker() {
   const navigate = useNavigate();
@@ -10,9 +11,23 @@ export default function SigninJobSeeker() {
     email: "",
     password: "",
   });
+  console.log(form);
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+  const handleLogin = async () => {
+    try {
+      const result = await axios.post("/api/auth/signin/jobseeker", form);
+      localStorage.setItem("idUser", result.data.data.userid);
+      localStorage.setItem("token", result.data.data.token);
+      localStorage.setItem("refreshToken", result.data.data.refreshToken);
+      alert(result.data.message);
+      navigate("/");
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
+  console.log(handleLogin);
   return (
     <div>
       <div className="container py-0 ">
@@ -31,14 +46,14 @@ export default function SigninJobSeeker() {
                 <p className="label">Email</p>
                 <input
                   type="text"
-                  name="name"
+                  name="email"
                   placeholder="Input Your Email"
                   onChange={handleChangeForm}
                 />
                 <p className="label">Password</p>
                 <input
                   type="text"
-                  name="email"
+                  name="password"
                   placeholder="Input Your Password"
                   onChange={handleChangeForm}
                 />
@@ -47,6 +62,7 @@ export default function SigninJobSeeker() {
                 <button
                   type="button"
                   className="btn w-100 btn-auth btn-warning text-white"
+                  onClick={handleLogin}
                 >
                   Masuk
                 </button>
