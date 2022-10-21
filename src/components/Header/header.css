@@ -67,7 +67,7 @@
   .header--bottom--nav__container {
     position: -webkit-sticky;
     position: fixed;
-    bottom: 25%;
+    bottom: 0;
     height: 10vh;
     width: 100vw;
     background: white;
