@@ -12,7 +12,7 @@
 
 .mobile__style {
   background: white;
-  position: relative;
+  position: fixed;
   border-bottom-right-radius: 20px;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .header--container__height {
-  height: 17vh;
+  height: 10vh;
   border-bottom-right-radius: 0;
 }
 
@@ -93,13 +93,27 @@
   .navbar-brand {
     height: 9vh;
   }
-
+  .navbar__logo {
+    object-fit: fill;
+    height: 9vh !important;
+  }
+  .navbar__title {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 56px;
+    color: #5e50a1 !important;
+    text-decoration: none;
+  }
   .header--logo--image__size img {
     width: 20vw !important;
   }
 
   .mobile__style {
     background-image: url("../../assets/images/header_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     border-bottom-right-radius: 20px;
     padding-top: 5rem;
