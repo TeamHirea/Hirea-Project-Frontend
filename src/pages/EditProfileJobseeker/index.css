@@ -5,6 +5,7 @@
   flex-direction: row;
   column-gap: 20px;
   width: auto;
+  margin-top: 10vh;
 }
 .edit-profile_sections {
   display: flex;
