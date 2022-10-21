@@ -72,6 +72,7 @@
     position: relative;
     border-bottom-right-radius: 20px;
     padding-top: 5rem;
+    width: 100vw !important;
     padding-bottom: 0.5rem;
   }
 
