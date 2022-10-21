@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import logo from "../../assets/vectors/hirea.png";
+import logo from "../../assets/vectors/logo-hirea.jpg";
 import mail from "../../assets/vectors/mail.png";
 import bell from "../../assets/vectors/bell.png";
 // import bell from "../../assets/vectors/triangle.png";
@@ -68,15 +68,22 @@ function Header() {
           >
             <div className="container h-100 header--container__mobile">
               <img src={wave} className="w-100 header--wave" alt="" />
-              <Link to={"/"} className=" w-75" style={{ height: "10vh" }}>
-                <a className="navbar-brand" href="#">
+              <Link
+                to={"/"}
+                className=" w-75"
+                style={{ textDecoration: "none" }}
+              >
+                <div className="navbar-brand">
                   <img
                     src={logo}
                     alt=""
-                    className="mobile__none"
-                    style={{ width: "10%" }}
+                    className="mobile__none navbar__logo"
+                    style={{ width: "6%" }}
                   />
-                </a>
+                  <span className="navbar__title" style={{ color: "#5e50a1" }}>
+                    Hirea
+                  </span>
+                </div>
               </Link>
               <div className="header--main__container d-lg-none">
                 <div className="header--user--logeddin__container">
