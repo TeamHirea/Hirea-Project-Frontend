@@ -14,6 +14,7 @@ import ResetPassword from "./pages/ResetPassword";
 import CompanyProfile from "./pages/CompanyProfile";
 import Hire from "./pages/Hire";
 import EditProfileRecruiter from "./pages/EditProfileRecruiter";
+import EditProfileJobseeker from "./pages/EditProfileJobseeker";
 import EmailActivation from "./pages/EmailActivation";
 import ConfirmPassword from "./pages/ConfirmPassword";
 import RequestResetPassword from "./pages/RequestResetPassword";
@@ -44,6 +45,10 @@ function App() {
         <Route
           path="/editProfileRecruiter"
           element={<EditProfileRecruiter />}
+        />
+        <Route
+          path="/editProfileJobseeker"
+          element={<EditProfileJobseeker />}
         />
         <Route path="/EmailActivation" element={<EmailActivation />} />
         <Route path="/ConfirmPassword" element={<ConfirmPassword />} />
