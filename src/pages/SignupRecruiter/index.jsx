@@ -3,8 +3,11 @@ import logo from "../../assets/images/logo.png";
 import "./index.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import axios from "../../utils/axios";
 export default function SignupRecruiter() {
   const navigate = useNavigate();
+
   console.log(navigate);
   const [form, setForm] = useState({
     name: "",
@@ -18,6 +21,18 @@ export default function SignupRecruiter() {
 
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const handleSignup = async () => {
+    try {
+      console.log(form);
+      const result = await axios.post("/api/auth/register/recruiter", form);
+      // dispatch(signupRecruiter(form));
+      alert(result.data.message);
+
+      // navigate("/signin");
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <div className="container-signup py-0">
@@ -79,19 +94,20 @@ export default function SignupRecruiter() {
               <p className="label">Confirm Password</p>
               <input
                 onChange={handleChangeForm}
-                type="text"
+                type="password"
                 name="confirmPassword"
                 placeholder="Input Your Confirm Password"
               />
-              <p className="ask">Forgot Your Password?</p>
+
               <button
                 type="button"
                 className="btn w-100 btn-auth btn-warning text-white"
+                onClick={handleSignup}
               >
                 Masuk
               </button>
               <p className="footer-auth">
-                Anda Belum Punya Akun? <a href="#">Daftar Disini</a>{" "}
+                Already Have An Account <a href="#">Login Here</a>{" "}
               </p>
             </div>{" "}
           </div>
