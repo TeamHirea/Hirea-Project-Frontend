@@ -13,11 +13,13 @@ import wave from "../../assets/images/wave.png";
 import noNotif from "../../assets/images/no_notification.png";
 import "./header.css";
 import { Link } from "react-router-dom";
+import axios from "../../utils/axios";
 
 function Header() {
   const [isLoggedin] = useState(true);
   const [togglePopNotif, setTogglePopNotif] = useState(false);
   const [togglePopMsg, setTogglePopMsg] = useState(false);
+  const [togglePopProfile, setTogglePopProfile] = useState(false);
   const [data] = useState([]);
 
   const handleTogglePopNotif = (e) => {
@@ -25,6 +27,16 @@ function Header() {
     setTogglePopNotif(!togglePopNotif);
     if (!togglePopNotif) {
       setTogglePopMsg(false);
+      setTogglePopProfile(false);
+    }
+  };
+
+  const handleTogglePopProfile = (e) => {
+    e.preventDefault();
+    setTogglePopProfile(!togglePopProfile);
+    if (!togglePopProfile) {
+      setTogglePopMsg(false);
+      setTogglePopNotif(false);
     }
   };
 
@@ -32,7 +44,16 @@ function Header() {
     e.preventDefault();
     setTogglePopMsg(!togglePopMsg);
     if (!togglePopMsg) {
+      setTogglePopProfile(false);
       setTogglePopNotif(false);
+    }
+  };
+
+  const handleLogOut = async () => {
+    try {
+      return await axios.post("/api/auth/logout");
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -44,7 +65,7 @@ function Header() {
             className="container-fluid navbar header--container__height navbar-expand-lg navbar-light w-100 bg-white mobile__style fixed-top bg-white"
             // style={{ overflow: "hidden" }}
           >
-            <div className="container h-100">
+            <div className="container h-100 header--container__mobile">
               <img src={wave} className="w-100 header--wave" alt="" />
               <Link to={"/"} className=" w-75" style={{ height: "10vh" }}>
                 <a className="navbar-brand" href="#">
@@ -147,10 +168,20 @@ function Header() {
                       </div>
                     )}
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item" onClick={handleTogglePopProfile}>
                     <a>
                       <img src={user} className="header--icon--lggedin__size" />
                     </a>
+                    {togglePopProfile && (
+                      <ul
+                        className="bg-white header--toggle--profile__popup d-flex justify-content-start align-items-start gap-3 flex-column"
+                        style={{ border: "1px solid black" }}
+                      >
+                        <li onClick={handleLogOut} className="pt-2">
+                          <button className="btn btn-danger">Log Out</button>
+                        </li>
+                      </ul>
+                    )}
                   </li>
                 </div>
               </div>
