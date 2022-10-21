@@ -16,7 +16,7 @@ import Hire from "./pages/Hire";
 import EditProfileRecruiter from "./pages/EditProfileRecruiter";
 import EditProfileJobseeker from "./pages/EditProfileJobseeker";
 import EmailActivation from "./pages/EmailActivation";
-import ConfirmPassword from "./pages/ConfirmPassword";
+import SendResetPassword from "./pages/SendResetPassword";
 import RequestResetPassword from "./pages/RequestResetPassword";
 import ProfileJobseekerPortofolio from "./pages/ProfileJobseekerPortofolio";
 import ProfileJobseekerExperience from "./pages/ProfileJobseekerExperience";
@@ -24,10 +24,15 @@ import ProfileJobseekerExperience from "./pages/ProfileJobseekerExperience";
 import Chat from "./pages/Chat";
 import Inbox from "./pages/Chat/inbox";
 function App() {
+  const Test = () => {
+    return <h1>test</h1>;
+  };
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<PublicRoute />}></Route>
+        <Route element={<PublicRoute />}>
+          <Route element={<Test />} path="/test" />
+        </Route>
         <Route element={<RecruiterRoute />}></Route>
         <Route element={<JobseekerRoute />}></Route>
 
@@ -51,7 +56,7 @@ function App() {
           element={<EditProfileJobseeker />}
         />
         <Route path="/EmailActivation" element={<EmailActivation />} />
-        <Route path="/ConfirmPassword" element={<ConfirmPassword />} />
+        <Route path="/SendResetPassword" element={<SendResetPassword />} />
         <Route
           path="/RequestResetPassword"
           element={<RequestResetPassword />}
