@@ -49,7 +49,8 @@ function Header() {
     }
   };
 
-  const handleLogOut = async () => {
+  const handleLogOut = async (e) => {
+    e.preventDefault();
     try {
       return await axios.post("/api/auth/logout");
     } catch (error) {
