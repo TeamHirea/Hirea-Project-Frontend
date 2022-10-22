@@ -57,7 +57,7 @@ function App() {
           element={<EditProfileJobseeker />}
         />
         <Route path="/EmailActivation" element={<EmailActivation />} />
-        <Route path="/SendResetPassword" element={<SendResetPassword />} />
+        <Route path="/SendResetPassword/:otp" element={<SendResetPassword />} />
         <Route
           path="/RequestResetPassword"
           element={<RequestResetPassword />}
