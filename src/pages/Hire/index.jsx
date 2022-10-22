@@ -1,27 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import profile from "../../assets/images/profile.png";
 import mapPin from "../../assets/images/map-pin.png";
 import phone from "../../assets/images/phone.png";
-
+import axios from "../../utils/axios";
 import "./index.css";
 export default function Hire() {
+  const [form, setForm] = useState({
+    subject: "",
+    message: "",
+  });
+  const handleChangeForm = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const data = {
+    subject: form.subject,
+    message: form.message,
+    idJobseeker: "77efcadc-ddea-4c77-b4c4-696c3a87da28",
+    idRecruiter: localStorage.getItem("id"),
+  };
+  const handleSendHire = async () => {
+    try {
+      console.log(data);
+      const result = await axios.post("/api/message", data);
+      // dispatch(signupRecruiter(form));
+      alert(result.data.message);
+
+      // navigate("/signin");
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div>
       {/* style={{ background: "#e5e5e5" }} */}
       <Header />
-      <div className="container">
-        <div className="row  py-3">
+      <div className="container-fluid " style={{ backgroundColor: "#E5E5E5" }}>
+        <div className="row  py-5 px-5 mt-5">
           <div
-            className="col-4 hire-section-left bg-primary "
-            style={{ marginTop: "-35px" }}
+            className="col-4 hire-section-left  "
+            style={{ marginTop: "-25px" }}
           >
             <main className="profile-seeker " style={{ width: "300px" }}>
               <div className="col-profile-seeker ">
                 <div className="img ">
                   <img
-                    className="img-profile"
+                    className="img-profile-hire"
                     src={profile}
                     alt="profile-img"
                   />
@@ -58,8 +83,12 @@ export default function Hire() {
               </div>
             </main>
           </div>
-          <div className="col-8 hire-section-right ">
-            <div className="hire-form ">
+          <div
+            className="col-6 hire-section-right bg-white "
+            style={{ borderRadius: "15px" }}
+            // style={}
+          >
+            <div className="hire-form mt-5">
               <p className="hire-title">Hubungi Louis Tomlison</p>
               <p className="hire-desc">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -68,27 +97,27 @@ export default function Hire() {
               </p>
               <label className="hire-input"> Tujuan Tentang Pesan Ini</label>
               <select
-                id="profession"
+                // id="profession"
                 className="hire-dropdown mb-4 "
-                // onChange={handleChangeForm}
-                name="profession"
+                onChange={handleChangeForm}
+                name="subject"
               >
-                <option>Projek</option>
+                <option>Project</option>
                 <option>Fulltime</option>
                 <option>Contract</option>
-                <option>...</option>
+                <option>Freelance</option>
+                <option>etc</option>
               </select>
-              <label className="hire-input"> Pesan</label>
+              <label className="hire-input">Pesan</label>
               <textarea
-                name="pesan"
-                id=""
-                // cols="30"
-                // rows="10"
+                onChange={handleChangeForm}
+                name="message"
                 className="hire-message "
               ></textarea>
               <button
                 type="button"
-                className="btn btn-warning w-100 text-white mt-3"
+                className="btn btn-warning w-100 text-white mt-3 "
+                onClick={handleSendHire}
               >
                 kirim
               </button>

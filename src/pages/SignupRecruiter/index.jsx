@@ -101,13 +101,13 @@ export default function SignupRecruiter() {
 
               <button
                 type="button"
-                className="btn w-100 btn-auth btn-warning text-white"
+                className="btn w-100 btn-auth btn-warning text-white mt-3"
                 onClick={handleSignup}
               >
-                Masuk
+                Register
               </button>
               <p className="footer-auth">
-                Already Have An Account <a href="#">Login Here</a>{" "}
+                Already Have An Account ? <a href="#">Login Here</a>{" "}
               </p>
             </div>{" "}
           </div>
