@@ -24,48 +24,11 @@ export default function Experience() {
           <div className="experience-description">
             <img className="img-profile" src={suitcase} alt="suitcase" />
             <div className="detail">
-              <h1 className="list-experience">Engineer</h1>
-              <h2 className="company-name">Tokopedia</h2>
-              <h3 className="duration-of-work">
-                July 2019 - January 2020 6 months
-              </h3>
-              <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum erat orci, mollis nec gravida sed, ornare quis urna.
-                Curabitur eu lacus fringilla, vestibulum risus at.
-              </p>
-            </div>
-          </div>
-          <hr />
-          <div className="experience-description">
-            <img className="img-profile" src={suitcase} alt="suitcase" />
-            <div className="detail">
-              <h1 className="list-experience">Engineer</h1>
-              <h2 className="company-name">Tokopedia</h2>
-              <h3 className="duration-of-work">
-                July 2019 - January 2020 6 months
-              </h3>
-              <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum erat orci, mollis nec gravida sed, ornare quis urna.
-                Curabitur eu lacus fringilla, vestibulum risus at.
-              </p>
-            </div>
-          </div>
-          <hr />
-          <div className="experience-description">
-            <img className="img-profile" src={suitcase} alt="suitcase" />
-            <div className="detail">
-              <h1 className="list-experience">Engineer</h1>
-              <h2 className="company-name">Tokopedia</h2>
-              <h3 className="duration-of-work">
-                July 2019 - January 2020 6 months
-              </h3>
-              <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum erat orci, mollis nec gravida sed, ornare quis urna.
-                Curabitur eu lacus fringilla, vestibulum risus at.
-              </p>
+              <h1 className="list-experience"></h1>
+              <h2 className="company-name"></h2>
+              <h3 className="start_date"></h3>
+              <h3 className="end_date"></h3>
+              <p className="description"></p>
             </div>
           </div>
           <hr />

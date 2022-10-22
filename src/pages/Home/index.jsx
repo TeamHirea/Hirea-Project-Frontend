@@ -1,12 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-import profile from "../../assets/images/profile.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+import Jobseeker from "../../components/jobseeker";
+import { getUserJobseeker } from "../../redux/action/user";
 
 function Home() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    dispatch(getUserJobseeker());
+  }, []);
+
+  // const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pagination] = useState({});
+
+  // const getDataUserJobseeker = async () => {
+  //   try {
+  //     const result = await axios.get(`api/user`);
+
+  //     setData(result.data.data);
+  //     setPagination(result.data.pagination);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  const handleUserJobseeker = (id) => {
+    navigate(`/ProfileJobseekerExperience/${id}`);
+  };
+
+  const handlePrevPage = () => {
+    setPage(page - 1);
+  };
+
+  const handleNextPage = () => {
+    setPage(page + 1);
+  };
+
   return (
     <>
       <Header />
@@ -56,93 +95,35 @@ function Home() {
               </div>
             </nav>
             <div className="card-profile">
-              <div className="row-card">
-                <img className="profile-image" src={profile} alt="" />
-                <div className="description-column">
-                  <h2 className="card-name">Louis tomlinson</h2>
-                  <p className="card-description">Web Developer . Freelance</p>
-                  <p className="card-location">Location</p>
-                  <div>
-                    <button className="button-skill">PHP</button>
-                    <button className="button-skill">Javascript</button>
-                    <button className="button-skill">HTML</button>
+              <main className="main-card-user">
+                {user.data.length > 0 ? (
+                  user.data.map((item) => (
+                    <div key={item.id}>
+                      <Jobseeker
+                        data={item}
+                        handleDetail={handleUserJobseeker}
+                      />
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-center">
+                    <h3>Data Not Found</h3>
                   </div>
-                </div>
-                <button className="button-check-profile">Lihat Profile</button>
-              </div>
-              <hr />
-              <div className="row-card">
-                <img className="profile-image" src={profile} alt="" />
-                <div className="description-column">
-                  <h2 className="card-name">Louis tomlinson</h2>
-                  <p className="card-description">Web Developer . Freelance</p>
-                  <p className="card-location">Location</p>
-                  <div>
-                    <button className="button-skill">PHP</button>
-                    <button className="button-skill">Javascript</button>
-                    <button className="button-skill">HTML</button>
-                  </div>
-                </div>
-                <button className="button-check-profile">Lihat Profile</button>
-              </div>
-              <hr />
-              <div className="row-card">
-                <img className="profile-image" src={profile} alt="" />
-                <div className="description-column">
-                  <h2 className="card-name">Louis tomlinson</h2>
-                  <p className="card-description">Web Developer . Freelance</p>
-                  <p className="card-location">Location</p>
-                  <div>
-                    <button className="button-skill">PHP</button>
-                    <button className="button-skill">Javascript</button>
-                    <button className="button-skill">HTML</button>
-                  </div>
-                </div>
-                <button className="button-check-profile">Lihat Profile</button>
-              </div>
-              <hr />
-              <div className="row-card">
-                <img className="profile-image" src={profile} alt="" />
-                <div className="description-column">
-                  <h2 className="card-name">Louis tomlinson</h2>
-                  <p className="card-description">Web Developer . Freelance</p>
-                  <p className="card-location">Location</p>
-                  <div>
-                    <button className="button-skill">PHP</button>
-                    <button className="button-skill">Javascript</button>
-                    <button className="button-skill">HTML</button>
-                  </div>
-                </div>
-                <button className="button-check-profile">Lihat Profile</button>
-              </div>
+                )}
+              </main>
             </div>
-            <ul className="pagination justify-content-center">
-              <li className="page-item">
-                <a className="page-link" href="#">
-                  Previous
-                </a>
-              </li>
-              <li className="page-item">
-                <a className="page-link" href="#">
-                  1
-                </a>
-              </li>
-              <li className="page-item">
-                <a className="page-link" href="#">
-                  2
-                </a>
-              </li>
-              <li className="page-item">
-                <a className="page-link" href="#">
-                  3
-                </a>
-              </li>
-              <li className="page-item">
-                <a className="page-link" href="#">
-                  Next
-                </a>
-              </li>
-            </ul>
+            <div className="d-flex gap-2 justify-content-center w-100 my-5">
+              <button className="btn btn-primary" onClick={handlePrevPage}>
+                &lt;
+              </button>
+              <button
+                className="btn btn-primary"
+                onClick={handleNextPage}
+                disabled={page === pagination.totalPage ? true : false}
+              >
+                &gt;
+              </button>
+            </div>
           </section>
         </main>
       </div>
