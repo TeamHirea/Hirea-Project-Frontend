@@ -14,51 +14,55 @@ import ResetPassword from "./pages/ResetPassword";
 import CompanyProfile from "./pages/CompanyProfile";
 import Hire from "./pages/Hire";
 import EditProfileRecruiter from "./pages/EditProfileRecruiter";
+import EditProfileJobseeker from "./pages/EditProfileJobseeker";
 import EmailActivation from "./pages/EmailActivation";
-import ConfirmPassword from "./pages/ConfirmPassword";
+import SendResetPassword from "./pages/SendResetPassword";
 import RequestResetPassword from "./pages/RequestResetPassword";
-import ProfileJobseekerPortofolio from "./pages/ProfileJobseekerPortofolio";
-import ProfileJobseekerExperience from "./pages/ProfileJobseekerExperience";
+import Portofolio from "./pages/ProfileJobseekerPortofolio";
+import Experience from "./pages/ProfileJobseekerExperience";
+import MyProfile from "./pages/MyProfile";
 
 import Chat from "./pages/Chat";
 import Inbox from "./pages/Chat/inbox";
 function App() {
+  const Test = () => {
+    return <h1>test</h1>;
+  };
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<PublicRoute />}></Route>
+        <Route element={<PublicRoute />}>
+          <Route element={<Test />} path="/test" />
+        </Route>
         <Route element={<RecruiterRoute />}></Route>
         <Route element={<JobseekerRoute />}></Route>
 
+        {/* MAIN PAGE */}
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Landing />} />
-        <Route path="/SignupJobSeeker" element={<SignupJobSeeker />} />
-        <Route path="/SignupRecruiter" element={<SignupRecruiter />} />
-        <Route path="/SigninRecruiter" element={<SigninRecruiter />} />
-        <Route path="/SigninJobSeeker" element={<SigninJobSeeker />} />
-        <Route path="/ResetPassword" element={<ResetPassword />} />
-        <Route path="/CompanyProfile" element={<CompanyProfile />} />
-        <Route path="/hire" element={<Hire />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/inbox" element={<Inbox />} />
-        <Route
-          path="/editProfileRecruiter"
-          element={<EditProfileRecruiter />}
-        />
-        <Route path="/EmailActivation" element={<EmailActivation />} />
-        <Route path="/ConfirmPassword" element={<ConfirmPassword />} />
-        <Route
-          path="/RequestResetPassword"
-          element={<RequestResetPassword />}
-        />
-        <Route
-          path="/ProfileJobseekerPortofolio/:id"
-          element={<ProfileJobseekerPortofolio />}
-        />
-        <Route
-          path="/ProfileJobseekerExperience/:id"
-          element={<ProfileJobseekerExperience />}
-        />
+
+        {/* AUTH */}
+        <Route path="/signup/jobseeker" element={<SignupJobSeeker />} />
+        <Route path="/signup/recruiter" element={<SignupRecruiter />} />
+        <Route path="/activated" element={<EmailActivation />} />
+        <Route path="/signin/recruiter" element={<SigninRecruiter />} />
+        <Route path="/signin/jobseeker" element={<SigninJobSeeker />} />
+        <Route path="/reset/send" element={<ResetPassword />} />
+        <Route path="/reset/send/success" element={<RequestResetPassword />} />
+        <Route path="/reset/:otp" element={<SendResetPassword />} />
+
+        {/* HALAMAN RECRUITER */}
+        <Route path="/recruiter/profile" element={<CompanyProfile />} />
+        <Route path="/recruiter/edit" element={<EditProfileRecruiter />} />
+        <Route path="/recruiter/hire/:id" element={<Hire />} />
+        <Route path="/jobseeker/portfolio/:id" element={<Portofolio />} />
+        <Route path="/jobseeker/experience/:id" element={<Experience />} />
+        <Route path="/recruiter/chat" element={<Chat />} />
+        <Route path="/recruiter/inbox" element={<Inbox />} />
+
+        {/* HALAMAN JOBSEEKER */}
+        <Route path="/profile" element={<MyProfile />} />
+        <Route path="/profile/edit" element={<EditProfileJobseeker />} />
       </Routes>
     </BrowserRouter>
   );

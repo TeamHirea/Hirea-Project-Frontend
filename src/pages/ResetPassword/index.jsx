@@ -2,15 +2,23 @@ import React, { useState } from "react";
 import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
+import axios from "../../utils/axios";
 
 export default function ResetPassword() {
   const navigate = useNavigate();
-  console.log(navigate);
-  const [form, setForm] = useState({
-    email: "",
-  });
+  const [form, setForm] = useState({});
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const result = await axios.post("/api/auth/forgotPassword", form);
+      alert(result.data.message);
+      navigate("/RequestResetPassword");
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
   return (
     <div>
@@ -34,7 +42,7 @@ export default function ResetPassword() {
                 <p className="label mt-3">Email</p>
                 <input
                   type="text"
-                  name="name"
+                  name="email"
                   placeholder="Input Your Email"
                   onChange={handleChangeForm}
                 />
@@ -42,6 +50,7 @@ export default function ResetPassword() {
                 <button
                   type="button"
                   className="btn w-100 btn-auth btn-warning text-white mt-3"
+                  onClick={handleSubmit}
                 >
                   Send to your email
                 </button>
