@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+}
+
+.experience {
+  width: 100%;
+  background-color: white;
+  justify-content: left;
+  margin: 5% 3%;
+  border-radius: 15px;
+}
+.col-experience {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5% 5%;
+}
+.experience-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  padding-top: 5%;
+}
+.img-profile {
+  width: auto;
+  height: 75%;
+  padding-right: 5%;
+  margin: 0;
+}
+.list-experience {
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(31, 42, 54, 1);
+}
+.company-name {
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(70, 80, 92, 1);
+
+}
+.duration-of-work {
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(158, 160, 165, 1);
+}
+.description {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(31, 42, 54, 1);
+  padding-top: 3%;
+}
+
+@media (max-width: 425px) {
+  .list-experience {
+    font-size: 16px;
+  }
+  .company-name {
+    font-size: 14px;
+  }
+  .duration-of-work {
+    font-size: 12px;
+  }
+  .description {
+    font-size: 12px;
+  }
+  .experience {
+    margin: 5% 0 0 0;
+  }
+}

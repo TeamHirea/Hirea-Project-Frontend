@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+}
+
+.portofolio {
+  width: 100%;
+  background-color:white;
+  margin: 5% 3% 5% 3%;
+  border-radius: 15px;
+}
+.col-portofolio {
+  display: flex;
+  flex-direction: column;
+  padding: 5% 5%;
+  margin: 0;
+}
+.portofolio-description {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5%;
+  width: max-content;
+}
+.detail-portofolio {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5%;
+}
+.img-portofolio {
+  width: 200px;
+}
+.name-of-content {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 5%;
+}
+
+@media (max-width: 425px) {
+  .portofolio {
+    width: auto;
+    margin: 5% 0;
+  }
+  .portofolio-description {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  .img-portofolio {
+    width: 100%;
+  }
+  .col-portofolio {
+    margin: 0;
+  }
+}

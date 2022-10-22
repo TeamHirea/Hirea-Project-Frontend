@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+.cont1 {
+  min-height: 150vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a9acac;
+  margin-top: 10vh;
+}
+.upperborder {
+  height: 100px;
+  width: 1000px;
+  background-color: #5e50a1;
+}
+.image {
+  position: relative;
+}
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.text p {
+  font-size: 12px;
+  text-align: center;
+}
+.image span {
+  height: 90px;
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: 5px solid #fff;
+  position: absolute;
+  top: -50px;
+  left: 450px;
+}
+.image span img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.overlay img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.btn_edit_profile {
+  background-color: #5e50a1;
+  color: #fff;
+  border: none;
+  width: 35vh;
+  height: 8vh;
+  font-family: "Open Sans", sans-serif;
+}
+.card {
+  /* height: 200px; */
+  min-height: 95vh;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .cont1 {
+    min-height: auto;
+    display: flex;
+  }
+  .upperborder {
+    height: 50vw !important;
+    width: 100vw;
+  }
+  .card {
+    width: 50vh !important;
+  }
+  .image span {
+    left: 130px;
+  }
+}
