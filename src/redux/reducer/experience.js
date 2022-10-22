@@ -1,9 +1,71 @@
 const initialState = {
   data: [],
+  isLoading: false,
+  isError: false,
+  errorMessage: "",
 };
 
-const userReducer = (state = initialState, action) => {
+const experienceReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "GET_EXPERIENCE_PENDING":
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case "GET_EXPERIENCE_FULFILLED":
+      return {
+        ...state,
+        data: action.payload.data.data[0].experience,
+        isLoading: false,
+        isError: false,
+        errorMessage: "",
+      };
+    case "GET_EXPERIENCE_REJECTED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errorMessage: action.payload.response.data.message,
+        data: [],
+      };
+    case "ADD_EXPERIENCE_PENDING":
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case "ADD_EXPERIENCE_FULFILLED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        errorMessage: "",
+      };
+    case "ADD_EXPERIENCE_REJECTED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errorMessage: action.payload.response.data.message,
+      };
+    case "UPDATE_EXPERIENCE_PENDING":
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case "UPDATE_EXPERIENCE_FULFILLED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        errorMessage: "",
+      };
+    case "UPDATE_EXPERIENCE_REJECTED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errorMessage: action.payload.response.data.message,
+      };
     case "GET_DATA_USER_JOBSEEKER_EXPERIENCE_ID_PENDING":
       return {
         ...state,
@@ -25,4 +87,4 @@ const userReducer = (state = initialState, action) => {
   }
 };
 
-export default userReducer;
+export default experienceReducer;

@@ -4,10 +4,9 @@ import "./index.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
+
 export default function SignupJobSeeker() {
   const navigate = useNavigate();
-
-  console.log(navigate);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -15,20 +14,21 @@ export default function SignupJobSeeker() {
     password: "",
     confirmPassword: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
   const handleSignup = async () => {
     try {
-      console.log(form);
+      setIsLoading(true);
       const result = await axios.post("/api/auth/register/jobseeker", form);
-      console.log(result);
+      setIsLoading(false);
       alert(result.data.message);
-
-      // navigate("/signin");
+      navigate("/signin/jobseeker");
     } catch (error) {
-      console.error(error);
+      setIsLoading(false);
+      alert(error.response.data.message);
     }
   };
   return (
@@ -77,17 +77,26 @@ export default function SignupJobSeeker() {
               <p className="label">Confirm Password</p>
               <input
                 onChange={handleChangeForm}
-                type="text"
+                type="password"
                 name="confirmPassword"
                 placeholder="Masukan Confirm Password Anda"
               />
 
               <button
                 type="button"
-                className="btn w-100 btn-auth btn-warning text-white"
+                className="btn w-100 btn-auth btn-warning text-white mt-4"
                 onClick={handleSignup}
               >
-                Signup
+                {isLoading ? (
+                  <div
+                    className="spinner-border spinner-border-sm text-light"
+                    role="status"
+                  >
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                ) : (
+                  "Signup"
+                )}
               </button>
               <p className="footer-auth">
                 Already Have An Account <a href="#">Login Here</a>{" "}
