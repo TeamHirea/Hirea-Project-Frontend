@@ -44,6 +44,7 @@
 }
 .home {
   width: 100%;
+  padding: 6% 0 0 0;
 }
 .main-section {
   background-color: #e5e5e5;
@@ -143,6 +144,9 @@
 }
 
 @media (max-width: 425px) {
+  .home-bar {
+    padding: 5% 0 ;
+  }
   .main-section {
     padding: 3% 0;
   }

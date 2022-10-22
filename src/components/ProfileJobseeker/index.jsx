@@ -10,7 +10,7 @@ import gitlab from "../../assets/images/gitlab.png";
 
 import "./profileJobseeker.css";
 
-export default function CardProfileJobseeker() {
+export default function CardProfileJobseeker(props) {
   return (
     <>
       <main className="profile-seeker">
@@ -18,7 +18,7 @@ export default function CardProfileJobseeker() {
           <div className="img">
             <img className="img-profile" src={profile} alt="profile-img" />
           </div>
-          <h1 className="name">Louis Tomlinson</h1>
+          <h1 className="name">{props.data.name}</h1>
           <p className="description">Web Developer</p>
           <p className="description">Frelancer</p>
           <div className="location">
@@ -27,7 +27,7 @@ export default function CardProfileJobseeker() {
           </div>
           <div className="location">
             <img src={phone} alt="phone" />
-            <p className="description">0812-3456-789</p>
+            <p className="description">{props.data.phone}</p>
           </div>
           <p className="description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
