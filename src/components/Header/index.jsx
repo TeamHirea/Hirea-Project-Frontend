@@ -68,7 +68,7 @@ function Header() {
           >
             <div className="container h-100 header--container__mobile">
               <img src={wave} className="w-100 header--wave" alt="" />
-              <Link to={"/"} className=" w-75" style={{ height: "10vh" }}>
+              <Link to={"/"}>
                 <a className="navbar-brand" href="#">
                   <img
                     src={logo}

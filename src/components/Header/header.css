@@ -100,6 +100,8 @@
 
   .mobile__style {
     background-image: url("../../assets/images/header_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     position: relative;
     border-bottom-right-radius: 20px;
     padding-top: 5rem;
