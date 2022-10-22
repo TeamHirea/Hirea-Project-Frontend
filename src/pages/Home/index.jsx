@@ -35,7 +35,7 @@ function Home() {
   // };
 
   const handleUserJobseeker = (id) => {
-    navigate(`/ProfileJobseekerExperience/${id}`);
+    navigate(`/jobseeker/experience/${id}`);
   };
 
   const handlePrevPage = () => {

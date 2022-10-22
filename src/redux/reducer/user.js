@@ -31,7 +31,7 @@ const userReducer = (state = initialState, action) => {
     case "GET_DATA_USER_JOBSEEKER_ID_FULFILLED":
       return {
         ...state,
-        data: action.payload.data.data,
+        data: action.payload.data.data[0],
       };
     case "GET_DATA_USER_JOBSEEKER_ID_REJECTED":
       return {

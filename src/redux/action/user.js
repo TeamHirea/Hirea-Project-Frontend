@@ -15,6 +15,6 @@ export const getUserJobseeker = () => {
 export const getUserJobseekerById = (id) => {
   return {
     type: "GET_DATA_USER_JOBSEEKER_ID",
-    payload: axios.get(`api/user/${id}`),
+    payload: axios.get(`/api/user/${id}`),
   };
 };
