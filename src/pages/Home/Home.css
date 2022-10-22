@@ -44,6 +44,7 @@
 }
 .home {
   width: 100%;
+  padding: 6% 0 0 0;
 }
 .main-section {
   background-color: #E5E5E5;
@@ -143,8 +144,8 @@
 }
 
 @media (max-width: 425px) {
-  .main-section {
-    padding: 3% 0 ;
+  .home-bar {
+    padding: 5% 0 ;
   }
   .card-profile {
     margin: 0 3%;

@@ -52,11 +52,11 @@ function App() {
           element={<RequestResetPassword />}
         />
         <Route
-          path="/ProfileJobseekerPortofolio"
+          path="/ProfileJobseekerPortofolio/:id"
           element={<ProfileJobseekerPortofolio />}
         />
         <Route
-          path="/ProfileJobseekerExperience"
+          path="/ProfileJobseekerExperience/:id"
           element={<ProfileJobseekerExperience />}
         />
       </Routes>
