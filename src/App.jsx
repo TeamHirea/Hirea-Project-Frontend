@@ -14,11 +14,13 @@ import ResetPassword from "./pages/ResetPassword";
 import CompanyProfile from "./pages/CompanyProfile";
 import Hire from "./pages/Hire";
 import EditProfileRecruiter from "./pages/EditProfileRecruiter";
+import EditProfileJobseeker from "./pages/EditProfileJobseeker";
 import EmailActivation from "./pages/EmailActivation";
 import SendResetPassword from "./pages/SendResetPassword";
 import RequestResetPassword from "./pages/RequestResetPassword";
 import ProfileJobseekerPortofolio from "./pages/ProfileJobseekerPortofolio";
 import ProfileJobseekerExperience from "./pages/ProfileJobseekerExperience";
+import MyProfile from "./pages/MyProfile";
 
 import Chat from "./pages/Chat";
 import Inbox from "./pages/Chat/inbox";
@@ -50,6 +52,10 @@ function App() {
           path="/editProfileRecruiter"
           element={<EditProfileRecruiter />}
         />
+        <Route
+          path="/editProfileJobseeker"
+          element={<EditProfileJobseeker />}
+        />
         <Route path="/EmailActivation" element={<EmailActivation />} />
         <Route path="/SendResetPassword" element={<SendResetPassword />} />
         <Route
@@ -64,6 +70,7 @@ function App() {
           path="/ProfileJobseekerExperience"
           element={<ProfileJobseekerExperience />}
         />
+        <Route path="/MyProfile" element={<MyProfile />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,491 @@
+.edit-profile_main {
+  background-color: #e5e5e5;
+  padding: 10vh 10vw;
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  width: auto;
+  margin-top: 10vh;
+}
+.edit-profile_sections {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.profile_main-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.profile_container {
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 25vw;
+  padding: 40px;
+  row-gap: 15px;
+}
+.profile_image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.profile_profile-image {
+  height: 150px;
+  width: 150px;
+}
+.profile_edit-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 56px;
+  color: #9ea0a5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  cursor: pointer;
+}
+.profile_edit-button:active {
+  color: black;
+}
+.profile_name {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 56px;
+  color: #1f2a36;
+}
+.profile_job {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1f2a36;
+}
+.profile_text {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #9ea0a5;
+}
+.profile_purple-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  background: #5e50a1;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  padding: 20px;
+}
+.profile_white-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #5e50a1;
+  border: 1px solid #5e50a1;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  padding: 20px;
+}
+
+.personal_personal {
+  background: #ffffff;
+  border-radius: 8px;
+  width: 50vw;
+  height: auto;
+}
+.personal_personal-title {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 56px;
+  color: #1f2a36;
+  padding: 20px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.personal_input-section {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.personal_input-label {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9ea0a5;
+}
+.personal_input {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+  padding: 10px;
+  border: 1px solid #e2e5ed;
+  border-radius: 4px;
+}
+.personal_input:focus {
+  outline: none;
+}
+.personal_social-section {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  width: auto;
+  /* flex-wrap: wrap; */
+}
+.personal_input-desc {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+  padding: 10px;
+  border: 1px solid #e2e5ed;
+  border-radius: 4px;
+  height: 100px;
+}
+.personal_save-button {
+  background: #fbb017;
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-left: auto;
+  padding: 10px;
+  cursor: pointer;
+}
+.personal_save-button:active {
+  background: #e69e0e;
+}
+
+.skill_personal {
+  background: #ffffff;
+  border-radius: 8px;
+  width: 50vw;
+  height: auto;
+}
+.skill_personal-title {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 56px;
+  color: #1f2a36;
+  padding: 20px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.skill_input-section {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.skill_input-label {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9ea0a5;
+}
+.skill_input {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+  padding: 10px;
+  border: 1px solid #e2e5ed;
+  border-radius: 4px;
+}
+.skill_input:focus {
+  outline: none;
+}
+.skill_save-button {
+  background: #fbb017;
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-left: auto;
+  padding: 10px;
+  cursor: pointer;
+}
+.skill_save-button:active {
+  background: #e69e0e;
+}
+.skill_container {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+.skill_item {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ffffff;
+  background: rgba(251, 176, 23, 0.6);
+  border: 1px solid #fbb017;
+  border-radius: 4px;
+  padding: 0px 5px;
+}
+
+.experience_personal {
+  background: #ffffff;
+  border-radius: 8px;
+  width: 50vw;
+  height: auto;
+}
+.experience_personal-title {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 56px;
+  color: #1f2a36;
+  padding: 20px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.experience_input-section {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.experience_input-label {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9ea0a5;
+}
+.experience_input {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+  padding: 10px;
+  border: 1px solid #e2e5ed;
+  border-radius: 4px;
+}
+.experience_input:focus {
+  outline: none;
+}
+.experience_section {
+  display: flex;
+  flex-direction: column;
+  column-gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.experience_column {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+.experience_input-desc {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+  padding: 10px;
+  border: 1px solid #e2e5ed;
+  border-radius: 4px;
+  height: 100px;
+}
+.experience_save-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #fbb017;
+  cursor: pointer;
+  border: 1px solid #fbb017;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+}
+.experience_save-button:active {
+  background: #f1eada;
+}
+
+.portfolio_personal {
+  background: #ffffff;
+  border-radius: 8px;
+  width: 50vw;
+  height: auto;
+}
+.portfolio_personal-title {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 56px;
+  color: #1f2a36;
+  padding: 20px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.portfolio_input-section {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.portfolio_input-label {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9ea0a5;
+}
+.portfolio_input {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+  padding: 10px;
+  border: 1px solid #e2e5ed;
+  border-radius: 4px;
+}
+.portfolio_input:focus {
+  outline: none;
+}
+.portfolio_social-section {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  width: auto;
+  /* flex-wrap: wrap; */
+}
+.portfolio_input-desc {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+  padding: 10px;
+  border: 1px solid #e2e5ed;
+  border-radius: 4px;
+  height: 100px;
+}
+.portfolio_save-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #fbb017;
+  cursor: pointer;
+  border: 1px solid #fbb017;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+}
+.portfolio_save-button:active {
+  background: #f1eada;
+}
+
+@media only screen and (max-width: 768px) {
+  .edit-profile_main {
+    background-color: #e5e5e5;
+    padding: 0 0 50px 0;
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+    width: auto;
+  }
+  .profile_container {
+    width: 100vw;
+  }
+  .profile_purple-button {
+    width: 90vw;
+    margin: 20px;
+  }
+  .profile_white-button {
+    width: 90vw;
+    margin: 20px;
+  }
+  .profile_personal {
+    width: 100vw;
+  }
+  .personal_personal {
+    width: 90vw;
+    margin: auto;
+  }
+  .skill_personal {
+    width: 90vw;
+    margin: auto;
+  }
+  .experience_personal {
+    width: 90vw;
+    margin: auto;
+  }
+  .experience_column {
+    flex-wrap: wrap;
+  }
+  .portfolio_personal {
+    width: 90vw;
+    margin: auto;
+  }
+}
