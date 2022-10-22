@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+}
+
+.jobseeker {
+  padding: 2% 5%;
+}
+.profile-image {
+  margin-right: 5%;
+  padding: 0;
+}
