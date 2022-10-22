@@ -2,10 +2,16 @@
 import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import axios from "../../utils/axios";
+import { useParams } from "react-router-dom";
+
 export default function SignupRecruiter() {
-  const navigate = useNavigate();
-  console.log(navigate);
+  // const navigate = useNavigate();
+  // console.log(navigate);
+
+  const { otp } = useParams();
+  console.log(otp);
   const [form, setForm] = useState({
     newPassword: "",
     confirmPassword: "",
@@ -14,8 +20,13 @@ export default function SignupRecruiter() {
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const handleConfirmResetPassword = () => {
-    console.log(form);
+  const handleConfirmResetPassword = async () => {
+    try {
+      const result = await axios.post(`/api/auth/resetPassword/${otp}`, form);
+      alert(result.data.message);
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
   return (
     <div className="container-signup  mt-5 ">
@@ -32,23 +43,25 @@ export default function SignupRecruiter() {
               className="auth-right auth-right-cp "
               //   style={{ margin: "130px 20px" }}
             >
-              <p className="title-auth">Please login with your account</p>
-              <p className="desc-auth">Lorem ipsum dolor sit amet.</p>
+              <p className="title-auth fw-bold">Reset Password</p>
+              <p className="desc-auth">
+                You need to change your password to activate your account
+              </p>
 
-              <p className="label">New Password</p>
+              <p className="label">Kata sandi</p>
               <input
                 type="password"
                 name="newPassword"
-                placeholder="Input Your New Password"
+                placeholder="Masukan kata sandi"
                 onChange={handleChangeForm}
               />
 
-              <p className="label">Confirm Password</p>
+              <p className="label">Konfirmasi</p>
               <input
                 type="password"
                 name="confirmPassword"
                 onChange={handleChangeForm}
-                placeholder="Input Your Confirm Password"
+                placeholder="Masukan konfirmasi kata sandi"
               />
 
               <button
