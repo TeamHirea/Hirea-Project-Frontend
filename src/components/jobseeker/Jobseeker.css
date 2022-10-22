@@ -12,7 +12,9 @@
 .jobseeker {
   padding: 2% 5%;
 }
-.profile-image {
+.profile-image-jobseeker {
   margin-right: 5%;
   padding: 0;
+  height: 150px;
+  width: 150px;
 }
