@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getProfileJobseeker } from "../../redux/action/user";
 import { Modal, Toast, ToastContainer } from "react-bootstrap";
 import { updatePasswordJobseeker } from "../../redux/action/user";
+import { useNavigate } from "react-router-dom";
 
 function profile() {
   const id = localStorage.getItem("id");
@@ -15,6 +16,7 @@ function profile() {
   const userData = useSelector((state) => state.user.data);
   const errorMessage = useSelector((state) => state.user.errorMessage);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const id = localStorage.getItem("id");
@@ -91,7 +93,14 @@ function profile() {
       >
         Ubah Password
       </div>
-      <div className="profile_white-button">Kembali</div>
+      <div
+        className="profile_white-button"
+        onClick={() => {
+          navigate("/profile");
+        }}
+      >
+        Kembali
+      </div>
 
       <Modal show={showModal} size="s" centered className="modal modal-md">
         <Modal.Title className="modal-title text-center mt-2">
