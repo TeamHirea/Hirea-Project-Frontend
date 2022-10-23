@@ -88,7 +88,7 @@ export default function SignupRecruiter() {
                         className="signinRecruiter--title--login__show d-lg-none d-md-none d-sm-none"
                         style={{ fontWeight: 700, color: "#46505C" }}
                       >
-                        Register Jobseeker
+                        Register Recruiter
                       </h1>
                       <p className="d-md-none d-sm-none text-secondary signinRecruiter--secondTitle--login__show">
                         Lorem ipsum dolor sit amet.

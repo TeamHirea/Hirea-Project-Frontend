@@ -32,7 +32,7 @@
 }
 
 .signinRecruiter--page__container {
-  height: 100vh;
+  height: 120vh;
 }
 
 .signinRecruiter--page--first__container {
@@ -45,7 +45,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  object-fit: contain;
+  height: 100vh;
 }
 
 .signinRecruiter--from label {
