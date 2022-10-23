@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Profile from "../../components/ProfileJobseeker";
 import Experience from "../../components/Experience";
+import Portofolio from "../../components/Portofolio";
 // import suitcase from "../../assets/images/suitcase.png";
 
 import { useParams } from "react-router-dom";
 
-import "./ProfileJobseekerExperience.css";
+import "./ProfileJobseeker.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserJobseekerById } from "../../redux/action/user";
 import { getUserJobseekerExperienceById } from "../../redux/action/experience";
-import Portofolio from "../../components/Portofolio";
 
 function ProfileJobseekerExperience() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function ProfileJobseekerExperience() {
   const [activePage, setActivePage] = useState("experience");
   const user = useSelector((state) => state.user.data);
   const experience = useSelector((state) => state.experience.data);
-  const portofolio = useSelector((state) => state.portofolio.data);
+  const portofolio = useSelector((state) => state.portfolio.data);
 
   useEffect(() => {
     dispatch(getUserJobseekerById(id));
@@ -48,7 +49,7 @@ function ProfileJobseekerExperience() {
         ) : (
           ""
         )}
-        {activePage === "portofolio" ? (
+        {activePage === "portfolio" ? (
           <Portofolio data={portofolio} handleActivePage={handleActivePage} />
         ) : (
           ""
