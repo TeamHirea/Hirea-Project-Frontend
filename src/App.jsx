@@ -18,8 +18,7 @@ import EditProfileJobseeker from "./pages/EditProfileJobseeker";
 import EmailActivation from "./pages/EmailActivation";
 import SendResetPassword from "./pages/SendResetPassword";
 import RequestResetPassword from "./pages/RequestResetPassword";
-import Portofolio from "./pages/ProfileJobseekerPortofolio";
-import Experience from "./pages/ProfileJobseekerExperience";
+import ProfileJobseeker from "./pages/ProfileJobseeker";
 import MyProfile from "./pages/MyProfile";
 
 import Chat from "./pages/Chat";
@@ -63,8 +62,7 @@ function App() {
         <Route path="/recruiter/profile" element={<CompanyProfile />} />
         <Route path="/recruiter/edit" element={<EditProfileRecruiter />} />
         <Route path="/recruiter/hire/:id" element={<Hire />} />
-        <Route path="/jobseeker/portfolio/:id" element={<Portofolio />} />
-        <Route path="/jobseeker/experience/:id" element={<Experience />} />
+        <Route path="/jobseeker/:id" element={<ProfileJobseeker />} />
         <Route path="/recruiter/chat" element={<Chat />} />
         <Route path="/recruiter/inbox" element={<Inbox />} />
 
