@@ -14,6 +14,12 @@ export const addExperience = (form) => ({
   type: "ADD_EXPERIENCE",
   payload: axios.post(`/api/experience`, form),
 });
+
+export const deleteExperience = (id) => ({
+  type: "DELETE_EXPERIENCE",
+  payload: axios.delete(`/api/experience/${id}`),
+});
+
 export const getUserJobseekerExperienceById = (id) => {
   return {
     type: "GET_DATA_USER_JOBSEEKER_EXPERIENCE_ID",
