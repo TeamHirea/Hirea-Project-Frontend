@@ -50,7 +50,7 @@ export default function SignupRecruiter() {
   };
   return (
     <div
-      className="container-fluid signinRecruiter--container"
+      className="container-fluid signinRecruiter--container--second"
       style={{ boxSizing: "border-box" }}
     >
       <div className="row px-0 mx-0">
