@@ -74,7 +74,7 @@ const experienceReducer = (state = initialState, action) => {
     case "GET_DATA_USER_JOBSEEKER_EXPERIENCE_ID_FULFILLED":
       return {
         ...state,
-        data: action.payload.data.data[0],
+        data: action.payload.data.data,
       };
     case "GET_DATA_USER_JOBSEEKER_EXPERIENCE_ID_REJECTED":
       return {

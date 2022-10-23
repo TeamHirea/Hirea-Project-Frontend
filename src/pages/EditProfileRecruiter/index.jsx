@@ -16,9 +16,8 @@ import "./EditProfileRecruiter.css";
 
 function EditProfileRecruiter() {
   const dispatch = useDispatch();
-  const recruiterData = useSelector((state) => state.recruiter);
+  const recruiterData = useSelector((state) => state.recruiter.data);
   const [form, setForm] = useState({});
-  // const [image, setImage] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
