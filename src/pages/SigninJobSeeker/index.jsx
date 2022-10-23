@@ -12,7 +12,6 @@ export default function SigninJobSeeker() {
     email: "",
     password: "",
   });
-  // console.log(form);
   const [loading, setLoading] = useState(false);
 
   const handleChangeForm = (e) => {
