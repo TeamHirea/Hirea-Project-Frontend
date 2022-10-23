@@ -66,7 +66,7 @@ function Header() {
             className="container-fluid navbar header--container__height navbar-expand-lg navbar-light w-100 bg-white mobile__style fixed-top bg-white"
             // style={{ overflow: "hidden" }}
           >
-            <div className="container h-100 header--container__mobile">
+            <div className="container h-100 header--container__mobile px-0">
               <img src={wave} className="w-100 header--wave" alt="" />
               <Link
                 to={"/"}
