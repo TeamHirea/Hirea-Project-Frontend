@@ -39,6 +39,8 @@
 .profile_profile-image {
   height: 150px;
   width: 150px;
+  border-radius: 150px;
+  object-fit: cover;
 }
 .profile_edit-button {
   font-family: "Open Sans", sans-serif;
@@ -80,6 +82,9 @@
   font-size: 14px;
   line-height: 20px;
   color: #9ea0a5;
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
 }
 .profile_purple-button {
   font-family: "Open Sans", sans-serif;
@@ -96,6 +101,10 @@
   align-items: center;
   width: 25vw;
   padding: 20px;
+  cursor: pointer;
+}
+.profile_purple-button:active {
+  background: #423583;
 }
 .profile_white-button {
   font-family: "Open Sans", sans-serif;
@@ -112,6 +121,43 @@
   align-items: center;
   width: 25vw;
   padding: 20px;
+  cursor: pointer;
+}
+.profile_white-button:active {
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.password_input-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.password_input-label {
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+.password_input {
+  background: #ffffff;
+  border: 1px solid #e2e5ed;
+  border-radius: 4px;
+}
+.password_input:focus {
+  outline: none;
+}
+.password_input::placeholder {
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9ea0a5;
 }
 
 .personal_personal {
@@ -184,14 +230,13 @@
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
+  text-align: center;
   line-height: 19px;
   color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
   margin-left: auto;
   padding: 10px;
   cursor: pointer;
+  width: 100px;
 }
 .personal_save-button:active {
   background: #e69e0e;
@@ -248,14 +293,13 @@
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
+  text-align: center;
   line-height: 19px;
   color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
   margin-left: auto;
   padding: 10px;
   cursor: pointer;
+  width: 100px;
 }
 .skill_save-button:active {
   background: #e69e0e;
@@ -266,6 +310,7 @@
   flex-wrap: wrap;
   row-gap: 10px;
   column-gap: 10px;
+  align-items: center;
 }
 .skill_item {
   font-family: "Open Sans", sans-serif;
@@ -278,6 +323,10 @@
   border: 1px solid #fbb017;
   border-radius: 4px;
   padding: 0px 5px;
+  cursor: pointer;
+}
+.skill_item:active {
+  background: rgba(231, 157, 8, 0.6);
 }
 
 .experience_personal {
@@ -365,6 +414,80 @@
 .experience_save-button:active {
   background: #f1eada;
 }
+.experience_modal__title {
+  text-align: center;
+  padding: 30px;
+}
+.experience_modal__footer {
+  justify-content: center !important;
+}
+.experience_modal__button-active {
+  background-color: #fbb017;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 90px;
+  cursor: pointer;
+}
+.experience_modal__button-active:active {
+  background-color: #c2840a;
+}
+.experience_modal__button-pasive {
+  color: #fbb017;
+  background-color: white;
+  padding: 10px;
+  border: 2px solid #fbb017;
+  border-radius: 5px;
+  width: 90px;
+  cursor: pointer;
+}
+.experience_modal__button-pasive:active {
+  color: #fbb017;
+  background-color: #ffe3ac;
+  padding: 10px;
+  border: 2px solid #fbb017;
+  border-radius: 5px;
+  width: 90px;
+  cursor: pointer;
+}
+.experience_item-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  margin: 10px 20px;
+  border-bottom: 1px solid #e2e5ed;
+  justify-content: space-between;
+  align-items: center;
+}
+.experience_item-job {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 27px;
+  color: #1f2a36;
+}
+.experience_item-company {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 25px;
+  color: #46505c;
+}
+.experience_item-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 25px;
+  color: #5e50a1;
+  cursor: pointer;
+}
+.experience_item-button:active {
+  color: #000000;
+}
 
 .portfolio_personal {
   background: #ffffff;
@@ -444,6 +567,46 @@
 }
 .portfolio_save-button:active {
   background: #f1eada;
+}
+.portfolio_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px 20px;
+  border-bottom: 1px solid #e2e5ed;
+}
+.portfolio_item-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.portfolio_item-title {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1f2a36;
+  text-align: center;
+}
+.portfolio_item-image {
+  height: 120px;
+  width: 175px;
+  object-fit: cover;
+}
+.portfolio_item-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 25px;
+  color: #5e50a1;
+  cursor: pointer;
+}
+.portfolio_item-button:active {
+  color: #000000;
 }
 
 @media only screen and (max-width: 768px) {

@@ -8,7 +8,7 @@ axiosApiIntances.interceptors.request.use(
   function (config) {
     config.headers = {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
-      refreshtoken: localStorage.getItem("refreshToken"),
+      refreshtoken: localStorage.getItem("refreshtoken"),
     };
     return config;
   },
@@ -31,16 +31,16 @@ axiosApiIntances.interceptors.response.use(
           .post("/api/auth/refresh")
           .then((res) => {
             localStorage.setItem("token", res.data.data.token);
-            localStorage.setItem("refreshToken", res.data.data.refreshToken);
+            localStorage.setItem("refreshtoken", res.data.data.refreshToken);
             window.location.reload();
           })
           .catch(() => {
             localStorage.clear();
-            window.location.href = "/signin";
+            // window.location.href = "/signin";
           });
       } else {
         localStorage.clear();
-        window.location.href = "/signin";
+        // window.location.href = "/signin";
       }
     }
     return Promise.reject(error);

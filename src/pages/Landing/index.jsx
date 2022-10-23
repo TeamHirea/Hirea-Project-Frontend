@@ -5,7 +5,10 @@ import "./index.css";
 import { useNavigate } from "react-router-dom";
 
 function Landing() {
+  const role = localStorage.getItem("role");
   const navigate = useNavigate();
+  window.scrollTo(0, 0);
+
   return (
     <div>
       <Header />
@@ -22,7 +25,10 @@ function Landing() {
             <div
               className="landing-section-button"
               onClick={() => {
-                navigate("/home");
+                if (role === "recruiter") {
+                  return navigate("/home");
+                }
+                navigate("/profile");
               }}
             >
               Mulai Dari Sekarang
@@ -198,7 +204,10 @@ function Landing() {
           <div
             className="landing_box-button"
             onClick={() => {
-              navigate("/home");
+              if (role === "recruiter") {
+                return navigate("/home");
+              }
+              navigate("/profile");
             }}
           >
             Mulai Sekarang
