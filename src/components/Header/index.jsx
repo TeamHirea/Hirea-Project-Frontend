@@ -12,15 +12,17 @@ import bell__header from "../../assets/vectors/bell__header.png";
 import wave from "../../assets/images/wave.png";
 import noNotif from "../../assets/images/no_notification.png";
 import "./header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 
 function Header() {
-  const [isLoggedin] = useState(true);
+  const [isLoggedin] = useState(false);
   const [togglePopNotif, setTogglePopNotif] = useState(false);
   const [togglePopMsg, setTogglePopMsg] = useState(false);
   const [togglePopProfile, setTogglePopProfile] = useState(false);
   const [data] = useState([]);
+
+  const navigate = useNavigate();
 
   const handleTogglePopNotif = (e) => {
     e.preventDefault();
@@ -52,7 +54,9 @@ function Header() {
   const handleLogOut = async (e) => {
     e.preventDefault();
     try {
-      return await axios.post("/api/auth/logout");
+      await axios.post("/api/auth/logout");
+      localStorage.clear();
+      navigate("/signin");
     } catch (error) {
       console.log(error);
     }
@@ -242,8 +246,12 @@ function Header() {
                 className="navbar-nav d-flex gap-3 header--button--nav--notLogin__style"
                 style={{ marginLeft: "auto" }}
               >
-                <button className="btn mx-auto">Masuk</button>
-                <button className="btn mx-auto btn-danger">Daftar</button>
+                <Link to="/optionLogin">
+                  <button className="btn mx-auto">Masuk</button>
+                </Link>
+                <Link to="/optionRegister">
+                  <button className="btn mx-auto btn-danger">Daftar</button>
+                </Link>
               </div>
             </div>
           </div>
