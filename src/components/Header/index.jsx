@@ -151,9 +151,9 @@ function Header() {
                     )} */}
                   </li>
                   <li className="nav-item" onClick={handleToggleMessage}>
-                    <a href="">
+                    <div>
                       <img src={bell} className="header--icon--lggedin__size" />
-                    </a>
+                    </div>
                     {togglePopMsg && (
                       // <img />
                       <div className="header--image--popup__container">
@@ -185,9 +185,9 @@ function Header() {
                     )}
                   </li>
                   <li className="nav-item" onClick={handleTogglePopProfile}>
-                    <a>
+                    <div>
                       <img src={user} className="header--icon--lggedin__size" />
-                    </a>
+                    </div>
                     {togglePopProfile && (
                       <div
                         className="bg-white header--toggle--profile__popup d-flex justify-content-start align-items-start flex-column"
@@ -251,12 +251,12 @@ function Header() {
         <nav className="container-fluid navbar navbar-expand-lg navbar-light fixed-top bg-white">
           <div className="container">
             <Link to={"/"}>
-              <a
+              <div
                 className="navbar-brand header--logo--image__size w-50"
                 href="#"
               >
                 <img src={logo} alt="" className="" style={{ width: "10%" }} />
-              </a>
+              </div>
             </Link>
             <button
               className="navbar-toggler"
