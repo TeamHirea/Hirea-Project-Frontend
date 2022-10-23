@@ -7,7 +7,7 @@ import "./Experience.css";
 
 export default function Experience(props) {
   const navigate = useNavigate();
-  const { data: experience } = props;
+  const { data: experience, handleActivePage } = props;
 
   const handleExperience = (id) => {
     navigate(`/jobseeker/portofolio/${id}`);
@@ -18,7 +18,12 @@ export default function Experience(props) {
         <div className="col-experience">
           <ul className="nav nav-tabs">
             <li className="nav-item">
-              <button className="nav-link" onClick={handleExperience}>
+              <button
+                className="nav-link"
+                onClick={() => {
+                  handleActivePage("portfolio");
+                }}
+              >
                 Portofolio
               </button>
             </li>
