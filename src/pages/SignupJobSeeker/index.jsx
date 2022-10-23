@@ -2,7 +2,6 @@
 import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import logoMobile from "../../assets/images/logo.png";
 import axios from "../../utils/axios";
 
@@ -95,14 +94,13 @@ export default function SignupJobSeeker() {
                       />
                     </div>
                     <div className="form-group signinRecruiter--from py-1">
-                      <label htmlFor="exampleInputPassword1">Email</label>
+                      <label htmlFor="exampleInputEmail">Email</label>
                       <input
                         type="email"
                         onChange={handleChangeForm}
                         name="email"
                         value={form.email}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
@@ -116,19 +114,17 @@ export default function SignupJobSeeker() {
                         name="phone"
                         value={form.phone}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
                     <div className="form-group signinRecruiter--from py-1">
-                      <label htmlFor="exampleInputPassword1">Kata Sandi</label>
+                      <label htmlFor="exampleInputPassword2">Kata Sandi</label>
                       <input
                         type="password"
                         onChange={handleChangeForm}
                         name="password"
                         value={form.password}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
@@ -142,14 +138,8 @@ export default function SignupJobSeeker() {
                         name="confirmPassword"
                         value={form.confirmPassword}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan konfirmasi kata sandi"
                       />
-                    </div>
-                    <div className="text-end py-1">
-                      <Link className="singinRecruiter--forgot--password__style">
-                        Lupa kata sandi ?
-                      </Link>
                     </div>
                     <button
                       type="submit"
@@ -168,14 +158,6 @@ export default function SignupJobSeeker() {
                         "Masuk"
                       )}
                     </button>
-                    <p className="py-4" style={{ textAlign: "center" }}>
-                      Anda belum punya akun?{" "}
-                      <Link
-                        style={{ textDecoration: "none", color: "#FBB017" }}
-                      >
-                        Daftar disini
-                      </Link>
-                    </p>
                   </form>
                 </div>
               </div>

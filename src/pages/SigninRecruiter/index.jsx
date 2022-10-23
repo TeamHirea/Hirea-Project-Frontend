@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/images/hirea white.png";
 import logoMobile from "../../assets/images/logo.png";
 import "./index.css";
@@ -107,9 +107,14 @@ export default function SigninRecruiter() {
                       />
                     </div>
                     <div className="text-end py-3">
-                      <Link className="singinRecruiter--forgot--password__style">
+                      <div
+                        className="singinRecruiter--forgot--password__style"
+                        onClick={() => {
+                          navigate("/reset/send");
+                        }}
+                      >
                         Lupa kata sandi ?
-                      </Link>
+                      </div>
                     </div>
                     <button
                       type="submit"
@@ -130,11 +135,14 @@ export default function SigninRecruiter() {
                     </button>
                     <p className="py-4" style={{ textAlign: "center" }}>
                       Anda belum punya akun?{" "}
-                      <Link
+                      <div
                         style={{ textDecoration: "none", color: "#FBB017" }}
+                        onClick={() => {
+                          navigate("/signup/recruiter");
+                        }}
                       >
                         Daftar disini
-                      </Link>
+                      </div>
                     </p>
                   </form>
                 </div>

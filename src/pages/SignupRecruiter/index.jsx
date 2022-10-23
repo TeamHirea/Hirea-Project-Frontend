@@ -2,7 +2,6 @@
 import logo from "../../assets/images/logo.png";
 import "./index.css";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import logoMobile from "../../assets/images/logo.png";
 import axios from "../../utils/axios";
 export default function SignupRecruiter() {
@@ -98,7 +97,6 @@ export default function SignupRecruiter() {
                         name="name"
                         value={form.name}
                         className="form-control"
-                        id="exampleInputEmail1"
                         aria-describedby="emailHelp"
                         placeholder="Masukkan nama panjang"
                       />
@@ -111,7 +109,6 @@ export default function SignupRecruiter() {
                         name="email"
                         value={form.email}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
@@ -123,7 +120,6 @@ export default function SignupRecruiter() {
                         name="companyName"
                         value={form.companyName}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
@@ -137,7 +133,6 @@ export default function SignupRecruiter() {
                         name="companyField"
                         value={form.companyField}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
@@ -151,7 +146,6 @@ export default function SignupRecruiter() {
                         name="phone"
                         value={form.phone}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
@@ -163,7 +157,6 @@ export default function SignupRecruiter() {
                         name="password"
                         value={form.password}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan konfirmasi kata sandi"
                       />
                     </div>
@@ -177,14 +170,8 @@ export default function SignupRecruiter() {
                         name="confirmPassword"
                         value={form.confirmPassword}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
-                    </div>
-                    <div className="text-end py-1">
-                      <Link className="singinRecruiter--forgot--password__style">
-                        Lupa kata sandi ?
-                      </Link>
                     </div>
                     <button
                       type="submit"
@@ -203,14 +190,6 @@ export default function SignupRecruiter() {
                         "Masuk"
                       )}
                     </button>
-                    <p className="py-4" style={{ textAlign: "center" }}>
-                      Anda belum punya akun?{" "}
-                      <Link
-                        style={{ textDecoration: "none", color: "#FBB017" }}
-                      >
-                        Daftar disini
-                      </Link>
-                    </p>
                   </form>
                 </div>
               </div>
