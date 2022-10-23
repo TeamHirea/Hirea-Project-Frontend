@@ -24,6 +24,7 @@ import MyProfile from "./pages/MyProfile";
 
 import Chat from "./pages/Chat";
 import Inbox from "./pages/Chat/inbox";
+import EmailVerificationRecruiter from "./pages/EmailVerificationRecruiter";
 function App() {
   const Test = () => {
     return <h1>test</h1>;
@@ -44,7 +45,14 @@ function App() {
         {/* AUTH */}
         <Route path="/signup/jobseeker" element={<SignupJobSeeker />} />
         <Route path="/signup/recruiter" element={<SignupRecruiter />} />
-        <Route path="/activated" element={<EmailActivation />} />
+        <Route
+          path="/jobseeker/activated/:token"
+          element={<EmailActivation />}
+        />
+        <Route
+          path="/recruiter/activated/:token"
+          element={<EmailVerificationRecruiter />}
+        />
         <Route path="/signin/recruiter" element={<SigninRecruiter />} />
         <Route path="/signin/jobseeker" element={<SigninJobSeeker />} />
         <Route path="/reset/send" element={<ResetPassword />} />
