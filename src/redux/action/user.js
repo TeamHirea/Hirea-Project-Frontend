@@ -22,3 +22,14 @@ export const getUserJobseekerById = (id) => {
     payload: axios.get(`/api/user/${id}`),
   };
 };
+
+export const getUserRecruiterById = (id) => {
+  return {
+    type: "GET_DATA_USER_RECRUITER_ID",
+    payload: axios.get(`/api/user/recruiter/${id}`),
+  };
+};
+export const updateProfileRecruiter = (form, id) => ({
+  type: "UPDATE_PROFILE_JOBSEEKER",
+  payload: axios.patch(`/api/user/recruiter/${id}`, form),
+});

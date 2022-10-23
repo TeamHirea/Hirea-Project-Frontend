@@ -12,7 +12,6 @@ export default function Experience(props) {
     navigate(`/jobseeker/portofolio/${props.data.id}`);
   };
 
-  console.log(props.data.id);
   return (
     <>
       <main className="experience">
