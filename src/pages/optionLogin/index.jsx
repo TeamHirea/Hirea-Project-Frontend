@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import logo from "../../assets/images/hirea white.png";
@@ -6,6 +6,9 @@ import "./index.css";
 // import logoMobile from "../../assets/images/logo.png";
 
 const OptionLogin = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="container-fluid signinRecruiter--container">
       <div className="row px-0 mx-0">
@@ -28,7 +31,7 @@ const OptionLogin = () => {
                   style={{ textDecoration: "none", color: "red" }}
                 >
                   <button
-                    className="btn btn-white text-danger w-100"
+                    className="btn btn-white text-dark w-100"
                     style={{ border: "1px solid black" }}
                   >
                     Masuk Sebagai Pekerja

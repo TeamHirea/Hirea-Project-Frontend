@@ -8,7 +8,6 @@ import axios from "../../utils/axios";
 export default function SignupRecruiter() {
   // const navigate = useNavigate();
 
-  // console.log(navigate);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -45,7 +44,6 @@ export default function SignupRecruiter() {
     } catch (error) {
       setLoading(false);
       alert(error.response.data.message);
-      console.error(error);
     }
   };
   return (

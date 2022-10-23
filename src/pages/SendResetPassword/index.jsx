@@ -8,10 +8,8 @@ import { useParams } from "react-router-dom";
 
 export default function SignupRecruiter() {
   // const navigate = useNavigate();
-  // console.log(navigate);
 
   const { otp } = useParams();
-  console.log(otp);
   const [form, setForm] = useState({
     newPassword: "",
     confirmPassword: "",

@@ -25,6 +25,8 @@ export default function SigninRecruiter() {
       const result = await axios.post("/api/auth/signin/recruiter", form);
       localStorage.setItem("id", result.data.data.userId);
       localStorage.setItem("token", result.data.data.token);
+      localStorage.setItem("refreshtoken", result.data.data.refreshToken);
+      localStorage.setItem("role", "recruiter");
       alert(result.data.message);
       setLoading(false);
       navigate("/");

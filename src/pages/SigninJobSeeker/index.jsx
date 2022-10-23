@@ -12,7 +12,6 @@ export default function SigninJobSeeker() {
     email: "",
     password: "",
   });
-  // console.log(form);
   const [loading, setLoading] = useState(false);
 
   const handleChangeForm = (e) => {
@@ -25,6 +24,8 @@ export default function SigninJobSeeker() {
       const result = await axios.post("/api/auth/signin/jobseeker", form);
       localStorage.setItem("id", result.data.data.userId);
       localStorage.setItem("token", result.data.data.token);
+      localStorage.setItem("refreshtoken", result.data.data.refreshToken);
+      localStorage.setItem("role", "jobseeker");
       // localStorage.setItem("refreshToken", result.data.data.refreshToken);
       alert(result.data.message);
       setLoading(false);
