@@ -25,9 +25,9 @@
   flex-direction: row;
   justify-content: center;
 }
-.img-profile {
-  margin: 10% 0;
-  width: 50%;
+.img-profile-hire {
+  margin: 0 auto;
+  width: 100% !important;
 }
 .name {
   font-family: "Open Sans";
@@ -117,7 +117,8 @@
     display: none;
   }
   .hire-section-right {
-    width: 100%;
+    /* width: 100%; */
+    height: auto;
     padding: 0%;
   }
   .hire-form {

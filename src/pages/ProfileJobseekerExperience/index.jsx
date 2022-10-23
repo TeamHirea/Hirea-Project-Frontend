@@ -9,24 +9,28 @@ import { useParams } from "react-router-dom";
 import "./ProfileJobseekerExperience.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserJobseekerById } from "../../redux/action/user";
+import { getUserJobseekerExperienceById } from "../../redux/action/experience";
 
 function ProfileJobseekerExperience() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const user = useSelector((state) => state.user);
-  console.log(id);
+  const user = useSelector((state) => state.user.data);
+  const experience = useSelector((state) => state.experience.data);
 
-  useEffect((id) => {
+  useEffect(() => {
     dispatch(getUserJobseekerById(id));
   }, []);
-  console.log(user.data);
+
+  useEffect(() => {
+    dispatch(getUserJobseekerExperienceById(id));
+  }, []);
 
   return (
     <>
       <Header />
       <main className="profile-jobseeker">
-        <Profile data={user.data} />
-        <Experience />
+        <Profile data={user} />
+        <Experience data={experience} />
       </main>
       <Footer />
     </>

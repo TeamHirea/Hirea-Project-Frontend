@@ -15,14 +15,18 @@ function Home() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
 
-  useEffect(() => {
-    dispatch(getUserJobseeker());
-  }, []);
-
   // const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [pagination] = useState({});
-
+  const [searchName, setSearchName] = useState("");
+  const [keyword, setKeyword] = useState("");
+  console.log(searchName);
+  useEffect(() => {
+    dispatch(getUserJobseeker());
+  }, []);
+  useEffect(() => {
+    dispatch(getUserJobseeker(searchName));
+  }, [searchName]);
   // const getDataUserJobseeker = async () => {
   //   try {
   //     const result = await axios.get(`api/user`);
@@ -35,7 +39,11 @@ function Home() {
   // };
 
   const handleUserJobseeker = (id) => {
-    navigate(`/ProfileJobseekerExperience/${id}`);
+    navigate(`/jobseeker/experience/${id}`);
+  };
+  const handleSearchName = async () => {
+    setSearchName(keyword);
+    console.log(keyword);
   };
 
   const handlePrevPage = () => {
@@ -62,6 +70,7 @@ function Home() {
                     className="form-control"
                     type="text"
                     placeholder="Search"
+                    onChange={(e) => setKeyword(e.target.value)}
                   />
                   <a
                     className="dropdown-searchbar nav-link dropdown-toggle"
@@ -88,7 +97,11 @@ function Home() {
                       </a>
                     </li>
                   </ul>
-                  <button className="btn-search" type="button">
+                  <button
+                    className="btn-search"
+                    type="button"
+                    onClick={handleSearchName}
+                  >
                     Search
                   </button>
                 </form>
