@@ -15,7 +15,7 @@ const experienceReducer = (state = initialState, action) => {
     case "GET_EXPERIENCE_FULFILLED":
       return {
         ...state,
-        data: action.payload.data.data[0].experience,
+        data: action.payload.data.data,
         isLoading: false,
         isError: false,
         errorMessage: "",
@@ -60,6 +60,25 @@ const experienceReducer = (state = initialState, action) => {
         errorMessage: "",
       };
     case "UPDATE_EXPERIENCE_REJECTED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errorMessage: action.payload.response.data.message,
+      };
+    case "DELETE_EXPERIENCE_PENDING":
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case "DELETE_EXPERIENCE_FULFILLED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        errorMessage: "",
+      };
+    case "DELETE_EXPERIENCE_REJECTED":
       return {
         ...state,
         isLoading: false,
