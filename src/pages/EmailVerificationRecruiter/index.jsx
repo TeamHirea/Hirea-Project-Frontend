@@ -7,18 +7,16 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import wrongLogo from "../../assets/vectors/wrongLogo.png";
 import axios from "../../utils/axios";
 
-export default function EmailActivation() {
+export default function EmailVerificationRecruiter() {
   const navigate = useNavigate();
   const { token } = useParams();
   const [valid, setValid] = useState([]);
   console.log(navigate);
 
   const verified = () => {
-    axios
-      .get(`http://localhost:8080/api/auth/verifyJobseeker/${token}`)
-      .then((res) => {
-        setValid([res.data.data]);
-      });
+    axios.get(`http://localhost:8080/api/auth/verify/${token}`).then((res) => {
+      setValid([res.data.data]);
+    });
   };
   useEffect(() => {
     if (!verified()) {
@@ -59,7 +57,7 @@ export default function EmailActivation() {
           <div className={"email--verif__container"}>
             <img src={success} alt="success_img" className={success} />
             <h1>Email verified successfully</h1>
-            <Link to="/signin/jobseeker">
+            <Link to="/signin/recruiter">
               <button className="green-btn btn btn-primary">Login</button>
             </Link>
           </div>

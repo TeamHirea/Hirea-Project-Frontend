@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 
 * {
   margin: 0;
@@ -7,130 +7,120 @@
   font-family: "Open Sans", sans-serif;
 }
 
-.container-auth {
-  margin: 20px 70px;
+.signinRecruiter--container {
+  background: #f6f7f8;
+  max-width: 100%;
+  max-height: 100%;
 }
-.row-auth {
-  /* width: 1200px; */
-  /* margin: -100px; */
-  /* margin: 0 -200px; */
-  height: 600px;
+
+::placeholder {
+  color: #858d96 !important;
+  font-size: 14px !important;
 }
-.col-left {
-  height: fit-content;
-  width: fit-content;
+
+.signinRecruiter--page--second--form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5rem !important;
+  padding-right: 3rem !important;
+}
+
+.signinRecruiter--from input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #e2e5ed !important;
+}
+
+.signinRecruiter--page__container {
+  height: 120vh;
+}
+
+.signinRecruiter--page--first__container {
   background-image: linear-gradient(
-      rgb(161, 80, 253, 0.8),
-      rgba(141, 41, 255, 0.8)
+      to right,
+      rgba(94, 80, 161, 0.8),
+      rgba(94, 80, 161, 0.8)
     ),
     url("../../assets/images/bannersign.png");
-  background-size: cover;
   background-repeat: no-repeat;
-  margin: 10px 0;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
-.logo-auth {
-  width: 100px;
-}
-.desc-left {
-  background: transparent;
-  /* text-align: center; */
-  margin: 100px 50px 0 50px;
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 44px;
-  line-height: 70px;
-  color: #ffffff;
-  /* justify-content: center; */
-}
-.bg-auth {
-  width: 100%;
-  height: 620px;
-}
-.auth-right {
-  margin: 0 20px 30px 20px;
-}
-.title-auth {
-  font-weight: 600px;
-  font-size: 32px;
-  font-family: "Open Sans";
-  /* margin-bottom: -5px; */
-}
-.desc-auth {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  width: 570px;
-  height: 50px;
-  color: #46505c;
-  padding-right: 20px;
-  margin-bottom: -10px;
-}
-.label {
-  margin-bottom: 5px;
+
+.signinRecruiter--from label {
   font-size: 12px;
-  margin-top: 10px;
+  color: #9ea0a5;
 }
-input {
-  width: 100%;
-  font-size: 5px;
-  padding: 10px 20px;
-  background: white;
-  /* border: none; */
-  /* margin-bottom: 20px; */
-}
-input,
-input::placeholder {
-  font: 15px/3 sans-serif;
-}
-.ask {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  text-align: end;
-  color: #1f2a36;
-  margin-top: 15px;
-}
-.footer-auth {
-  text-align: center;
-  margin-top: 20px;
-}
-.footer-auth a {
+
+.singinRecruiter--forgot--password__style {
   text-decoration: none;
-  color: #fbb017;
+  color: black;
 }
+
+.signinRecruiter--button__style {
+  font-weight: 700 !important;
+}
+
+/* .signinRecruiter--page--first {
+  border: 1px solid black !important;
+  background-image: linear-gradient(
+      to right,
+      rgba(94, 80, 161, 0.8),
+      rgba(94, 80, 161, 0.8)
+    ),
+    url("../../assets/images/bannersign.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+} */
+
+.signinRecruiter--page__container div:last-child {
+  /* border: 1px solid black; */
+}
+
+.signinRecruiter--content__style {
+  font-weight: 700;
+  color: white;
+  font-size: 44px;
+  list-style: 70px;
+}
+
+.signinRecruiter--content__container {
+  height: 50%;
+  display: flex;
+  align-items: end;
+}
+
 @media (max-width: 575.98px) {
   /* * {
-    background: #e5e5e5;
+    background: #F6F7F8;
   } */
-  .col-left {
+
+  .signinRecruiter--page--first__container {
     display: none;
   }
-  .col-right {
-    width: 800px !important;
-    padding: 0;
-    /* margin-left: 40px !important; */
+
+  .signinRecruiter--page--second__container h1,
+  .signinRecruiter--page--second__container p {
+    display: none;
   }
-  .auth-right {
-    width: 100% !important;
-    margin: 0;
+
+  .signinRecruiter--page--second--form__container {
+    padding: 0 !important;
   }
-  .desc-auth {
-    padding-right: 140px !important;
-    font-size: 18px;
-    margin-bottom: 20px;
+
+  .signinRecruiter--title--login__show {
+    display: block !important;
   }
-  .title-auth {
-    font-weight: 200px;
-    font-size: 30px;
-    font-family: "Open Sans";
-    /* margin-bottom: -5px; */
+
+  .signinRecruiter--secondTitle--login__show {
+    display: block !important;
   }
-  .ask,
-  .footer-auth {
-    font-size: 12px;
+
+  .signinRecruiter--page__container {
+    display: flex !important;
+    justify-content: start !important;
+    align-items: start !important;
   }
 }
