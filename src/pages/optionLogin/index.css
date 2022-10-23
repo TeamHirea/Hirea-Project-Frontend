@@ -1,0 +1,16 @@
+.signinRecruiter--page--second--form__container .atau-ajah::before,
+.signinRecruiter--page--second--form__container .atau-ajah::after {
+  display: inline-block;
+  content: "";
+  border-top: 0.3rem solid rgb(92, 84, 84);
+  width: 12rem;
+  margin: 0 1rem;
+  color: white;
+  /* padding-bottom: 5rem; */
+  /* transform: translateY(0rem); */
+}
+
+.signinRecruiter--page--second--form__container .atau-ajah span {
+  background: #fff;
+  padding: 0 10px;
+}
