@@ -37,7 +37,6 @@ export default function SigninRecruiter() {
   //   e.preventDefault();
   //   setShowPassword(!showPassword);
   // };
-  const handleForgot = () => navigate("/reset/send");
 
   return (
     <div className="container-fluid signinRecruiter--container">
@@ -106,10 +105,7 @@ export default function SigninRecruiter() {
                       />
                     </div>
                     <div className="text-end py-3">
-                      <a
-                        onClick={handleForgot}
-                        className="singinRecruiter--forgot--password__style"
-                      >
+                      <a className="singinRecruiter--forgot--password__style">
                         Lupa kata sandi ?
                       </a>
                     </div>
