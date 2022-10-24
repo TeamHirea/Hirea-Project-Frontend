@@ -39,7 +39,6 @@ export default function SigninRecruiter() {
   //   e.preventDefault();
   //   setShowPassword(!showPassword);
   // };
-  const handleForgot = () => navigate("/reset/send");
 
   return (
     <div className="container-fluid signinRecruiter--container">
@@ -108,7 +107,6 @@ export default function SigninRecruiter() {
                       />
                     </div>
                     <div className="text-end py-3">
-
                       <div
                         className="singinRecruiter--forgot--password__style"
                         onClick={() => {
@@ -117,7 +115,6 @@ export default function SigninRecruiter() {
                       >
                         Lupa kata sandi ?
                       </div>
-
                     </div>
                     <button
                       type="submit"
@@ -138,9 +135,7 @@ export default function SigninRecruiter() {
                     </button>
                     <p className="py-4" style={{ textAlign: "center" }}>
                       Anda belum punya akun?{" "}
-
                       <div
-
                         style={{ textDecoration: "none", color: "#FBB017" }}
                         onClick={() => {
                           navigate("/signup/recruiter");
