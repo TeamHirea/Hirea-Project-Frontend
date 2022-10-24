@@ -24,6 +24,8 @@ import MyProfile from "./pages/MyProfile";
 import Chat from "./pages/Chat";
 import Inbox from "./pages/Chat/inbox";
 import EmailVerificationRecruiter from "./pages/EmailVerificationRecruiter";
+import OptionLogin from "./pages/optionLogin";
+import OptionRegister from "./pages/optionRegister";
 function App() {
   const Test = () => {
     return <h1>test</h1>;
@@ -57,14 +59,16 @@ function App() {
         <Route path="/reset/send" element={<ResetPassword />} />
         <Route path="/reset/send/success" element={<RequestResetPassword />} />
         <Route path="/reset/:otp" element={<SendResetPassword />} />
+        <Route path="/optionLogin" element={<OptionLogin />} />
+        <Route path="/optionRegister" element={<OptionRegister />} />
 
         {/* HALAMAN RECRUITER */}
         <Route path="/recruiter/profile" element={<CompanyProfile />} />
         <Route path="/recruiter/edit" element={<EditProfileRecruiter />} />
         <Route path="/recruiter/hire/:id" element={<Hire />} />
         <Route path="/jobseeker/:id" element={<ProfileJobseeker />} />
-        <Route path="/recruiter/chat" element={<Chat />} />
-        <Route path="/recruiter/inbox" element={<Inbox />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/inbox" element={<Inbox />} />
 
         {/* HALAMAN JOBSEEKER */}
         <Route path="/profile" element={<MyProfile />} />

@@ -12,8 +12,19 @@
   width: 1000px;
   background-color: #5e50a1;
 }
-.image {
-  position: relative;
+.company_image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.company_image {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  text-align: center;
+  top: 45px;
 }
 .text {
   display: flex;

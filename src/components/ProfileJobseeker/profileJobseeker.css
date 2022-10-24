@@ -4,14 +4,14 @@
   box-sizing: border-box;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Open Sans";
   src: url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
-}
+} */
 
 .profile-seeker {
   width: 30%;
-  background-color:white;
+  background-color: white;
   justify-content: center;
   margin: 5% 0 5% 5%;
   border-radius: 15px;
@@ -143,3 +143,4 @@
     padding: 2% 2%;
   }
 }
+

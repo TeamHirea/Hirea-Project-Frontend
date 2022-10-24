@@ -12,15 +12,18 @@ import bell__header from "../../assets/vectors/bell__header.png";
 import wave from "../../assets/images/wave.png";
 import noNotif from "../../assets/images/no_notification.png";
 import "./header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 
 function Header() {
-  const [isLoggedin] = useState(true);
+  const isLoggedin = localStorage.getItem("token");
   const [togglePopNotif, setTogglePopNotif] = useState(false);
   const [togglePopMsg, setTogglePopMsg] = useState(false);
   const [togglePopProfile, setTogglePopProfile] = useState(false);
   const [data] = useState([]);
+  const role = localStorage.getItem("role");
+
+  const navigate = useNavigate();
 
   const handleTogglePopNotif = (e) => {
     e.preventDefault();
@@ -52,10 +55,11 @@ function Header() {
   const handleLogOut = async (e) => {
     e.preventDefault();
     try {
-      return await axios.post("/api/auth/logout");
-    } catch (error) {
-      console.log(error);
-    }
+      await axios.post("/api/auth/logout");
+      localStorage.clear();
+      navigate("/");
+      // eslint-disable-next-line no-empty
+    } catch (error) {}
   };
 
   return (
@@ -112,10 +116,14 @@ function Header() {
                   style={{ marginLeft: "auto" }}
                 >
                   <li className="nav-item" onClick={handleTogglePopNotif}>
-                    <a href="">
+                    <div
+                      onClick={() => {
+                        navigate("/inbox");
+                      }}
+                    >
                       <img src={mail} className="header--icon--lggedin__size" />
-                    </a>
-                    {togglePopNotif && (
+                    </div>
+                    {/* {togglePopNotif && (
                       <div className="header--image--popup__size bg-white p-5">
                         {data.length ? (
                           <>
@@ -140,12 +148,12 @@ function Header() {
                           </>
                         )}
                       </div>
-                    )}
+                    )} */}
                   </li>
                   <li className="nav-item" onClick={handleToggleMessage}>
-                    <a href="">
+                    <div>
                       <img src={bell} className="header--icon--lggedin__size" />
-                    </a>
+                    </div>
                     {togglePopMsg && (
                       // <img />
                       <div className="header--image--popup__container">
@@ -177,18 +185,42 @@ function Header() {
                     )}
                   </li>
                   <li className="nav-item" onClick={handleTogglePopProfile}>
-                    <a>
+                    <div>
                       <img src={user} className="header--icon--lggedin__size" />
-                    </a>
+                    </div>
                     {togglePopProfile && (
-                      <ul
-                        className="bg-white header--toggle--profile__popup d-flex justify-content-start align-items-start gap-3 flex-column"
+                      <div
+                        className="bg-white header--toggle--profile__popup d-flex justify-content-start align-items-start flex-column"
                         style={{ border: "1px solid black" }}
                       >
-                        <li onClick={handleLogOut} className="pt-2">
-                          <button className="btn btn-danger">Log Out</button>
-                        </li>
-                      </ul>
+                        {/* <li  className="pt-2"> */}
+                        <div
+                          className="navbar--button"
+                          onClick={() => {
+                            if (role === "recruiter") {
+                              return navigate("/home");
+                            }
+                            navigate("/");
+                          }}
+                        >
+                          Home
+                        </div>
+                        <div
+                          className="navbar--button"
+                          onClick={() => {
+                            if (role === "recruiter") {
+                              return navigate("/recruiter/profile");
+                            }
+                            navigate("/profile");
+                          }}
+                        >
+                          Profile
+                        </div>
+                        <div className="navbar--button" onClick={handleLogOut}>
+                          Log Out
+                        </div>
+                        {/* </li> */}
+                      </div>
                     )}
                   </li>
                 </div>
@@ -219,12 +251,12 @@ function Header() {
         <nav className="container-fluid navbar navbar-expand-lg navbar-light fixed-top bg-white">
           <div className="container">
             <Link to={"/"}>
-              <a
+              <div
                 className="navbar-brand header--logo--image__size w-50"
                 href="#"
               >
                 <img src={logo} alt="" className="" style={{ width: "10%" }} />
-              </a>
+              </div>
             </Link>
             <button
               className="navbar-toggler"
@@ -242,8 +274,12 @@ function Header() {
                 className="navbar-nav d-flex gap-3 header--button--nav--notLogin__style"
                 style={{ marginLeft: "auto" }}
               >
-                <button className="btn mx-auto">Masuk</button>
-                <button className="btn mx-auto btn-danger">Daftar</button>
+                <Link to="/optionLogin">
+                  <button className="btn mx-auto">Masuk</button>
+                </Link>
+                <Link to="/optionRegister">
+                  <button className="btn mx-auto btn-danger">Daftar</button>
+                </Link>
               </div>
             </div>
           </div>

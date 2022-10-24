@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Profile from "./profile";
-import Personal from "./personal";
 // import Skill from "./skill";
 // import Experience from "./experience";
 // import Portfolio from "./portfolio";
@@ -10,17 +9,12 @@ import Personal from "./personal";
 import "./index.css";
 
 export default function ProfileJobseekerPortofolio() {
+  window.scrollTo(0, 0);
   return (
     <>
       <Header />
-      <main className="edit-profile_main">
+      <main className="my-profile_main">
         <Profile />
-        <div className="edit-profile_sections">
-          <Personal />
-          {/* <Skill />
-          <Experience />
-          <Portfolio /> */}
-        </div>
       </main>
       <Footer />
     </>

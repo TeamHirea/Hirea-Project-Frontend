@@ -11,8 +11,6 @@ function Jobseeker(props) {
     navigate(`/jobseeker/${props.data.id}`);
   };
 
-  const { data } = props;
-  console.log(data);
   return (
     <>
       <main className="jobseeker">
