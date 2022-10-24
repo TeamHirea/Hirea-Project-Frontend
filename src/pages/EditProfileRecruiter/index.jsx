@@ -16,7 +16,7 @@ import "./EditProfileRecruiter.css";
 
 function EditProfileRecruiter() {
   const dispatch = useDispatch();
-  const recruiterData = useSelector((state) => state.recruiter.data);
+  const recruiterData = useSelector((state) => state.user.data);
   const [form, setForm] = useState({});
   const [showToast, setShowToast] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +46,7 @@ function EditProfileRecruiter() {
           <div className="left-edit-col">
             <div className="left-edit">
               <div className="box">
-                <div className="img">
+                <div className="img-recruiter">
                   <img className="profile-img" src={profile} alt="profile" />
                   <div className="edit-img">
                     <img className="edit-icon" src={edit} alt="edit" />

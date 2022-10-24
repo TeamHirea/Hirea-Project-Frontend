@@ -99,14 +99,14 @@
   font-weight: 400;
   color: rgba(158, 160, 165, 1);
 }
-.button-skill {
+.button-skill-jobseeker {
   border: 1px solid rgba(251, 176, 23, 1);
   background-color: rgba(251, 176, 23, 1);
   border-radius: 5px;
   margin-right: 2%;
   padding: 1% 3%;
   font-family: "Open Sans", sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: rgba(255, 255, 255, 1);
 }
@@ -145,6 +145,10 @@
 }
 
 @media (max-width: 425px) {
+  .home {
+    background-color: #e5e5e5;
+    margin-top: 25%;
+  }
   .home-bar {
     padding: 5% 0;
   }

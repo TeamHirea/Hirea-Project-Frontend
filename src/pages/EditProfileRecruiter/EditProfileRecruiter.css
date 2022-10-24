@@ -8,7 +8,7 @@
 }
 .edit-profile-recruiter {
   width: 100%;
-  padding: 3% 10%;
+  padding: 10% 10%;
   background-color: #E5E5E5;
   display: flex;
   flex-direction: row;
@@ -31,7 +31,7 @@
   flex-direction: row;
   justify-content: center;
 }
-.img {
+.img-recruiter {
   display: flex;
   flex-direction: column;
   margin-bottom: 20%;
@@ -182,6 +182,7 @@
   .edit-profile-recruiter {
     display: flex;
     flex-direction: column;
+    padding: 35% 2% 0 2%;
   }
   .left-edit-col {
     width: 100%;
