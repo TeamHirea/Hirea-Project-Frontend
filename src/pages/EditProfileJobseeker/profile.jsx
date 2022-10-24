@@ -21,6 +21,8 @@ function profile() {
     dispatch(getProfileJobseeker(id));
   }, []);
 
+  console.log(userData);
+
   const formHandler = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -46,12 +48,13 @@ function profile() {
           <img
             src={
               userData.image
-                ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/Hirea%20App/${userData.image}`
+                ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/${userData.image}`
                 : require("../../assets/images/profile-empty.jpg")
             }
             alt="profile"
             className="profile_profile-image"
           />
+          <input type="file" />
           <div className="profile_edit-button">
             <img
               src={require("../../assets/images/edit.png")}

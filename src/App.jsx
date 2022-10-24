@@ -27,17 +27,13 @@ import EmailVerificationRecruiter from "./pages/EmailVerificationRecruiter";
 import OptionLogin from "./pages/optionLogin";
 import OptionRegister from "./pages/optionRegister";
 function App() {
-  const Test = () => {
-    return <h1>test</h1>;
-  };
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<PublicRoute />}>
-          <Route element={<Test />} path="/test" />
-        </Route>
+        <Route element={<PublicRoute />}></Route>
         <Route element={<RecruiterRoute />}></Route>
         <Route element={<JobseekerRoute />}></Route>
+        <Route path="/profile/edit" element={<EditProfileJobseeker />} />
 
         {/* MAIN PAGE */}
         <Route path="/home" element={<Home />} />
@@ -72,7 +68,6 @@ function App() {
 
         {/* HALAMAN JOBSEEKER */}
         <Route path="/profile" element={<MyProfile />} />
-        <Route path="/profile/edit" element={<EditProfileJobseeker />} />
       </Routes>
     </BrowserRouter>
   );
