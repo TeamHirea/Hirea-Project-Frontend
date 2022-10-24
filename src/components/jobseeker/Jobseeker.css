@@ -18,3 +18,15 @@
   height: 150px;
   width: 150px;
 }
+
+.skill-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 425px) {
+  .button-check-profile {
+    padding: 2% 5%;
+  }
+}

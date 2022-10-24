@@ -13,6 +13,7 @@ import "./ProfileJobseeker.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserJobseekerById } from "../../redux/action/user";
 import { getUserJobseekerExperienceById } from "../../redux/action/experience";
+import { getPortfolio } from "../../redux/action/portfolio";
 
 function ProfileJobseekerExperience() {
   const dispatch = useDispatch();
@@ -29,6 +30,10 @@ function ProfileJobseekerExperience() {
 
   useEffect(() => {
     dispatch(getUserJobseekerExperienceById(id));
+  }, []);
+
+  useEffect(() => {
+    dispatch(getPortfolio(id));
   }, []);
 
   const handleActivePage = (data) => {

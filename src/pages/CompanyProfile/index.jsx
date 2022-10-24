@@ -5,8 +5,10 @@ import "./index.css";
 import Footer from "../../components/Footer";
 import axios from "../../utils/axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CompanyProfile() {
+  const navigate = useNavigate();
   const id = localStorage.getItem("id");
   const [data, setData] = useState([]);
 
@@ -57,7 +59,14 @@ export default function CompanyProfile() {
             </p>
             <p>{data[0]?.about}</p>
             <div className="edit_profile">
-              <button className="btn_edit_profile">Edit Profile</button>
+              <button
+                className="btn_edit_profile"
+                onClick={() => {
+                  navigate(`/recruiter/edit`);
+                }}
+              >
+                Edit Profile
+              </button>
             </div>
             <div className="groupicon">
               <div className="email mt-3">

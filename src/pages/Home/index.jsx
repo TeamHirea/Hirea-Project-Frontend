@@ -5,14 +5,12 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 import Jobseeker from "../../components/jobseeker";
 import { getUserJobseeker } from "../../redux/action/user";
 
 function Home() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const user = useSelector((state) => state.user);
 
   // const [data, setData] = useState([]);
@@ -33,10 +31,6 @@ function Home() {
   //     console.error(error);
   //   }
   // };
-
-  const handleUserJobseeker = (id) => {
-    navigate(`/jobseeker/experience/${id}`);
-  };
 
   const handleSearchName = async () => {
     dispatch(getUserJobseeker(keyword));
@@ -110,10 +104,7 @@ function Home() {
                 {user.data.length > 0 ? (
                   user.data.map((item) => (
                     <div key={item.id}>
-                      <Jobseeker
-                        data={item}
-                        handleDetail={handleUserJobseeker}
-                      />
+                      <Jobseeker data={item} />
                     </div>
                   ))
                 ) : (

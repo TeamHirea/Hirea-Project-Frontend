@@ -73,7 +73,6 @@ export default function Experience(props) {
               </div>
             </main>
           )}
-          <hr />
         </div>
       </main>
     </>
