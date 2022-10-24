@@ -8,7 +8,7 @@ function Jobseeker(props) {
   const navigate = useNavigate();
 
   const handleDetail = () => {
-    navigate(`/jobseeker/experience/${props.data.id}`);
+    navigate(`/jobseeker/${props.data.id}`);
   };
 
   return (
