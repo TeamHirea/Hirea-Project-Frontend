@@ -5,38 +5,42 @@ import "./index.css";
 import Footer from "../../components/Footer";
 import axios from "../../utils/axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CompanyProfile() {
+  const navigate = useNavigate();
   const id = localStorage.getItem("id");
   const [data, setData] = useState([]);
 
   const getUserData = async () => {
     try {
       const result = await axios.get(`api/user/recruiter/${id}`);
-      console.log(result);
       setData(result.data.data);
       // setDefaultImage(response.data.data[0].image);
-    } catch (error) {
-      console.log(error);
-    }
+      // eslint-disable-next-line no-empty
+    } catch (error) {}
   };
   useEffect(() => {
     getUserData();
   }, []);
-  console.log(data);
   return (
     <div>
       <Header />
       <div className="cont1 container-fluid bg-light">
         <div className="card">
           <div className="upperborder"></div>
-          <div className="image">
-            <span>
-              <img
-                src={`https://res.cloudinary.com/dnkor5xbu/image/upload/v1666275882/${data[0]?.image}`}
-                alt=""
-              />
-            </span>
+          <div className="company_image-container">
+            <img
+              src={
+                data[0]
+                  ? data[0].image
+                    ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666275882/Hirea%20App/${data[0]?.image}`
+                    : require("../../assets/images/profile-empty.jpg")
+                  : require("../../assets/images/profile-empty.jpg")
+              }
+              alt=""
+              className="company_image"
+            />
           </div>
           <div className="text ">
             <h3>{data[0]?.company}</h3>
@@ -57,7 +61,14 @@ export default function CompanyProfile() {
             </p>
             <p>{data[0]?.about}</p>
             <div className="edit_profile">
-              <button className="btn_edit_profile">Edit Profile</button>
+              <button
+                className="btn_edit_profile"
+                onClick={() => {
+                  navigate(`/recruiter/edit`);
+                }}
+              >
+                Edit Profile
+              </button>
             </div>
             <div className="groupicon">
               <div className="email mt-3">

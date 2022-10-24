@@ -63,8 +63,8 @@ function App() {
         <Route path="/recruiter/edit" element={<EditProfileRecruiter />} />
         <Route path="/recruiter/hire/:id" element={<Hire />} />
         <Route path="/jobseeker/:id" element={<ProfileJobseeker />} />
-        <Route path="/recruiter/chat" element={<Chat />} />
-        <Route path="/recruiter/inbox" element={<Inbox />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/inbox" element={<Inbox />} />
 
         {/* HALAMAN JOBSEEKER */}
         <Route path="/profile" element={<MyProfile />} />

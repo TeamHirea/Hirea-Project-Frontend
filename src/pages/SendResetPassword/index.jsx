@@ -2,16 +2,14 @@
 import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 import { useParams } from "react-router-dom";
 
 export default function SignupRecruiter() {
-  // const navigate = useNavigate();
-  // console.log(navigate);
+  const navigate = useNavigate();
 
   const { otp } = useParams();
-  console.log(otp);
   const [form, setForm] = useState({
     newPassword: "",
     confirmPassword: "",
@@ -24,6 +22,7 @@ export default function SignupRecruiter() {
     try {
       const result = await axios.post(`/api/auth/resetPassword/${otp}`, form);
       alert(result.data.message);
+      navigate("/optionLogin");
     } catch (error) {
       alert(error.response.data.message);
     }

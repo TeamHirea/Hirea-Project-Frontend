@@ -183,7 +183,7 @@
 }
 @media only screen and (max-width: 600px) {
   .landing-section {
-    margin: 10px 10vw !important;
+    margin: 30% 10vw !important;
   }
   .landing_banner {
     height: 70vw !important;

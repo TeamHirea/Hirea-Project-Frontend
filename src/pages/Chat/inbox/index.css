@@ -4,6 +4,7 @@
   display: flex;
   background-color: #a9acac;
   justify-content: center;
+  padding: 10vh 10vw !important;
 }
 .text1 {
   margin-left: 10px;
