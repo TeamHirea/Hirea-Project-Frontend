@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/images/hirea white.png";
 import logoMobile from "../../assets/images/logo.png";
 import "./index.css";
@@ -37,6 +37,7 @@ export default function SigninRecruiter() {
   //   e.preventDefault();
   //   setShowPassword(!showPassword);
   // };
+  const handleForgot = () => navigate("/reset/send");
 
   return (
     <div className="container-fluid signinRecruiter--container">
@@ -105,9 +106,12 @@ export default function SigninRecruiter() {
                       />
                     </div>
                     <div className="text-end py-3">
-                      <Link className="singinRecruiter--forgot--password__style">
+                      <a
+                        onClick={handleForgot}
+                        className="singinRecruiter--forgot--password__style"
+                      >
                         Lupa kata sandi ?
-                      </Link>
+                      </a>
                     </div>
                     <button
                       type="submit"
@@ -128,11 +132,12 @@ export default function SigninRecruiter() {
                     </button>
                     <p className="py-4" style={{ textAlign: "center" }}>
                       Anda belum punya akun?{" "}
-                      <Link
+                      <a
+                        href="#"
                         style={{ textDecoration: "none", color: "#FBB017" }}
                       >
                         Daftar disini
-                      </Link>
+                      </a>
                     </p>
                   </form>
                 </div>
