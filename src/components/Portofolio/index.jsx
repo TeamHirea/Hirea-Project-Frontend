@@ -4,7 +4,8 @@ import portofolio from "../../assets/images/portofolio.png";
 
 import "./Portofolio.css";
 
-export default function Portofolio() {
+export default function Portofolio(props) {
+  const { handleActivePage } = props;
   return (
     <>
       <main className="portofolio">
@@ -16,9 +17,14 @@ export default function Portofolio() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <div
+                className="nav-link"
+                onClick={() => {
+                  handleActivePage("experience");
+                }}
+              >
                 Pengalaman Kerja
-              </a>
+              </div>
             </li>
           </ul>
           <div className="portofolio-description">

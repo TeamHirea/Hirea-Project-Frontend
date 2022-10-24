@@ -25,6 +25,8 @@ export default function SigninRecruiter() {
       const result = await axios.post("/api/auth/signin/recruiter", form);
       localStorage.setItem("id", result.data.data.userId);
       localStorage.setItem("token", result.data.data.token);
+      localStorage.setItem("refreshtoken", result.data.data.refreshToken);
+      localStorage.setItem("role", "recruiter");
       alert(result.data.message);
       setLoading(false);
       navigate("/");
@@ -106,12 +108,16 @@ export default function SigninRecruiter() {
                       />
                     </div>
                     <div className="text-end py-3">
-                      <a
-                        onClick={handleForgot}
+
+                      <div
                         className="singinRecruiter--forgot--password__style"
+                        onClick={() => {
+                          navigate("/reset/send");
+                        }}
                       >
                         Lupa kata sandi ?
-                      </a>
+                      </div>
+
                     </div>
                     <button
                       type="submit"
@@ -132,12 +138,16 @@ export default function SigninRecruiter() {
                     </button>
                     <p className="py-4" style={{ textAlign: "center" }}>
                       Anda belum punya akun?{" "}
-                      <a
-                        href="#"
+
+                      <div
+
                         style={{ textDecoration: "none", color: "#FBB017" }}
+                        onClick={() => {
+                          navigate("/signup/recruiter");
+                        }}
                       >
                         Daftar disini
-                      </a>
+                      </div>
                     </p>
                   </form>
                 </div>

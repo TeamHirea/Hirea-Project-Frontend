@@ -10,6 +10,7 @@ import Portfolio from "./portfolio";
 import "./index.css";
 
 export default function ProfileJobseekerPortofolio() {
+  window.scrollTo(0, 0);
   return (
     <>
       <Header />

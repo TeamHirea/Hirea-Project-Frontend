@@ -18,15 +18,11 @@ function Home() {
   // const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [pagination] = useState({});
-  const [searchName, setSearchName] = useState("");
   const [keyword, setKeyword] = useState("");
-  console.log(searchName);
+
   useEffect(() => {
-    dispatch(getUserJobseeker());
+    dispatch(getUserJobseeker(keyword));
   }, []);
-  useEffect(() => {
-    dispatch(getUserJobseeker(searchName));
-  }, [searchName]);
   // const getDataUserJobseeker = async () => {
   //   try {
   //     const result = await axios.get(`api/user`);
@@ -41,9 +37,9 @@ function Home() {
   const handleUserJobseeker = (id) => {
     navigate(`/jobseeker/experience/${id}`);
   };
+
   const handleSearchName = async () => {
-    setSearchName(keyword);
-    console.log(keyword);
+    dispatch(getUserJobseeker(keyword));
   };
 
   const handlePrevPage = () => {
@@ -70,7 +66,9 @@ function Home() {
                     className="form-control"
                     type="text"
                     placeholder="Search"
-                    onChange={(e) => setKeyword(e.target.value)}
+                    onChange={(e) => {
+                      setKeyword(e.target.value);
+                    }}
                   />
                   <a
                     className="dropdown-searchbar nav-link dropdown-toggle"

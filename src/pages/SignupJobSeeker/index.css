@@ -84,7 +84,7 @@ input::placeholder {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  text-align: end;
+  text-align: right;
   color: #1f2a36;
   margin-top: 15px;
 }

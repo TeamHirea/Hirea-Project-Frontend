@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 import logoMobile from "../../assets/images/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 
 export default function SigninJobSeeker() {
@@ -12,7 +12,6 @@ export default function SigninJobSeeker() {
     email: "",
     password: "",
   });
-  // console.log(form);
   const [loading, setLoading] = useState(false);
 
   const handleChangeForm = (e) => {
@@ -25,6 +24,8 @@ export default function SigninJobSeeker() {
       const result = await axios.post("/api/auth/signin/jobseeker", form);
       localStorage.setItem("id", result.data.data.userId);
       localStorage.setItem("token", result.data.data.token);
+      localStorage.setItem("refreshtoken", result.data.data.refreshToken);
+      localStorage.setItem("role", "jobseeker");
       // localStorage.setItem("refreshToken", result.data.data.refreshToken);
       alert(result.data.message);
       setLoading(false);
@@ -84,7 +85,6 @@ export default function SigninJobSeeker() {
                         name="email"
                         value={form.email}
                         className="form-control"
-                        id="exampleInputEmail1"
                         aria-describedby="emailHelp"
                         placeholder="Masukkan alamat email"
                       />
@@ -102,9 +102,14 @@ export default function SigninJobSeeker() {
                       />
                     </div>
                     <div className="text-end py-3">
-                      <Link className="singinRecruiter--forgot--password__style">
+                      <div
+                        onClick={() => {
+                          navigate("/reset/send");
+                        }}
+                        className="singinRecruiter--forgot--password__style"
+                      >
                         Lupa kata sandi ?
-                      </Link>
+                      </div>
                     </div>
                     <button
                       type="submit"
@@ -123,14 +128,17 @@ export default function SigninJobSeeker() {
                         "Masuk"
                       )}
                     </button>
-                    <p className="py-4" style={{ textAlign: "center" }}>
+                    <div className="py-4" style={{ textAlign: "center" }}>
                       Anda belum punya akun?{" "}
-                      <Link
+                      <div
                         style={{ textDecoration: "none", color: "#FBB017" }}
+                        onClick={() => {
+                          navigate("/signup/jobseeker");
+                        }}
                       >
                         Daftar disini
-                      </Link>
-                    </p>
+                      </div>
+                    </div>
                   </form>
                 </div>
               </div>

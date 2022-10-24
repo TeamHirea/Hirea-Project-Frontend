@@ -7503,7 +7503,7 @@ node_modules/caniuse-lite/data/features/css-caret-color.js
 node_modules/caniuse-lite/data/features/css-cascade-layers.js
 node_modules/caniuse-lite/data/features/css-case-insensitive.js
 node_modules/caniuse-lite/data/features/css-clip-path.js
-node_modules/caniuse-lite/data/features/css-color-adjust.js
+node_modules/caniuse-lite/data/features/css-print-color-adjust.js
 node_modules/caniuse-lite/data/features/css-color-function.js
 node_modules/caniuse-lite/data/features/css-conic-gradients.js
 node_modules/caniuse-lite/data/features/css-container-queries.js
