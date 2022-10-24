@@ -10,11 +10,11 @@ export const updateProfileJobseeker = (form, id) => ({
   payload: axios.patch(`/api/user/jobseeker/${id}`, form),
 });
 
-export const getUserJobseeker = (searchName) => {
+export const getUserJobseeker = (keyword) => {
   return {
     type: "GET_DATA_USER_JOBSEEKER",
     payload: axios.get(
-      `api/user/?page=1&limit=4&column=skill&order=true&search=${searchName}`
+      `api/user/?page=1&limit=4&column=skill&order=true&search=${keyword}`
     ),
   };
 };
