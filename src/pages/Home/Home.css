@@ -4,10 +4,11 @@
   box-sizing: border-box;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Open Sans";
   src: url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
-}
+} */
+
 .container-fluid {
   padding: 0 !important;
   margin: 0 !important;
@@ -145,7 +146,7 @@
 
 @media (max-width: 425px) {
   .home-bar {
-    padding: 5% 0 ;
+    padding: 5% 0;
   }
   .main-section {
     padding: 3% 0;

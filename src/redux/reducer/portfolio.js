@@ -5,14 +5,14 @@ const initialState = {
   errorMessage: "",
 };
 
-const experienceReducer = (state = initialState, action) => {
+const portfolioReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_EXPERIENCE_PENDING":
+    case "GET_PORTFOLIO_PENDING":
       return {
         ...state,
         isLoading: true,
       };
-    case "GET_EXPERIENCE_FULFILLED":
+    case "GET_PORTFOLIO_FULFILLED":
       return {
         ...state,
         data: action.payload.data.data,
@@ -20,7 +20,7 @@ const experienceReducer = (state = initialState, action) => {
         isError: false,
         errorMessage: "",
       };
-    case "GET_EXPERIENCE_REJECTED":
+    case "GET_PORTFOLIO_REJECTED":
       return {
         ...state,
         isLoading: false,
@@ -28,77 +28,62 @@ const experienceReducer = (state = initialState, action) => {
         errorMessage: action.payload.response.data.message,
         data: [],
       };
-    case "ADD_EXPERIENCE_PENDING":
+    case "ADD_PORTFOLIO_PENDING":
       return {
         ...state,
         isLoading: true,
       };
-    case "ADD_EXPERIENCE_FULFILLED":
+    case "ADD_PORTFOLIO_FULFILLED":
       return {
         ...state,
         isLoading: false,
         isError: false,
         errorMessage: "",
       };
-    case "ADD_EXPERIENCE_REJECTED":
+    case "ADD_PORTFOLIO_REJECTED":
       return {
         ...state,
         isLoading: false,
         isError: true,
         errorMessage: action.payload.response.data.message,
       };
-    case "UPDATE_EXPERIENCE_PENDING":
+    case "UPDATE_PORTFOLIO_PENDING":
       return {
         ...state,
         isLoading: true,
       };
-    case "UPDATE_EXPERIENCE_FULFILLED":
+    case "UPDATE_PORTFOLIO_FULFILLED":
       return {
         ...state,
         isLoading: false,
         isError: false,
         errorMessage: "",
       };
-    case "UPDATE_EXPERIENCE_REJECTED":
+    case "UPDATE_PORTFOLIO_REJECTED":
       return {
         ...state,
         isLoading: false,
         isError: true,
         errorMessage: action.payload.response.data.message,
       };
-    case "DELETE_EXPERIENCE_PENDING":
+    case "DELETE_PORTFOLIO_PENDING":
       return {
         ...state,
         isLoading: true,
       };
-    case "DELETE_EXPERIENCE_FULFILLED":
+    case "DELETE_PORTFOLIO_FULFILLED":
       return {
         ...state,
         isLoading: false,
         isError: false,
         errorMessage: "",
       };
-    case "DELETE_EXPERIENCE_REJECTED":
+    case "DELETE_PORTFOLIO_REJECTED":
       return {
         ...state,
         isLoading: false,
         isError: true,
         errorMessage: action.payload.response.data.message,
-      };
-    case "GET_DATA_USER_JOBSEEKER_EXPERIENCE_ID_PENDING":
-      return {
-        ...state,
-        data: [],
-      };
-    case "GET_DATA_USER_JOBSEEKER_EXPERIENCE_ID_FULFILLED":
-      return {
-        ...state,
-        data: action.payload.data.data,
-      };
-    case "GET_DATA_USER_JOBSEEKER_EXPERIENCE_ID_REJECTED":
-      return {
-        ...state,
-        data: [],
       };
     default: {
       return state;
@@ -106,4 +91,4 @@ const experienceReducer = (state = initialState, action) => {
   }
 };
 
-export default experienceReducer;
+export default portfolioReducer;

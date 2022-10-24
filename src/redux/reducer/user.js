@@ -47,6 +47,25 @@ const userReducer = (state = initialState, action) => {
         isError: true,
         errorMessage: action.payload.data.message,
       };
+    case "UPDATE_PASSWORD_JOBSEEKER_PENDING":
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case "UPDATE_PASSWORD_JOBSEEKER_FULFILLED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        errorMessage: "",
+      };
+    case "UPDATE_PASSWORD_JOBSEEKER_REJECTED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errorMessage: action.payload.response.data.message,
+      };
     case "GET_DATA_USER_JOBSEEKER_PENDING":
       return {
         ...state,

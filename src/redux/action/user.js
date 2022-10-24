@@ -4,6 +4,7 @@ export const getProfileJobseeker = (id) => ({
   type: "GET_PROFILE_JOBSEEKER",
   payload: axios.get(`/api/user/${id}`),
 });
+
 export const updateProfileJobseeker = (form, id) => ({
   type: "UPDATE_PROFILE_JOBSEEKER",
   payload: axios.patch(`/api/user/jobseeker/${id}`, form),
@@ -31,7 +32,13 @@ export const getUserRecruiterById = (id) => {
     payload: axios.get(`/api/user/recruiter/${id}`),
   };
 };
+
 export const updateProfileRecruiter = (form, id) => ({
   type: "UPDATE_PROFILE_JOBSEEKER",
   payload: axios.patch(`/api/user/recruiter/${id}`, form),
+});
+
+export const updatePasswordJobseeker = (form, id) => ({
+  type: "UPDATE_PASSWORD_JOBSEEKER",
+  payload: axios.patch(`/api/user/jobseeker/updatePassword/${id}`, form),
 });

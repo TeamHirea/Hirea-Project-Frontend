@@ -11,12 +11,10 @@ import "./index.css";
 export default function Hire() {
   const { id } = useParams();
   const user = useSelector((state) => state.user.data);
-  console.log(user);
   const [form, setForm] = useState({
     subject: "",
     message: "",
   });
-  console.log(id);
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -28,15 +26,13 @@ export default function Hire() {
   };
   const handleSendHire = async () => {
     try {
-      console.log(data);
       const result = await axios.post("/api/message", data);
       // dispatch(signupRecruiter(form));
       alert(result.data.message);
 
       // navigate("/signin");
-    } catch (error) {
-      console.error(error);
-    }
+      // eslint-disable-next-line no-empty
+    } catch (error) {}
   };
   return (
     <div>
@@ -56,7 +52,7 @@ export default function Hire() {
                 className="img-profile-jobseeker rounded-circle"
                 src={
                   user.image
-                    ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/${user.image}`
+                    ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/Hirea%20App/${user.image}`
                     : require("../../assets/images/profile-empty.jpg")
                 }
                 alt="profile image"
@@ -98,9 +94,8 @@ export default function Hire() {
             <div className="hire-form mt-5">
               <p className="hire-title">Hubungi {user.name}</p>
               <p className="hire-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Incidunt distinctio velit voluptates sapiente expedita.
-                Asperiores!
+                Silahkan cantumkan email atau kontak lainnya yang dapat
+                dihubungi oleh {user.name}
               </p>
               <label className="hire-input"> Tujuan Tentang Pesan Ini</label>
               <select

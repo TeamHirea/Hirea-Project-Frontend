@@ -101,6 +101,10 @@
   align-items: center;
   width: 25vw;
   padding: 20px;
+  cursor: pointer;
+}
+.profile_purple-button:active {
+  background: #423583;
 }
 .profile_white-button {
   font-family: "Open Sans", sans-serif;
@@ -117,6 +121,43 @@
   align-items: center;
   width: 25vw;
   padding: 20px;
+  cursor: pointer;
+}
+.profile_white-button:active {
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.password_input-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.password_input-label {
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+.password_input {
+  background: #ffffff;
+  border: 1px solid #e2e5ed;
+  border-radius: 4px;
+}
+.password_input:focus {
+  outline: none;
+}
+.password_input::placeholder {
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9ea0a5;
 }
 
 .personal_personal {
@@ -410,6 +451,44 @@
   width: 90px;
   cursor: pointer;
 }
+.experience_item-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  margin: 10px 20px;
+  border-bottom: 1px solid #e2e5ed;
+  justify-content: space-between;
+  align-items: center;
+}
+.experience_item-job {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 27px;
+  color: #1f2a36;
+}
+.experience_item-company {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 25px;
+  color: #46505c;
+}
+.experience_item-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 25px;
+  color: #5e50a1;
+  cursor: pointer;
+}
+.experience_item-button:active {
+  color: #000000;
+}
+
 .portfolio_personal {
   background: #ffffff;
   border-radius: 8px;
@@ -488,6 +567,46 @@
 }
 .portfolio_save-button:active {
   background: #f1eada;
+}
+.portfolio_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px 20px;
+  border-bottom: 1px solid #e2e5ed;
+}
+.portfolio_item-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.portfolio_item-title {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1f2a36;
+  text-align: center;
+}
+.portfolio_item-image {
+  height: 120px;
+  width: 175px;
+  object-fit: cover;
+}
+.portfolio_item-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 25px;
+  color: #5e50a1;
+  cursor: pointer;
+}
+.portfolio_item-button:active {
+  color: #000000;
 }
 
 @media only screen and (max-width: 768px) {
