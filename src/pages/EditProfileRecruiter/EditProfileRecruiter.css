@@ -6,10 +6,13 @@
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
+.toast-container {
+  z-index: 1000;
+}
 .edit-profile-recruiter {
   width: 100%;
   padding: 10% 10%;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   display: flex;
   flex-direction: row;
 }
@@ -102,7 +105,7 @@
 }
 .save-button {
   background: rgba(94, 80, 161, 1);
-  padding: 2% ;
+  padding: 2%;
   font-family: "Open Sans";
   font-size: 16px;
   font-weight: 700;
@@ -189,6 +192,6 @@
   }
   .right-edit {
     width: 100%;
-    margin-top: 5%
+    margin-top: 5%;
   }
 }
