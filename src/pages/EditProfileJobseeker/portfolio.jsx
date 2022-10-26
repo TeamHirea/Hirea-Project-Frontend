@@ -317,7 +317,10 @@ function personal() {
           </button>
         </div>
       </Modal>
-      <ToastContainer position="top-center" className="p-3 position-fixed">
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
         <Toast
           show={showToast}
           onClose={() => {
@@ -331,7 +334,10 @@ function personal() {
           <Toast.Body>Your portfolio has been updated</Toast.Body>
         </Toast>
       </ToastContainer>
-      <ToastContainer position="top-center" className="p-3 position-fixed">
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
         <Toast
           show={showErrorToast}
           onClose={() => {
