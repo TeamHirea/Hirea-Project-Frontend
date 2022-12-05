@@ -170,7 +170,10 @@ function profile() {
           </button>
         </div>
       </Modal>
-      <ToastContainer position="top-center" className="p-3 position-fixed">
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
         <Toast
           show={showToast}
           onClose={() => {
@@ -184,7 +187,10 @@ function profile() {
           <Toast.Body>Your password has been updated</Toast.Body>
         </Toast>
       </ToastContainer>
-      <ToastContainer position="top-center" className="p-3 position-fixed">
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
         <Toast
           show={showErrorToast}
           onClose={() => {

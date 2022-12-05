@@ -1,3 +1,7 @@
+.toast-container {
+  z-index: 1070;
+}
+
 .edit-profile_main {
   background-color: #e5e5e5;
   padding: 10vh 10vw;

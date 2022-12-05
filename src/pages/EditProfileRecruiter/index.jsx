@@ -84,7 +84,7 @@ function EditProfileRecruiter() {
               )}
               <ToastContainer
                 position="top-center"
-                className="p-3 position-fixed"
+                className="p-3 position-fixed toast-container"
               >
                 <Toast
                   show={showToast}

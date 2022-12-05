@@ -12,9 +12,11 @@ export default function EmailVerificationRecruiter() {
   const [valid, setValid] = useState([]);
 
   const verified = () => {
-    axios.get(`http://localhost:8080/api/auth/verify/${token}`).then((res) => {
-      setValid([res.data.data]);
-    });
+    axios
+      .get(`http://hirea.vercel.app/api/auth/verify/${token}`)
+      .then((res) => {
+        setValid([res.data.data]);
+      });
   };
   useEffect(() => {
     if (!verified()) {

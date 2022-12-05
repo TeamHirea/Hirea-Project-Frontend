@@ -12,7 +12,7 @@ export default function EmailActivation() {
   const [valid, setValid] = useState([]);
   const verified = () => {
     axios
-      .get(`http://localhost:8080/api/auth/verifyJobseeker/${token}`)
+      .get(`http://hirea.vercel.app/api/auth/verifyJobseeker/${token}`)
       .then((res) => {
         setValid([res.data.data]);
       });

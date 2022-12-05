@@ -30,14 +30,50 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<PublicRoute />}></Route>
-        <Route element={<RecruiterRoute />}></Route>
-        <Route element={<JobseekerRoute />}></Route>
-        <Route path="/profile/edit" element={<EditProfileJobseeker />} />
+        <Route element={<PublicRoute />}>
+          {/* AUTH */}
+          <Route path="/signup/jobseeker" element={<SignupJobSeeker />} />
+          <Route path="/signup/recruiter" element={<SignupRecruiter />} />
+          <Route
+            path="/jobseeker/activated/:token"
+            element={<EmailActivation />}
+          />
+          <Route
+            path="/recruiter/activated/:token"
+            element={<EmailVerificationRecruiter />}
+          />
+          <Route path="/signin/recruiter" element={<SigninRecruiter />} />
+          <Route path="/signin/jobseeker" element={<SigninJobSeeker />} />
+          <Route path="/reset/send" element={<ResetPassword />} />
+          <Route
+            path="/reset/send/success"
+            element={<RequestResetPassword />}
+          />
+          <Route path="/reset/:otp" element={<SendResetPassword />} />
+          <Route path="/optionLogin" element={<OptionLogin />} />
+          <Route path="/optionRegister" element={<OptionRegister />} />
+        </Route>
+
+        <Route element={<RecruiterRoute />}>
+          {/* HALAMAN RECRUITER */}
+          <Route path="/recruiter/profile" element={<CompanyProfile />} />
+          <Route path="/recruiter/edit" element={<EditProfileRecruiter />} />
+          <Route path="/recruiter/hire/:id" element={<Hire />} />
+          <Route path="/jobseeker/:id" element={<ProfileJobseeker />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/inbox" element={<Inbox />} />
+        </Route>
+
+        <Route element={<JobseekerRoute />}>
+          {/* HALAMAN JOBSEEKER */}
+          <Route path="/profile" element={<MyProfile />} />
+          <Route path="/profile/edit" element={<EditProfileJobseeker />} />
+        </Route>
 
         {/* MAIN PAGE */}
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Landing />} />
+<<<<<<< HEAD
 
         {/* AUTH */}
         <Route path="/signup/jobseeker" element={<SignupJobSeeker />} />
@@ -68,6 +104,9 @@ function App() {
 
         {/* HALAMAN JOBSEEKER */}
         <Route path="/profile" element={<MyProfile />} />
+=======
+        <Route element={<Test />} path="/test" />
+>>>>>>> 85728cd0d08f26c48fdd135e7ddc36a5b649cbfc
       </Routes>
     </BrowserRouter>
   );
