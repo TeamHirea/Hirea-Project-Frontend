@@ -31,7 +31,8 @@
 .img-profile-jobseeker {
   width: 150px;
   height: 150px;
-  margin-right: 3%
+  margin-right: 3%;
+  object-fit: cover;
 }
 .card-name {
   font-family: "Open Sans";
@@ -143,4 +144,3 @@
     padding: 2% 2%;
   }
 }
-
