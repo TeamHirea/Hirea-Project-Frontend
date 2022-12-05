@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import PublicRoute from "./utils/routes/RecruiterRoute.js";
-import RecruiterRoute from "./utils/routes/RecruiterRoute";
+// import RecruiterRoute from "./utils/routes/RecruiterRoute";
 import JobseekerRoute from "./utils/routes/JobseekerRoute";
 import SignupJobSeeker from "./pages/SignupJobSeeker";
 import Landing from "./pages/Landing";
@@ -27,9 +27,6 @@ import EmailVerificationRecruiter from "./pages/EmailVerificationRecruiter";
 import OptionLogin from "./pages/optionLogin";
 import OptionRegister from "./pages/optionRegister";
 function App() {
-  const Test = () => {
-    return <h1>test</h1>;
-  };
   return (
     <BrowserRouter>
       <Routes>
@@ -57,15 +54,15 @@ function App() {
           <Route path="/optionRegister" element={<OptionRegister />} />
         </Route>
 
-        <Route element={<RecruiterRoute />}>
-          {/* HALAMAN RECRUITER */}
-          <Route path="/recruiter/profile" element={<CompanyProfile />} />
-          <Route path="/recruiter/edit" element={<EditProfileRecruiter />} />
-          <Route path="/recruiter/hire/:id" element={<Hire />} />
-          <Route path="/jobseeker/:id" element={<ProfileJobseeker />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/inbox" element={<Inbox />} />
-        </Route>
+        {/* <Route element={<RecruiterRoute />}> */}
+        {/* HALAMAN RECRUITER */}
+        <Route path="/recruiter/profile" element={<CompanyProfile />} />
+        <Route path="/recruiter/edit" element={<EditProfileRecruiter />} />
+        <Route path="/recruiter/hire/:id" element={<Hire />} />
+        <Route path="/jobseeker/:id" element={<ProfileJobseeker />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/inbox" element={<Inbox />} />
+        {/* </Route> */}
 
         <Route element={<JobseekerRoute />}>
           {/* HALAMAN JOBSEEKER */}
@@ -76,7 +73,7 @@ function App() {
         {/* MAIN PAGE */}
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Landing />} />
-        <Route element={<Test />} path="/test" />
+        {/* <Route element={<Test />} path="/test" /> */}
       </Routes>
     </BrowserRouter>
   );

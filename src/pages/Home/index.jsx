@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 
 import Jobseeker from "../../components/jobseeker";
-import { getUserJobseeker } from "../../redux/action/user";
+import { getAllJobseeker, getUserJobseeker } from "../../redux/action/user";
 
 function Home() {
   const dispatch = useDispatch();
@@ -19,7 +19,8 @@ function Home() {
   const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
-    dispatch(getUserJobseeker(keyword));
+    // dispatch(getUserJobseeker(keyword));
+    dispatch(getAllJobseeker());
   }, []);
   // const getDataUserJobseeker = async () => {
   //   try {
@@ -43,6 +44,8 @@ function Home() {
   const handleNextPage = () => {
     setPage(page + 1);
   };
+
+  console.log(user.data);
 
   return (
     <>
@@ -118,6 +121,43 @@ function Home() {
               <button className="btn btn-primary" onClick={handlePrevPage}>
                 &lt;
               </button>
+              <div style={{ width: "200px" }}>
+                <ul
+                  className="d-flex gap-2 align-items-center h-100"
+                  style={{ listStyle: "none" }}
+                >
+                  {(() => {
+                    let td = [];
+                    for (let i = 1; i <= user.pagination.totalPage; i++) {
+                      td.push(
+                        <li
+                          className="w-100 text-center"
+                          style={{
+                            border: "1px solid #E2E5ED",
+                            width: "25px",
+                            height: "50px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: 5,
+                            cursor: "pointer",
+                            color: `${
+                              user.pagination.page === i ? "white" : "#9EA0A5"
+                            }`,
+                            background: `${
+                              user.pagination.page === i ? "#5E50A1" : "white"
+                            }`,
+                          }}
+                          key={i}
+                        >
+                          {i}
+                        </li>
+                      );
+                    }
+                    return td;
+                  })()}
+                </ul>
+              </div>
               <button
                 className="btn btn-primary"
                 onClick={handleNextPage}

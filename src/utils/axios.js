@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosApiIntances = axios.create({
-  baseURL: "https://hirea.vercel.app",
+  baseURL: "http://localhost:8080",
 });
 
 axiosApiIntances.interceptors.request.use(
@@ -22,6 +22,7 @@ axiosApiIntances.interceptors.response.use(
     return response;
   },
   function (error) {
+    console.log(error);
     if (error.response.status === 403) {
       if (
         error.response.data.message ===

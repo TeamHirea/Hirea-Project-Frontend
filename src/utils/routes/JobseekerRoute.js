@@ -6,7 +6,9 @@ export default function PrivateRoute() {
   const location = useLocation();
 
   if (!isAuthenticated) {
-    return <Navigate to="/signin" state={{ from: location }} replace />;
+    return (
+      <Navigate to="/signin/jobseeker" state={{ from: location }} replace />
+    );
   }
   if (isAuthenticated && role !== "jobseeker") {
     return <Navigate to="/" state={{ from: location }} replace />;
