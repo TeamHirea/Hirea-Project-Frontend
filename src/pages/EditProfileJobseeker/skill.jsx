@@ -34,10 +34,12 @@ function personal() {
         const form = { skill: updatedSkill };
         await dispatch(updateSkill(id, form));
         await dispatch(getSkill(id));
-        setNewSkill(null);
+        setNewSkill("");
         setIsLoading(false);
       }
+      setNewSkill("");
     }
+    setNewSkill("");
   };
 
   return (
