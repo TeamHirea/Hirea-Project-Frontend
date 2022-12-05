@@ -5,7 +5,9 @@ import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 // import logoMobile from "../../assets/images/logo.png";
 
+import { useNavigate } from "react-router-dom";
 const OptionLogin = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -16,7 +18,14 @@ const OptionLogin = () => {
           <div className="container">
             <div className="row p-4 signinRecruiter--page__container">
               <div className="col-lg-6 signinRecruiter--page--first__container">
-                <img src={logo} style={{ width: "15%" }} className="" alt="" />
+                <img
+                  src={logo}
+                  style={{ width: "15%", cursor: "pointer" }}
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                  alt=""
+                />
                 <div className="signinRecruiter--content__container">
                   <p className="signinRecruiter--content__style px-4">
                     Temukan developer berbakat & terbaik di berbagai bidang

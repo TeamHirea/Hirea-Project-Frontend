@@ -78,7 +78,14 @@
 /* .signinRecruiter--page__container div:last-child { */
 /* border: 1px solid black; */
 /* } */
+.singinRecruiter--forgot--password__style {
+  cursor: pointer;
 
+  justify-content: right;
+  text-align: right;
+
+  margin-left: 350px;
+}
 .signinRecruiter--content__style {
   font-weight: 700;
   color: white;

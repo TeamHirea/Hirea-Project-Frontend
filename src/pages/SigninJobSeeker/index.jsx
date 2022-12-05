@@ -4,9 +4,12 @@ import "./index.css";
 import logoMobile from "../../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
+import { useDispatch } from "react-redux";
+import { getUserJobseekerById } from "../../redux/action/user";
 
 export default function SigninJobSeeker() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [form, setForm] = useState({
     email: "",
@@ -29,9 +32,10 @@ export default function SigninJobSeeker() {
       // localStorage.setItem("refreshToken", result.data.data.refreshToken);
       alert(result.data.message);
       setLoading(false);
+      dispatch(getUserJobseekerById(localStorage.getItem("id")));
       navigate("/");
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error.response);
       setLoading(false);
     }
   };
@@ -43,7 +47,14 @@ export default function SigninJobSeeker() {
           <div className="container">
             <div className="row p-4 signinRecruiter--page__container">
               <div className="col-lg-6 signinRecruiter--page--first__container">
-                <img src={logo} style={{ width: "15%" }} className="" alt="" />
+                <img
+                  src={logo}
+                  style={{ width: "15%", cursor: "pointer" }}
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                  alt=""
+                />
                 <div className="signinRecruiter--content__container">
                   <p className="signinRecruiter--content__style px-4">
                     Temukan developer berbakat & terbaik di berbagai bidang
@@ -55,9 +66,12 @@ export default function SigninJobSeeker() {
                 <div className="signinRecruiter--page--second__container ">
                   <img
                     src={logoMobile}
-                    style={{ width: "25%" }}
+                    style={{ width: "25%", cursor: "pointer" }}
                     className="d-lg-none d-md-none d-sm-none"
                     alt=""
+                    onClick={() => {
+                      navigate("/");
+                    }}
                   />
 
                   <h1 style={{ fontWeight: "600", color: "#1F2A36" }}>
@@ -108,6 +122,7 @@ export default function SigninJobSeeker() {
                         }}
                         className="singinRecruiter--forgot--password__style"
                       >
+                        {" "}
                         Lupa kata sandi ?
                       </div>
                     </div>
@@ -128,10 +143,14 @@ export default function SigninJobSeeker() {
                         "Masuk"
                       )}
                     </button>
-                    <div className="py-4" style={{ textAlign: "center" }}>
+                    <div className="py-4 d-flex">
                       Anda belum punya akun?{" "}
                       <div
-                        style={{ textDecoration: "none", color: "#FBB017" }}
+                        style={{
+                          textDecoration: "none",
+                          color: "#FBB017",
+                          cursor: "pointer",
+                        }}
                         onClick={() => {
                           navigate("/signup/jobseeker");
                         }}
