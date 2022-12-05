@@ -69,7 +69,7 @@ const userReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         isError: true,
-        errorMessage: action.payload.data.message,
+        errorMessage: action.payload.data,
       };
     case "UPDATE_PASSWORD_JOBSEEKER_PENDING":
       return {

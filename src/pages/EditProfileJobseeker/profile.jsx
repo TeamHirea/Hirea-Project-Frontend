@@ -65,15 +65,15 @@ function profile() {
       formData.append(data, formUpdate[data]);
     }
 
-    dispatch(updateProfileJobseeker(formData, localStorage.getItem("id"))).then(
-      () => {
+    dispatch(updateProfileJobseeker(formData, localStorage.getItem("id")))
+      .then(() => {
         // resetFormUpdate();
         // setTimeout(() => {
         dispatch({ type: "RESET_MESSAGE" });
         dispatch(getProfileJobseeker(localStorage.getItem("id")));
         // }, 3000);
-      }
-    );
+      })
+      .catch((err) => alert(err.response.data.message));
   };
 
   return (
