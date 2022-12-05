@@ -3,6 +3,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: "",
+  pagination: 0,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -21,6 +22,28 @@ const userReducer = (state = initialState, action) => {
         errorMessage: "",
       };
     case "GET_PROFILE_JOBSEEKER_REJECTED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errorMessage: action.payload.response.data.message,
+        data: {},
+      };
+    case "GET_ALL_JOBSEEKER_PENDING":
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case "GET_ALL_JOBSEEKER_FULFILLED":
+      return {
+        ...state,
+        data: action.payload.data.data,
+        isLoading: false,
+        isError: false,
+        errorMessage: "",
+        pagination: action.payload.data.pagination,
+      };
+    case "GET_ALL_JOBSEEKER_REJECTED":
       return {
         ...state,
         isLoading: false,

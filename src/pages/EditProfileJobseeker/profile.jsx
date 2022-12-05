@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getProfileJobseeker } from "../../redux/action/user";
+import {
+  getProfileJobseeker,
+  updateProfileJobseeker,
+} from "../../redux/action/user";
 import { Modal, Toast, ToastContainer } from "react-bootstrap";
 import { updatePasswordJobseeker } from "../../redux/action/user";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +16,9 @@ function profile() {
   const [showToast, setShowToast] = useState(false);
   const [showErrorToast, setShowErrorToast] = useState(false);
   const [form, setForm] = useState({});
-  const userData = useSelector((state) => state.user.data);
+  const user = useSelector((state) => state.user);
+  const [formUpdate, setFormUpdate] = useState({});
+  const [image, setImage] = useState("");
   const errorMessage = useSelector((state) => state.user.errorMessage);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -23,11 +28,20 @@ function profile() {
     dispatch(getProfileJobseeker(id));
   }, []);
 
-  console.log(userData);
+  const handleChangeFormUpdate = (e) => {
+    e.preventDefault();
+    if (e.target.name === "image") {
+      setFormUpdate({ ...formUpdate, [e.target.name]: e.target.files[0] });
+      setImage(URL.createObjectURL(e.target.files[0]));
+    } else {
+      setFormUpdate({ ...formUpdate, [e.target.name]: e.target.value });
+    }
+  };
 
   const formHandler = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+
   const updateHandler = async () => {
     try {
       setIsLoading(true);
@@ -43,49 +57,100 @@ function profile() {
     }
   };
 
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    // formData.append("name", form.name);
+    for (const data in formUpdate) {
+      formData.append(data, formUpdate[data]);
+    }
+
+    dispatch(updateProfileJobseeker(formData, localStorage.getItem("id"))).then(
+      () => {
+        // resetFormUpdate();
+        // setTimeout(() => {
+        dispatch({ type: "RESET_MESSAGE" });
+        dispatch(getProfileJobseeker(localStorage.getItem("id")));
+        // }, 3000);
+      }
+    );
+  };
+
   return (
     <div className="profile_main-container">
       <div className="profile_container">
-        <div className="profile_image-container">
-          <img
-            src={
-              userData.image
-                ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/${userData.image}`
-                : require("../../assets/images/profile-empty.jpg")
-            }
-            alt="profile"
-            className="profile_profile-image"
-          />
-          <input type="file" />
-          <div className="profile_edit-button">
+        <form className="profile_image-container" onSubmit={handleUpdate}>
+          {image ? (
             <img
-              src={require("../../assets/images/edit.png")}
-              alt="logo edit"
+              src={image}
+              className="profile_profile-image"
+              alt="view image"
             />
-            Edit
+          ) : (
+            <>
+              <img
+                src={
+                  user.data.image
+                    ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/${user.data.image}`
+                    : require("../../assets/images/profile-empty.jpg")
+                }
+                alt="profile"
+                className="profile_profile-image"
+              />
+              <input
+                type="file"
+                name="image"
+                id="getFile1"
+                // className="d-none"
+                onChange={handleChangeFormUpdate}
+              />
+            </>
+          )}
+          <div className="profile_edit-button">
+            <div className="d-flex flex-column">
+              <div className="d-flex align-items-center gap-4">
+                <img
+                  src={require("../../assets/images/edit.png")}
+                  alt="logo edit"
+                  // className="w-25"
+                />
+                <label htmlFor="getFile1">Edit</label>
+              </div>
+              <button className="profile_purple-button w-100">
+                {user.isLoading ? (
+                  <div className="spinner-border text-light" role="status">
+                    {/* <span className="sr-only">Loading...</span> */}
+                  </div>
+                ) : (
+                  "submit"
+                )}
+              </button>
+            </div>
           </div>
+        </form>
+        <div className="profile_name">
+          {user.data.name ? user.data.name : ""}
         </div>
-        <div className="profile_name">{userData.name ? userData.name : ""}</div>
-        <div className="profile_job">{userData.job ? userData.job : ""}</div>
+        <div className="profile_job">{user.data.job ? user.data.job : ""}</div>
         <div className="profile_text">
-          {userData.job_type ? userData.job_type : ""}
+          {user.data.job_type ? user.data.job_type : ""}
         </div>
         <div className="profile_text">
           <img
             src={require("../../assets/images/map-pin.png")}
             alt="map logo"
           />
-          {userData.location ? userData.location : "Indonesia"}
+          {user.data.location ? user.data.location : "Indonesia"}
         </div>
         <div className="profile_text">
           <img
             src={require("../../assets/images/phone.png")}
             alt="phone logo"
           />
-          {userData.phone ? `0${userData.phone}` : ""}
+          {user.data.phone ? `0${user.data.phone}` : ""}
         </div>
         <div className="profile_text">
-          {userData.description ? userData.description : ""}
+          {user.data.description ? user.data.description : ""}
         </div>
       </div>
       <div
