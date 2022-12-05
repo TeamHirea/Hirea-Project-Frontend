@@ -35,7 +35,7 @@ export default function SigninJobSeeker() {
       dispatch(getUserJobseekerById(localStorage.getItem("id")));
       navigate("/");
     } catch (error) {
-      alert(error.response);
+      alert(error);
       setLoading(false);
     }
   };
