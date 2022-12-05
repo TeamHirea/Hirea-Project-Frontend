@@ -67,16 +67,15 @@ function profile() {
       formData.append(data, formUpdate[data]);
     }
 
-
-    await dispatch(
-      updateProfileJobseeker(formData, localStorage.getItem("id"))
-    ).then(() => {
-      // resetFormUpdate();
-      // setTimeout(() => {
-      dispatch({ type: "RESET_MESSAGE" });
-      dispatch(getProfileJobseeker(localStorage.getItem("id")));
-      // }, 3000);
-    });
+    dispatch(updateProfileJobseeker(formData, localStorage.getItem("id"))).then(
+      () => {
+        // resetFormUpdate();
+        // setTimeout(() => {
+        dispatch({ type: "RESET_MESSAGE" });
+        dispatch(getProfileJobseeker(localStorage.getItem("id")));
+        // }, 3000);
+      }
+    );
 
     setUploadImage(false);
   };

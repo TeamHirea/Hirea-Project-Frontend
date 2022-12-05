@@ -34,7 +34,7 @@ export default function CompanyProfile() {
               src={
                 data[0]
                   ? data[0].image
-                    ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666275882/Hirea%20App/${data[0]?.image}`
+                    ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/${data[0]?.image}`
                     : require("../../assets/images/profile-empty.jpg")
                   : require("../../assets/images/profile-empty.jpg")
               }
