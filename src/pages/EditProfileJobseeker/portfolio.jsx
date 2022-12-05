@@ -17,7 +17,6 @@ function personal() {
   const [showToast, setShowToast] = useState(false);
   const [showErrorToast, setShowErrorToast] = useState(false);
   const [activePortfolioId, setActivePortfolioId] = useState("");
-  const [setForm] = useState({});
   const [image, setImage] = useState("");
   const [activeItem, setActiveItem] = useState({});
   const [updateForm, setUpdateForm] = useState({});
@@ -32,9 +31,6 @@ function personal() {
   // const formHandler = (e) => {
   //   setForm({ ...form, [e.target.name]: e.target.value });
   // };
-  const updateFormHandler = (e) => {
-    setUpdateForm({ ...updateForm, [e.target.name]: e.target.value });
-  };
   const removePortfolioHandler = async () => {
     try {
       setIsLoading(true);
@@ -70,11 +66,18 @@ function personal() {
       setIsLoading(false);
     }
   };
+
   const updatePortfolioHandler = async () => {
     try {
       setIsLoading(true);
-      await dispatch(updatePortfolio(updateForm, activeItem.id));
-      // await dispatch(getPortfolio(id));
+      const formData = new FormData();
+      // formData.append("name", form.name);
+      for (const data in updateForm) {
+        formData.append(data, updateForm[data]);
+      }
+      formData.append("idJobseeker", localStorage.getItem("id"));
+      await dispatch(updatePortfolio(formData, activeItem.id));
+      await dispatch(getPortfolio(id));
       setShowUpdateModal(false);
       setShowToast(true);
       setIsLoading(false);
@@ -94,7 +97,7 @@ function personal() {
     }
   };
 
-  console.log(portfolioData);
+  console.log(updateForm);
 
   return (
     <div className="portfolio_personal">
@@ -254,7 +257,7 @@ function personal() {
           <button
             className="experience_modal__button-pasive"
             onClick={() => {
-              setForm({});
+              setUpdateForm({});
               setShowModal(false);
             }}
           >
@@ -280,7 +283,7 @@ function personal() {
                 placeholder="Masukan nama aplikasi"
                 className="portfolio_input"
                 name="title"
-                onChange={updateFormHandler}
+                onChange={handleChangeFormUpdate}
                 defaultValue={activeItem.title}
               />
             </div>
@@ -291,7 +294,7 @@ function personal() {
                 placeholder="Masukan link repository"
                 className="portfolio_input"
                 name="url"
-                onChange={updateFormHandler}
+                onChange={handleChangeFormUpdate}
                 defaultValue={activeItem.url}
               />
             </div>
@@ -302,7 +305,7 @@ function personal() {
                 placeholder="Upload gambar"
                 className="portfolio_input"
                 name="image"
-                // onChange={updateFormHandler}
+                onChange={handleChangeFormUpdate}
               />
               {image && (
                 <img
