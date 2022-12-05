@@ -39,7 +39,7 @@ export default function SignupJobSeeker() {
       setIsLoading(false);
       console.log(error);
       // alert(error);
-      setLoading(false);
+      // setLoading(false);
       // alert(error.data);
       console.log(error);
     }
