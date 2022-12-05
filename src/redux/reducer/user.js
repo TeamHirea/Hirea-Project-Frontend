@@ -1,9 +1,9 @@
 const initialState = {
   data: {},
+  pagination: {},
   isLoading: false,
   isError: false,
   errorMessage: "",
-  pagination: 0,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -20,6 +20,7 @@ const userReducer = (state = initialState, action) => {
         isLoading: false,
         isError: false,
         errorMessage: "",
+        pagination: action.payload.data.pagination,
       };
     case "GET_PROFILE_JOBSEEKER_REJECTED":
       return {

@@ -42,8 +42,8 @@ export default function CompanyProfile() {
               className="company_image"
             />
           </div>
-          <div className="text ">
-            <h3>{data[0]?.company}</h3>
+          <div className="text">
+            <h3>{data[0]?.name}</h3>
             <p>{data[0]?.companyField}</p>
             <p>
               <svg

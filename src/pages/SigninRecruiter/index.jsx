@@ -32,7 +32,8 @@ export default function SigninRecruiter() {
       navigate("/");
     } catch (error) {
       setLoading(false);
-      alert(error.response.data.message);
+      alert(error.data);
+      console.log(error);
     }
   };
   // const handleShowPassword = (e) => {
