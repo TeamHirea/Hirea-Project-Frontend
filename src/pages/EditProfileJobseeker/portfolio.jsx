@@ -173,7 +173,7 @@ function personal() {
           </button>
         </div>
       </Modal>
-      <Modal show={showModal} size="m" centered className="modal modal-lg">
+      <Modal show={showModal} size="m" centered className="modal">
         <Modal.Title className="modal-title experience_modal__title">
           Pengalaman Kerja
         </Modal.Title>
@@ -241,12 +241,7 @@ function personal() {
           </button>
         </div>
       </Modal>
-      <Modal
-        show={showUpdateModal}
-        size="m"
-        centered
-        className="modal modal-lg"
-      >
+      <Modal show={showUpdateModal} size="m" centered className="modal">
         <Modal.Title className="modal-title experience_modal__title">
           Pengalaman Kerja
         </Modal.Title>
