@@ -4,8 +4,10 @@ import "./index.css";
 import React, { useState } from "react";
 import logoMobile from "../../assets/images/logo.png";
 import axios from "../../utils/axios";
+import { useNavigate } from "react-router-dom";
+
 export default function SignupRecruiter() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     name: "",
@@ -56,7 +58,14 @@ export default function SignupRecruiter() {
           <div className="container">
             <div className="row p-4 signinRecruiter--page__container">
               <div className="col-lg-6 signinRecruiter--page--first__container">
-                <img src={logo} style={{ width: "15%" }} className="" alt="" />
+                <img
+                  src={logo}
+                  style={{ width: "15%", cursor: "pointer" }}
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                  alt=""
+                />
                 <div className="signinRecruiter--content__container">
                   <p className="signinRecruiter--content__style px-4">
                     Temukan developer berbakat & terbaik di berbagai bidang

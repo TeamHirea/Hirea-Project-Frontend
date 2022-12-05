@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import profile from "../../assets/images/profile.png";
+import profile from "../../assets/images/profile-empty.jpg";
 import mapPin from "../../assets/images/map-pin.png";
 import edit from "../../assets/images/edit.png";
 import Header from "../../components/Header";
@@ -22,13 +22,14 @@ function EditProfileRecruiter() {
   const [form, setForm] = useState({});
   const [showToast, setShowToast] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [formUpdate, setFormUpdate] = useState({});
+  const [image, setImage] = useState("");
 
   useEffect(() => {
     const id = localStorage.getItem("id");
     dispatch(getUserRecruiterById(id));
   }, []);
 
-  console.log(recruiterData);
   const handleUpdate = async () => {
     setIsLoading(true);
     const id = localStorage.getItem("id");
@@ -41,6 +42,35 @@ function EditProfileRecruiter() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleChangeFormUpdate = (e) => {
+    e.preventDefault();
+    if (e.target.name === "image") {
+      setFormUpdate({ ...formUpdate, [e.target.name]: e.target.files[0] });
+      setImage(URL.createObjectURL(e.target.files[0]));
+    } else {
+      setFormUpdate({ ...formUpdate, [e.target.name]: e.target.value });
+    }
+  };
+
+  const handleUpdateImg = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    // formData.append("name", form.name);
+    for (const data in formUpdate) {
+      formData.append(data, formUpdate[data]);
+    }
+
+    dispatch(updateProfileRecruiter(formData, localStorage.getItem("id")))
+      .then(() => {
+        // resetFormUpdate();
+        // setTimeout(() => {
+        dispatch({ type: "RESET_MESSAGE" });
+        dispatch(getUserRecruiterById(localStorage.getItem("id")));
+        // }, 3000);
+      })
+      .catch((err) => alert(err.response.data.message));
+  };
+
   return (
     <>
       <Header />
@@ -49,13 +79,61 @@ function EditProfileRecruiter() {
           <div className="left-edit-col">
             <div className="left-edit">
               <div className="box">
-                <div className="img-recruiter">
-                  <img className="profile-img" src={profile} alt="profile" />
-                  <div className="edit-img">
-                    <img className="edit-icon" src={edit} alt="edit" />
-                    <p className="edit-text">Edit</p>
+                <form
+                  className="profile_image-container mb-5"
+                  onSubmit={handleUpdateImg}
+                >
+                  {image ? (
+                    <img
+                      src={image}
+                      className="profile_profile-image"
+                      alt="view image"
+                    />
+                  ) : (
+                    <>
+                      <img
+                        src={
+                          recruiterData.image
+                            ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/${recruiterData.image}`
+                            : profile
+                        }
+                        alt="profile"
+                        className="profile_profile-image"
+                      />
+                    </>
+                  )}
+                  <input
+                    type="file"
+                    name="image"
+                    id="getFile2"
+                    className="d-none"
+                    onChange={handleChangeFormUpdate}
+                  />
+                  <div className="profile_edit-button">
+                    <div className="d-flex flex-column">
+                      <div className="d-flex align-items-center gap-4">
+                        <img
+                          src={edit}
+                          alt="logo edit"
+                          // className="w-25"
+                        />
+                        <label htmlFor="getFile2">Edit</label>
+                      </div>
+                      <button className="profile_purple-button w-100">
+                        {recruiterData.isLoading ? (
+                          <div
+                            className="spinner-border text-light"
+                            role="status"
+                          >
+                            {/* <span className="sr-only">Loading...</span> */}
+                          </div>
+                        ) : (
+                          "submit"
+                        )}
+                      </button>
+                    </div>
                   </div>
-                </div>
+                </form>
               </div>
               <h1 className="company-name">{recruiterData.name}</h1>
               <h2 className="company-field">{recruiterData.companyField}</h2>

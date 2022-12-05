@@ -29,7 +29,7 @@ export default function CardProfileJobseeker(props) {
               className="img-profile-jobseeker rounded-circle"
               src={
                 props.data.image
-                  ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/Hirea%20App/${props.data.image}`
+                  ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/${props.data.image}`
                   : require("../../assets/images/profile-empty.jpg")
               }
               alt="profile image"
