@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 function profile() {
   const id = localStorage.getItem("id");
   const [isLoading, setIsLoading] = useState(false);
+  const [uploadImage, setUploadImage] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [showErrorToast, setShowErrorToast] = useState(false);
@@ -57,7 +58,8 @@ function profile() {
     }
   };
 
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
+    setUploadImage(true);
     e.preventDefault();
     const formData = new FormData();
     // formData.append("name", form.name);
@@ -65,15 +67,17 @@ function profile() {
       formData.append(data, formUpdate[data]);
     }
 
-    dispatch(updateProfileJobseeker(formData, localStorage.getItem("id"))).then(
-      () => {
-        // resetFormUpdate();
-        // setTimeout(() => {
-        dispatch({ type: "RESET_MESSAGE" });
-        dispatch(getProfileJobseeker(localStorage.getItem("id")));
-        // }, 3000);
-      }
-    );
+    await dispatch(
+      updateProfileJobseeker(formData, localStorage.getItem("id"))
+    ).then(() => {
+      // resetFormUpdate();
+      // setTimeout(() => {
+      dispatch({ type: "RESET_MESSAGE" });
+      dispatch(getProfileJobseeker(localStorage.getItem("id")));
+      // }, 3000);
+    });
+
+    setUploadImage(false);
   };
 
   return (
@@ -101,7 +105,7 @@ function profile() {
                 type="file"
                 name="image"
                 id="getFile1"
-                // className="d-none"
+                className="d-none"
                 onChange={handleChangeFormUpdate}
               />
             </>
@@ -117,7 +121,7 @@ function profile() {
                 <label htmlFor="getFile1">Edit</label>
               </div>
               <button className="profile_purple-button w-100">
-                {user.isLoading ? (
+                {uploadImage ? (
                   <div className="spinner-border text-light" role="status">
                     {/* <span className="sr-only">Loading...</span> */}
                   </div>
