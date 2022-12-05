@@ -32,45 +32,106 @@ export default function SignupRecruiter() {
       <div className=" container-auth ">
         <div className="row row-auth ">
           <div className="col-6 col-left-rec" style={{ height: "600px" }}>
-            <img src={logo} alt="" className="logo-auth" />
+            <img
+              src={logo}
+              style={{ width: "15%", cursor: "pointer" }}
+              onClick={() => {
+                navigate("/");
+              }}
+              className="logo-auth"
+            />
             <h1 className="desc-left">
               Temukan developer berbakat & terbaik di berbagai bidang keahlian
             </h1>
-          </div>
-          <div className="col-6 col-right-rec col-right-cp h-100 ">
-            <div
-              className="auth-right auth-right-cp "
-              //   style={{ margin: "130px 20px" }}
-            >
-              <p className="title-auth fw-bold">Reset Password</p>
-              <p className="desc-auth">
-                You need to change your password to activate your account
-              </p>
-
-              <p className="label">Kata sandi</p>
-              <input
-                type="password"
-                name="newPassword"
-                placeholder="Masukan kata sandi"
-                onChange={handleChangeForm}
-              />
-
-              <p className="label">Konfirmasi</p>
-              <input
-                type="password"
-                name="confirmPassword"
-                onChange={handleChangeForm}
-                placeholder="Masukan konfirmasi kata sandi"
-              />
-
-              <button
-                type="button"
-                className="btn w-100 btn-auth btn-warning text-white mt-5"
-                onClick={handleConfirmResetPassword}
+            <div className="col-lg-6 signinRecruiter--page--first__container">
+              <img src={logo} style={{ width: "15%" }} className="" alt="" />
+              <div className="signinRecruiter--content__container">
+                <p className="signinRecruiter--content__style px-4">
+                  Temukan developer berbakat & terbaik di berbagai bidang
+                  keahlian
+                </p>
+              </div>
+            </div>
+            <div className="col-6 col-right-rec col-right-cp h-100 ">
+              <div
+                className="auth-right auth-right-cp "
+                //   style={{ margin: "130px 20px" }}
               >
-                Reset Password
-              </button>
-            </div>{" "}
+                <p className="title-auth fw-bold">Reset Password</p>
+                <p className="desc-auth">
+                  You need to change your password to activate your account
+                </p>
+
+                <p className="label">Kata sandi</p>
+                <input
+                  type="password"
+                  name="newPassword"
+                  placeholder="Masukan kata sandi"
+                  className="form-control"
+                  onChange={handleChangeForm}
+                />
+
+                <p className="label">Konfirmasi</p>
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  className="form-control"
+                  onChange={handleChangeForm}
+                  placeholder="Masukan konfirmasi kata sandi"
+                />
+                <div className="col-lg-6 signinRecruiter--page--first__container">
+                  <img
+                    src={logo}
+                    style={{ width: "15%" }}
+                    className=""
+                    alt=""
+                  />
+                  <div className="signinRecruiter--content__container">
+                    <p className="signinRecruiter--content__style px-4">
+                      Temukan developer berbakat & terbaik di berbagai bidang
+                      keahlian
+                    </p>
+                  </div>
+                </div>
+                <div className="col-6 col-right-rec col-right-cp h-100 ">
+                  <div
+                    className="auth-right auth-right-cp "
+                    //   style={{ margin: "130px 20px" }}
+                  >
+                    <p className="title-auth fw-bold">Reset Password</p>
+                    <p className="desc-auth">
+                      You need to change your password to activate your account
+                    </p>
+
+                    <p className="label">Kata sandi</p>
+                    <input
+                      type="password"
+                      name="newPassword"
+                      placeholder="Masukan kata sandi"
+                      className="form-control"
+                      onChange={handleChangeForm}
+                    />
+
+                    <p className="label">Konfirmasi</p>
+                    <input
+                      type="password"
+                      name="confirmPassword"
+                      className="form-control"
+                      onChange={handleChangeForm}
+                      placeholder="Masukan konfirmasi kata sandi"
+                    />
+
+                    <button
+                      type="button"
+                      className="btn w-100 btn-auth btn-warning text-white mt-5"
+                      onClick={handleConfirmResetPassword}
+                    >
+                      Reset Password
+                    </button>
+                  </div>{" "}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

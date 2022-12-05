@@ -67,6 +67,7 @@ function profile() {
       formData.append(data, formUpdate[data]);
     }
 
+
     await dispatch(
       updateProfileJobseeker(formData, localStorage.getItem("id"))
     ).then(() => {
