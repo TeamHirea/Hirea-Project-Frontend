@@ -13,8 +13,10 @@ import {
 import { Toast, ToastContainer } from "react-bootstrap";
 
 import "./EditProfileRecruiter.css";
+import { useNavigate } from "react-router-dom";
 
 function EditProfileRecruiter() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const recruiterData = useSelector((state) => state.user.data);
   const [form, setForm] = useState({});
@@ -54,17 +56,13 @@ function EditProfileRecruiter() {
                   </div>
                 </div>
               </div>
-              <h1 className="company-name">PT. Mencari Cinta Sejati</h1>
-              <h2 className="company-field">Urusan Hati</h2>
+              <h1 className="company-name">{recruiterData.name}</h1>
+              <h2 className="company-field">{recruiterData.companyField}</h2>
               <div className="location-company">
                 <img className="map-pin-img" src={mapPin} alt="location" />
-                <p className="address">Purworejo, Jawa Tengah</p>
+                <p className="address">{recruiterData.location}</p>
               </div>
-              <p className="detail-company">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum erat orci, mollis nec gravida sed, ornare quis urna.
-                Curabitur eu lacus fringilla, vestibulum risus at.
-              </p>
+              <p className="detail-company">{recruiterData.about}</p>
             </div>
             <div className="col-button">
               {!isLoading ? (
@@ -98,7 +96,14 @@ function EditProfileRecruiter() {
                   <Toast.Body>Your profile is updated</Toast.Body>
                 </Toast>
               </ToastContainer>
-              <button className="back-button">Kembali</button>
+              <button
+                className="back-button"
+                onClick={() => {
+                  navigate(`/recruiter/profile`);
+                }}
+              >
+                Kembali
+              </button>
             </div>
           </div>
           <div className="right-edit-col"></div>

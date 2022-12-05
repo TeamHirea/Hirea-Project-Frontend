@@ -17,20 +17,19 @@ function Home() {
   const [page, setPage] = useState(1);
   const [pagination] = useState({});
   const [keyword, setKeyword] = useState("");
+  const [column, setColumn] = useState("");
 
   useEffect(() => {
-    dispatch(getUserJobseeker(keyword));
-  }, []);
-  // const getDataUserJobseeker = async () => {
-  //   try {
-  //     const result = await axios.get(`api/user`);
+    getDataUserJobseeker();
+  }, [page, keyword]);
 
-  //     setData(result.data.data);
-  //     setPagination(result.data.pagination);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  const getDataUserJobseeker = async () => {
+    try {
+      dispatch(getUserJobseeker(page, keyword, column));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleSearchName = async () => {
     dispatch(getUserJobseeker(keyword));
@@ -74,17 +73,29 @@ function Home() {
                   </a>
                   <ul className="dropdown-menu">
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <a
+                        className="dropdown-item"
+                        id="skill"
+                        onClick={(e) => setColumn(e.target.id)}
+                      >
                         Sortir berdasarkan Skill
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <a
+                        className="dropdown-item"
+                        id="freelance"
+                        onClick={(e) => setColumn(e.target.id)}
+                      >
                         Sortir berdasarkan Freelance
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <a
+                        className="dropdown-item"
+                        id="fulltime"
+                        onClick={(e) => setColumn(e.target.id)}
+                      >
                         Sortir berdasarkan Fulltime
                       </a>
                     </li>
@@ -115,7 +126,11 @@ function Home() {
               </main>
             </div>
             <div className="d-flex gap-2 justify-content-center w-100 my-5">
-              <button className="btn btn-primary" onClick={handlePrevPage}>
+              <button
+                className="btn btn-primary"
+                onClick={handlePrevPage}
+                disabled={page === 1 ? true : false}
+              >
                 &lt;
               </button>
               <button
