@@ -4,9 +4,12 @@ import "./index.css";
 import logoMobile from "../../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
+import { useDispatch } from "react-redux";
+import { getUserJobseekerById } from "../../redux/action/user";
 
 export default function SigninJobSeeker() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [form, setForm] = useState({
     email: "",
@@ -29,9 +32,10 @@ export default function SigninJobSeeker() {
       // localStorage.setItem("refreshToken", result.data.data.refreshToken);
       alert(result.data.message);
       setLoading(false);
+      dispatch(getUserJobseekerById(localStorage.getItem("id")));
       navigate("/");
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error.response);
       setLoading(false);
     }
   };

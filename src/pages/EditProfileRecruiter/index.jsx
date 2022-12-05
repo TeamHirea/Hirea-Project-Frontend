@@ -28,6 +28,7 @@ function EditProfileRecruiter() {
     dispatch(getUserRecruiterById(id));
   }, []);
 
+  console.log(recruiterData);
   const handleUpdate = async () => {
     setIsLoading(true);
     const id = localStorage.getItem("id");

@@ -19,6 +19,13 @@ export const getUserJobseeker = (page, searchName, column) => {
   };
 };
 
+export const getAllJobseeker = () => {
+  return {
+    type: "GET_ALL_JOBSEEKER",
+    payload: axios.get(`api/user/`),
+  };
+};
+
 export const getUserJobseekerById = (id) => {
   return {
     type: "GET_DATA_USER_JOBSEEKER_ID",
