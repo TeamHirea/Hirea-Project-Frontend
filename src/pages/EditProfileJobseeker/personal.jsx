@@ -45,6 +45,17 @@ function personal() {
           />
         </div>
         <div>
+          <label className="personal_input-label">Job</label>
+          <input
+            type="text"
+            placeholder="Masukan Pekerjaan"
+            className="personal_input"
+            defaultValue={userData.job_type}
+            name="job_type"
+            onChange={formHandler}
+          />
+        </div>
+        <div>
           <label className="personal_input-label">Job desk</label>
           <input
             type="text"
