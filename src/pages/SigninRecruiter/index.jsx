@@ -1,49 +1,46 @@
-// import React from "react";
-import logo from "../../assets/images/hirea white.png";
-import "./index.css";
 import React, { useState } from "react";
-import logoMobile from "../../assets/images/logo.png";
-import axios from "../../utils/axios";
 import { useNavigate } from "react-router-dom";
+import logo from "../../assets/images/hirea white.png";
+import logoMobile from "../../assets/images/logo.png";
+import "./index.css";
+import axios from "../../utils/axios";
 
-export default function SignupJobSeeker() {
+export default function SigninRecruiter() {
   const navigate = useNavigate();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const [isLoading, setIsLoading] = useState(false);
 
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const handleSignup = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      setIsLoading(true);
-      const result = await axios.post("/api/auth/register/jobseeker", form);
-      setIsLoading(false);
+      const result = await axios.post("/api/auth/signin/recruiter", form);
+      localStorage.setItem("id", result.data.data.userId);
+      localStorage.setItem("token", result.data.data.token);
+      localStorage.setItem("refreshtoken", result.data.data.refreshToken);
+      localStorage.setItem("role", "recruiter");
       alert(result.data.message);
-      // navigate("/signin/jobseeker");
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        password: "",
-        confirmPassword: "",
-      });
+      setLoading(false);
+      navigate("/");
     } catch (error) {
-      setIsLoading(false);
-      console.log(error);
-      // alert(error);
-      // setLoading(false);
-      // alert(error.data);
+      setLoading(false);
+      alert(error.data);
       console.log(error);
     }
   };
+  // const handleShowPassword = (e) => {
+  //   e.preventDefault();
+  //   setShowPassword(!showPassword);
+  // };
+
   return (
     <div className="container-fluid signinRecruiter--container">
       <div className="row px-0 mx-0">
@@ -51,14 +48,7 @@ export default function SignupJobSeeker() {
           <div className="container">
             <div className="row p-4 signinRecruiter--page__container">
               <div className="col-lg-6 signinRecruiter--page--first__container">
-                <img
-                  src={logo}
-                  style={{ width: "15%", cursor: "pointer" }}
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  alt=""
-                />
+                <img src={logo} style={{ width: "15%" }} className="" alt="" />
                 <div className="signinRecruiter--content__container">
                   <p className="signinRecruiter--content__style px-4">
                     Temukan developer berbakat & terbaik di berbagai bidang
@@ -66,7 +56,7 @@ export default function SignupJobSeeker() {
                   </p>
                 </div>
               </div>
-              <div className="col-lg-6 signinRecruiter--page--second--form__container pt-3">
+              <div className="col-lg-6 signinRecruiter--page--second--form__container">
                 <div className="signinRecruiter--page--second__container ">
                   <img
                     src={logoMobile}
@@ -82,84 +72,58 @@ export default function SignupJobSeeker() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
                     euismod ipsum et dui rhoncus auctor.
                   </p>
-                  <form onSubmit={handleSignup}>
-                    <div className="form-group signinRecruiter--from py-1">
+                  <form onSubmit={handleLogin}>
+                    <div className="form-group signinRecruiter--from py-3">
                       <h1
                         className="signinRecruiter--title--login__show d-lg-none d-md-none d-sm-none"
                         style={{ fontWeight: 700, color: "#46505C" }}
                       >
-                        Register Jobseeker
+                        Login
                       </h1>
                       <p className="d-md-none d-sm-none text-secondary signinRecruiter--secondTitle--login__show">
                         Lorem ipsum dolor sit amet.
                       </p>
-                      <label htmlFor="exampleInputEmail1">Nama</label>
+                      <label htmlFor="exampleInputEmail1">Email</label>
                       <input
                         onChange={handleChangeForm}
-                        type="text"
-                        name="name"
-                        value={form.name}
-                        className="form-control"
-                        id="exampleInputEmail1"
-                        aria-describedby="emailHelp"
-                        placeholder="Masukkan nama panjang"
-                      />
-                    </div>
-                    <div className="form-group signinRecruiter--from py-1">
-                      <label htmlFor="exampleInputEmail">Email</label>
-                      <input
                         type="email"
-                        onChange={handleChangeForm}
                         name="email"
                         value={form.email}
                         className="form-control"
-                        placeholder="Masukkan kata sandi"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        placeholder="Masukkan alamat email"
                       />
                     </div>
-                    <div className="form-group signinRecruiter--from py-1">
-                      <label htmlFor="exampleInputPassword1">
-                        No handphone
-                      </label>
-                      <input
-                        type="text"
-                        onChange={handleChangeForm}
-                        name="phone"
-                        value={form.phone}
-                        className="form-control"
-                        placeholder="Masukkan kata sandi"
-                      />
-                    </div>
-                    <div className="form-group signinRecruiter--from py-1">
-                      <label htmlFor="exampleInputPassword2">Kata Sandi</label>
+                    <div className="form-group signinRecruiter--from py-3">
+                      <label htmlFor="exampleInputPassword1">Kata Sandi</label>
                       <input
                         type="password"
                         onChange={handleChangeForm}
                         name="password"
                         value={form.password}
                         className="form-control"
+                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
-                    <div className="form-group signinRecruiter--from py-1">
-                      <label htmlFor="exampleInputPassword1">
-                        Konfirmasi kata sandi
-                      </label>
-                      <input
-                        type="password"
-                        onChange={handleChangeForm}
-                        name="confirmPassword"
-                        value={form.confirmPassword}
-                        className="form-control"
-                        placeholder="Masukkan konfirmasi kata sandi"
-                      />
+                    <div className="text-end py-3">
+                      <div
+                        className="singinRecruiter--forgot--password__style"
+                        onClick={() => {
+                          navigate("/reset/send");
+                        }}
+                      >
+                        Lupa kata sandi ?
+                      </div>
                     </div>
                     <button
                       type="submit"
-                      disabled={isLoading}
+                      disabled={loading}
                       className="btn w-100 signinRecruiter--button__style"
                       style={{ background: "#FBB017", color: "white" }}
                     >
-                      {isLoading ? (
+                      {loading ? (
                         <div
                           className="spinner-border text-light"
                           role="status"
@@ -170,6 +134,17 @@ export default function SignupJobSeeker() {
                         "Masuk"
                       )}
                     </button>
+                    <p className="py-4" style={{ textAlign: "center" }}>
+                      Anda belum punya akun?{" "}
+                      <div
+                        style={{ textDecoration: "none", color: "#FBB017" }}
+                        onClick={() => {
+                          navigate("/signup/recruiter");
+                        }}
+                      >
+                        Daftar disini
+                      </div>
+                    </p>
                   </form>
                 </div>
               </div>
