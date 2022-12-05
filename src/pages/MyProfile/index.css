@@ -85,6 +85,7 @@
   line-height: 20px;
   color: #9ea0a5;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   column-gap: 10px;
 }
@@ -94,6 +95,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
+
   color: #ffffff;
   background: #5e50a1;
   border-radius: 4px;
@@ -101,7 +103,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60vw;
+  /* width: ; */
   padding: 20px;
   cursor: pointer;
 }

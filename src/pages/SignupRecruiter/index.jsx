@@ -24,6 +24,7 @@ export default function SignupRecruiter() {
   };
   const handleSignup = async (e) => {
     e.preventDefault();
+    console.log(form);
     try {
       setLoading(true);
       const result = await axios.post("/api/auth/register/recruiter", form);
@@ -42,7 +43,7 @@ export default function SignupRecruiter() {
       // navigate("/signin");
     } catch (error) {
       setLoading(false);
-      alert(error.response.data.message);
+      alert(error.response);
     }
   };
   return (

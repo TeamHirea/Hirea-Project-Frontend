@@ -14,6 +14,7 @@ import noNotif from "../../assets/images/no_notification.png";
 import "./header.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
+import { useSelector } from "react-redux";
 
 function Header() {
   const isLoggedin = localStorage.getItem("token");
@@ -24,6 +25,8 @@ function Header() {
   const role = localStorage.getItem("role");
 
   const navigate = useNavigate();
+
+  const user1 = useSelector((state) => state.user);
 
   const handleTogglePopNotif = (e) => {
     e.preventDefault();
@@ -112,7 +115,7 @@ function Header() {
               </button>
               <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div
-                  className="navbar-nav d-flex gap-3 header--button--nav--notLogin__style"
+                  className="navbar-nav d-flex gap-3 align-items-center header--button--nav--notLogin__style"
                   style={{ marginLeft: "auto" }}
                 >
                   <li className="nav-item" onClick={handleTogglePopNotif}>
@@ -185,9 +188,23 @@ function Header() {
                     )}
                   </li>
                   <li className="nav-item" onClick={handleTogglePopProfile}>
-                    <div>
-                      <img src={user} className="header--icon--lggedin__size" />
-                    </div>
+                    <>
+                      {user1.data?.image ? (
+                        <img
+                          src={`https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/${user1.data?.image}`}
+                          style={{
+                            borderRadius: "50%",
+                            width: "50px",
+                            height: "50px",
+                          }}
+                        />
+                      ) : (
+                        <img
+                          src={user}
+                          className="header--icon--lggedin__size"
+                        />
+                      )}
+                    </>
                     {togglePopProfile && (
                       <div
                         className="bg-white header--toggle--profile__popup d-flex justify-content-start align-items-start flex-column"

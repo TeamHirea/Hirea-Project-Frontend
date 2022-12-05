@@ -18,6 +18,7 @@ export default function ResetPassword() {
       navigate("/reset/send/success");
     } catch (error) {
       alert(error.response.data.message);
+      console.log(error);
     }
   };
   return (

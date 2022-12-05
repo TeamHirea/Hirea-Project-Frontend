@@ -36,7 +36,8 @@ export default function SignupJobSeeker() {
       });
     } catch (error) {
       setIsLoading(false);
-      alert(error.response.data.message);
+      console.log(error);
+      alert(error);
     }
   };
   return (
