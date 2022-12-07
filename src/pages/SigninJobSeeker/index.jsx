@@ -6,11 +6,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 import { useDispatch } from "react-redux";
 import { getUserJobseekerById } from "../../redux/action/user";
+import { Toast, ToastContainer } from "react-bootstrap";
 
 export default function SigninJobSeeker() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const [showToast, setShowToast] = useState(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -30,10 +31,13 @@ export default function SigninJobSeeker() {
       localStorage.setItem("refreshtoken", result.data.data.refreshToken);
       localStorage.setItem("role", "jobseeker");
       // localStorage.setItem("refreshToken", result.data.data.refreshToken);
-      alert(result.data.message);
+      // alert(result.data.message);
+      setShowToast(true);
       setLoading(false);
       dispatch(getUserJobseekerById(localStorage.getItem("id")));
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } catch (error) {
       alert(error);
       setLoading(false);
@@ -144,7 +148,7 @@ export default function SigninJobSeeker() {
                       )}
                     </button>
                     <div className="py-4 d-flex">
-                      Anda belum punya akun?{" "}
+                      Anda belum punya akun?&nbsp;
                       <div
                         style={{
                           textDecoration: "none",
@@ -165,6 +169,23 @@ export default function SigninJobSeeker() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-end"
+        className="p-3 position-fixed toast-container"
+      >
+        <Toast
+          show={showToast}
+          onClose={() => {
+            setShowToast(false);
+          }}
+        >
+          <Toast.Header>
+            <strong className="me-auto">Success</strong>
+            <small className="text-muted">just now</small>
+          </Toast.Header>
+          <Toast.Body>Succes Login</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 }
