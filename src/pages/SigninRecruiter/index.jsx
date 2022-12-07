@@ -4,9 +4,11 @@ import logo from "../../assets/images/hirea white.png";
 import logoMobile from "../../assets/images/logo.png";
 import "./index.css";
 import axios from "../../utils/axios";
+import { Toast, ToastContainer } from "react-bootstrap";
 
 export default function SigninRecruiter() {
   const navigate = useNavigate();
+  const [showToast, setShowToast] = useState(false);
 
   const [form, setForm] = useState({
     email: "",
@@ -27,9 +29,12 @@ export default function SigninRecruiter() {
       localStorage.setItem("token", result.data.data.token);
       localStorage.setItem("refreshtoken", result.data.data.refreshToken);
       localStorage.setItem("role", "recruiter");
-      alert(result.data.message);
+      setShowToast(true);
+      // alert(result.data.message);
       setLoading(false);
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } catch (error) {
       setLoading(false);
       alert(error.data);
@@ -152,6 +157,23 @@ export default function SigninRecruiter() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-end"
+        className="p-3 position-fixed toast-container"
+      >
+        <Toast
+          show={showToast}
+          onClose={() => {
+            setShowToast(false);
+          }}
+        >
+          <Toast.Header>
+            <strong className="me-auto">Success</strong>
+            <small className="text-muted">just now</small>
+          </Toast.Header>
+          <Toast.Body>Succes Login</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 }
