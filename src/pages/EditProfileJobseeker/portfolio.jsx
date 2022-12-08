@@ -97,8 +97,6 @@ function personal() {
     }
   };
 
-  console.log(updateForm);
-
   return (
     <div className="portfolio_personal">
       <div className="portfolio_personal-title">Portofolio</div>
