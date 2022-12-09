@@ -15,7 +15,7 @@ const skillReducer = (state = initialState, action) => {
     case "GET_SKILL_FULFILLED":
       return {
         ...state,
-        skill: action.payload.data.data[0].skill,
+        skill: action.payload.data.data[0].skills,
         isLoading: false,
         isError: false,
         errorMessage: "",

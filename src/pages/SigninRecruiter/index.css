@@ -78,6 +78,9 @@
 /* .signinRecruiter--page__container div:last-child { */
 /* border: 1px solid black; */
 /* } */
+.toast-container {
+  z-index: 1070;
+}
 .singinRecruiter--forgot--password__style {
   cursor: pointer;
 
@@ -103,6 +106,9 @@
   /* * {
     background: #F6F7F8;
   } */
+  .singinRecruiter--forgot--password__style {
+    margin-left: 150px;
+  }
 
   .signinRecruiter--page--first__container {
     display: none;

@@ -10,7 +10,7 @@ import { Toast, ToastContainer } from "react-bootstrap";
 export default function SigninJobSeeker() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  // const [showToast, setShowToast] = useState(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -38,7 +38,9 @@ export default function SigninJobSeeker() {
       setLoading(false);
       setIsError(false);
       dispatch(getUserJobseekerById(localStorage.getItem("id")));
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } catch (error) {
       setIsError(true);
       setMsg(error.response.data.message);
@@ -151,7 +153,7 @@ export default function SigninJobSeeker() {
                       )}
                     </button>
                     <div className="py-4 d-flex">
-                      Anda belum punya akun?{" "}
+                      Anda belum punya akun?&nbsp;
                       <div
                         style={{
                           textDecoration: "none",

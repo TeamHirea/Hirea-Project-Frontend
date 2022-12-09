@@ -22,7 +22,6 @@ axiosApiIntances.interceptors.response.use(
     return response;
   },
   function (error) {
-    console.log(error);
     if (error.response.status === 403) {
       if (
         error.response.data.message ===
