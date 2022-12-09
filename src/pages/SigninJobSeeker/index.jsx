@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 import { useDispatch } from "react-redux";
 import { getUserJobseekerById } from "../../redux/action/user";
-
+import { Toast, ToastContainer } from "react-bootstrap";
 export default function SigninJobSeeker() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -15,6 +15,9 @@ export default function SigninJobSeeker() {
     email: "",
     password: "",
   });
+  const [isError, setIsError] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleChangeForm = (e) => {
@@ -30,12 +33,16 @@ export default function SigninJobSeeker() {
       localStorage.setItem("refreshtoken", result.data.data.refreshToken);
       localStorage.setItem("role", "jobseeker");
       // localStorage.setItem("refreshToken", result.data.data.refreshToken);
-      alert(result.data.message);
+      setMsg(result.data.message);
+      setShowToast(true);
       setLoading(false);
+      setIsError(false);
       dispatch(getUserJobseekerById(localStorage.getItem("id")));
       navigate("/");
     } catch (error) {
-      alert(error);
+      setIsError(true);
+      setMsg(error.response.data.message);
+      setShowToast(true);
       setLoading(false);
     }
   };
@@ -165,6 +172,28 @@ export default function SigninJobSeeker() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
+        <Toast
+          show={showToast}
+          onClose={() => {
+            setShowToast(false);
+          }}
+        >
+          <Toast.Header>
+            {isError ? (
+              <strong className="me-auto text-danger">Failed</strong>
+            ) : (
+              <strong className="me-auto text-success">Success</strong>
+            )}
+
+            <small className="text-muted">just now</small>
+          </Toast.Header>
+          <Toast.Body>{msg}</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 }

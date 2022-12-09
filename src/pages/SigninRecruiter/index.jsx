@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import logo from "../../assets/images/hirea white.png";
 import logoMobile from "../../assets/images/logo.png";
 import "./index.css";
 import axios from "../../utils/axios";
-
+import { getUserRecruiterById } from "../../redux/action/user";
+import { Toast, ToastContainer } from "react-bootstrap";
 export default function SigninRecruiter() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
-
+  const [isError, setIsError] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const [loading, setLoading] = useState(false);
   // const [showPassword, setShowPassword] = useState(false);
   const handleChangeForm = (e) => {
@@ -27,13 +31,17 @@ export default function SigninRecruiter() {
       localStorage.setItem("token", result.data.data.token);
       localStorage.setItem("refreshtoken", result.data.data.refreshToken);
       localStorage.setItem("role", "recruiter");
-      alert(result.data.message);
+      setMsg(result.data.message);
+      setShowToast(true);
       setLoading(false);
+      setIsError(false);
+      dispatch(getUserRecruiterById(localStorage.getItem("id")));
       navigate("/");
     } catch (error) {
+      setIsError(true);
+      setMsg(error.response.data.message);
+      setShowToast(true);
       setLoading(false);
-      alert(error.data);
-      console.log(error);
     }
   };
   // const handleShowPassword = (e) => {
@@ -48,7 +56,14 @@ export default function SigninRecruiter() {
           <div className="container">
             <div className="row p-4 signinRecruiter--page__container">
               <div className="col-lg-6 signinRecruiter--page--first__container">
-                <img src={logo} style={{ width: "15%" }} className="" alt="" />
+                <img
+                  src={logo}
+                  style={{ width: "15%", cursor: "pointer" }}
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                  alt=""
+                />
                 <div className="signinRecruiter--content__container">
                   <p className="signinRecruiter--content__style px-4">
                     Temukan developer berbakat & terbaik di berbagai bidang
@@ -60,9 +75,12 @@ export default function SigninRecruiter() {
                 <div className="signinRecruiter--page--second__container ">
                   <img
                     src={logoMobile}
-                    style={{ width: "25%" }}
+                    style={{ width: "25%", cursor: "pointer" }}
                     className="d-lg-none d-md-none d-sm-none"
                     alt=""
+                    onClick={() => {
+                      navigate("/");
+                    }}
                   />
 
                   <h1 style={{ fontWeight: "600", color: "#1F2A36" }}>
@@ -109,11 +127,12 @@ export default function SigninRecruiter() {
                     </div>
                     <div className="text-end py-3">
                       <div
-                        className="singinRecruiter--forgot--password__style"
                         onClick={() => {
                           navigate("/reset/send");
                         }}
+                        className="singinRecruiter--forgot--password__style"
                       >
+                        {" "}
                         Lupa kata sandi ?
                       </div>
                     </div>
@@ -134,17 +153,21 @@ export default function SigninRecruiter() {
                         "Masuk"
                       )}
                     </button>
-                    <p className="py-4" style={{ textAlign: "center" }}>
+                    <div className="py-4 d-flex">
                       Anda belum punya akun?{" "}
                       <div
-                        style={{ textDecoration: "none", color: "#FBB017" }}
+                        style={{
+                          textDecoration: "none",
+                          color: "#FBB017",
+                          cursor: "pointer",
+                        }}
                         onClick={() => {
                           navigate("/signup/recruiter");
                         }}
                       >
                         Daftar disini
                       </div>
-                    </p>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -152,6 +175,28 @@ export default function SigninRecruiter() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
+        <Toast
+          show={showToast}
+          onClose={() => {
+            setShowToast(false);
+          }}
+        >
+          <Toast.Header>
+            {isError ? (
+              <strong className="me-auto text-danger">Failed</strong>
+            ) : (
+              <strong className="me-auto text-success">Success</strong>
+            )}
+
+            <small className="text-muted">just now</small>
+          </Toast.Header>
+          <Toast.Body>{msg}</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 }
