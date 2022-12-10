@@ -4,9 +4,10 @@ import "./index.css";
 import React, { useState } from "react";
 import logoMobile from "../../assets/images/logo.png";
 import axios from "../../utils/axios";
-
+import { useNavigate } from "react-router-dom";
+import { Toast, ToastContainer } from "react-bootstrap";
 export default function SignupJobSeeker() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -14,6 +15,9 @@ export default function SignupJobSeeker() {
     password: "",
     confirmPassword: "",
   });
+  const [isError, setIsError] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChangeForm = (e) => {
@@ -24,9 +28,11 @@ export default function SignupJobSeeker() {
     try {
       setIsLoading(true);
       const result = await axios.post("/api/auth/register/jobseeker", form);
+      setMsg(result.data.message);
+      setShowToast(true);
       setIsLoading(false);
-      alert(result.data.message);
-      // navigate("/signin/jobseeker");
+      setIsError(false);
+      navigate("/signin/jobseeker");
       setForm({
         name: "",
         email: "",
@@ -35,9 +41,10 @@ export default function SignupJobSeeker() {
         confirmPassword: "",
       });
     } catch (error) {
+      setIsError(true);
+      setMsg(error.response.data.message);
+      setShowToast(true);
       setIsLoading(false);
-      console.log(error);
-      alert(error);
     }
   };
   return (
@@ -47,7 +54,14 @@ export default function SignupJobSeeker() {
           <div className="container">
             <div className="row p-4 signinRecruiter--page__container">
               <div className="col-lg-6 signinRecruiter--page--first__container">
-                <img src={logo} style={{ width: "15%" }} className="" alt="" />
+                <img
+                  src={logo}
+                  style={{ width: "15%", cursor: "pointer" }}
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                  alt=""
+                />
                 <div className="signinRecruiter--content__container">
                   <p className="signinRecruiter--content__style px-4">
                     Temukan developer berbakat & terbaik di berbagai bidang
@@ -62,6 +76,9 @@ export default function SignupJobSeeker() {
                     style={{ width: "25%" }}
                     className="d-lg-none d-md-none d-sm-none"
                     alt=""
+                    onClick={() => {
+                      navigate("/");
+                    }}
                   />
 
                   <h1 style={{ fontWeight: "600", color: "#1F2A36" }}>
@@ -145,7 +162,7 @@ export default function SignupJobSeeker() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="btn w-100 signinRecruiter--button__style"
+                      className="btn w-100 signinRecruiter--button__style mt-2"
                       style={{ background: "#FBB017", color: "white" }}
                     >
                       {isLoading ? (
@@ -166,6 +183,28 @@ export default function SignupJobSeeker() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
+        <Toast
+          show={showToast}
+          onClose={() => {
+            setShowToast(false);
+          }}
+        >
+          <Toast.Header>
+            {isError ? (
+              <strong className="me-auto text-danger">Failed</strong>
+            ) : (
+              <strong className="me-auto text-success">Success</strong>
+            )}
+
+            <small className="text-muted">just now</small>
+          </Toast.Header>
+          <Toast.Body>{msg}</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 }
