@@ -10,7 +10,6 @@ function Jobseeker(props) {
   const handleDetail = () => {
     navigate(`/jobseeker/${props.data.id}`);
   };
-
   return (
     <>
       <main className="jobseeker">
@@ -34,11 +33,11 @@ function Jobseeker(props) {
             </div>
             <div className="skill-list">
               {props.data.skills_backup
-                ? props.data.skills_backup.map((items, index) => {
+                ? props.data.skills.map((items, index) => {
                     return (
                       <div key={index}>
                         <button className="button-skill-jobseeker">
-                          {items}
+                          {items.skill_name}
                         </button>
                       </div>
                     );

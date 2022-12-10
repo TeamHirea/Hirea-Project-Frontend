@@ -21,8 +21,8 @@ function Home() {
 
   useEffect(() => {
     // dispatch(getUserJobseeker(keyword));
-    dispatch(getAllJobseeker(page, filter));
-  }, [page, filter]);
+    dispatch(getAllJobseeker(page, filter, keyword));
+  }, [page, filter, keyword]);
   // const getDataUserJobseeker = async () => {
   //   try {
   //     const result = await axios.get(`api/user`);

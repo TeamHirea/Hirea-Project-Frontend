@@ -21,7 +21,6 @@ import RequestResetPassword from "./pages/RequestResetPassword";
 import ProfileJobseeker from "./pages/ProfileJobseeker";
 import MyProfile from "./pages/MyProfile";
 
-import Chat from "./pages/Chat";
 import Inbox from "./pages/Chat/inbox";
 import EmailVerificationRecruiter from "./pages/EmailVerificationRecruiter";
 import OptionLogin from "./pages/optionLogin";
@@ -60,7 +59,6 @@ function App() {
         <Route path="/recruiter/edit" element={<EditProfileRecruiter />} />
         <Route path="/recruiter/hire/:id" element={<Hire />} />
         <Route path="/jobseeker/:id" element={<ProfileJobseeker />} />
-        <Route path="/chat" element={<Chat />} />
         <Route path="/inbox" element={<Inbox />} />
         {/* </Route> */}
 

@@ -57,6 +57,17 @@
 .icon_inbox {
   margin-left: 10px;
 }
+.chat_inbox {
+  display: flex;
+  flex-direction: column;
+}
+.msg-send {
+  display: flex;
+  flex-direction: column;
+}
+.msg-item {
+  margin-left: auto;
+}
 /* @media only screen and (max-width: 600px) {
   .cont1 {
     min-height: auto;
