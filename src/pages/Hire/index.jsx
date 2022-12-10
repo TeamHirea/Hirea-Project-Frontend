@@ -12,7 +12,7 @@ export default function Hire() {
   const { id } = useParams();
   const user = useSelector((state) => state.user.data);
   const [form, setForm] = useState({
-    subject: "",
+    subject: "Project",
     message: "",
   });
   const handleChangeForm = (e) => {
@@ -73,7 +73,7 @@ export default function Hire() {
 
             <h1 className="name">Skill</h1>
             <div className="list-skill">
-              {user.skill.map((x, i) => (
+              {user.skill?.map((x, i) => (
                 <button
                   className=" btn btn-warning text-white m-1"
                   type="button"
@@ -103,12 +103,13 @@ export default function Hire() {
                 className="hire-dropdown mb-4 "
                 onChange={handleChangeForm}
                 name="subject"
+                value={form.subject}
               >
-                <option>Project</option>
-                <option>Fulltime</option>
-                <option>Contract</option>
-                <option>Freelance</option>
-                <option>etc</option>
+                <option value="Project">Project</option>
+                <option value="Fulltime">Fulltime</option>
+                <option value="Contract">Contract</option>
+                <option value="Freelance">Freelance</option>
+                <option value="etc">etc</option>
               </select>
               <label className="hire-input">Pesan</label>
               <textarea
