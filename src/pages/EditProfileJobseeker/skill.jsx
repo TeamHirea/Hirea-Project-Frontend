@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getSkill, updateSkill } from "../../redux/action/skill";
+import { deleteSkill, getSkill, updateSkill } from "../../redux/action/skill";
 import { TrashFill } from "react-bootstrap-icons";
 
 function personal() {
@@ -16,27 +16,27 @@ function personal() {
     dispatch(getSkill(id));
   }, []);
 
-  const deleteSkillHandler = async (index) => {
+  const deleteSkillHandler = async (skill_id) => {
     setIsLoading2(true);
-    const updatedSkill = skill.slice();
-    updatedSkill.splice(index, 1);
-    const form = { skill: updatedSkill };
-    await dispatch(updateSkill(id, form));
+    const body = { skill_id: skill_id };
+    await dispatch(deleteSkill(id, body));
     await dispatch(getSkill(id));
     setIsLoading2(false);
   };
   const addSkill = async () => {
-    if (newSkill) {
-      if (!skill.includes(newSkill)) {
+    try {
+      if (newSkill) {
         setIsLoading(true);
-        const updatedSkill = skill.slice();
-        updatedSkill.push(newSkill);
-        const form = { skill: updatedSkill };
+        const form = { skill: newSkill };
         await dispatch(updateSkill(id, form));
         await dispatch(getSkill(id));
-        setNewSkill(null);
+        setNewSkill("");
         setIsLoading(false);
       }
+      setNewSkill("");
+    } catch (error) {
+      setNewSkill("");
+      setIsLoading(false);
     }
   };
 
@@ -71,13 +71,13 @@ function personal() {
         )}
 
         <div className="skill_container">
-          {skill.map((item, index) => {
+          {skill.map((item) => {
             return (
-              <div className="skill_item" key={index}>
-                {item}{" "}
+              <div className="skill_item" key={item.skill_id}>
+                {item.skill_name}{" "}
                 <TrashFill
                   onClick={() => {
-                    deleteSkillHandler(index);
+                    deleteSkillHandler(item.skill_id);
                   }}
                 />
               </div>

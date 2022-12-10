@@ -7,5 +7,10 @@ export const getSkill = (id) => ({
 
 export const updateSkill = (id, form) => ({
   type: "UPDATE_SKILL",
-  payload: axios.patch(`/api/skill/${id}`, form),
+  payload: axios.post(`/api/skill/${id}`, form),
+});
+
+export const deleteSkill = (id, body) => ({
+  type: "DELETE_SKILL",
+  payload: axios.delete(`/api/skill/${id}`, { data: body }),
 });

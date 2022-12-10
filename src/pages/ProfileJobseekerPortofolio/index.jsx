@@ -14,7 +14,6 @@ export default function ProfileJobseekerPortofolio() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const user = useSelector((state) => state.user.data);
-  const portofolio = useSelector((state) => state.portofolio.data);
 
   useEffect(() => {
     dispatch(getUserJobseekerById(id));
@@ -25,7 +24,7 @@ export default function ProfileJobseekerPortofolio() {
       <Header />
       <main className="profile-jobseeker">
         <Profile data={user} />
-        <Portofolio data={portofolio} />
+        <Portofolio />
       </main>
       <Footer />
     </>

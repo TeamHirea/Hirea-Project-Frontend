@@ -17,7 +17,7 @@ function personal() {
   const [showToast, setShowToast] = useState(false);
   const [showErrorToast, setShowErrorToast] = useState(false);
   const [activePortfolioId, setActivePortfolioId] = useState("");
-  const [form, setForm] = useState({});
+  const [image, setImage] = useState("");
   const [activeItem, setActiveItem] = useState({});
   const [updateForm, setUpdateForm] = useState({});
   const dispatch = useDispatch();
@@ -28,12 +28,9 @@ function personal() {
     dispatch(getPortfolio(id));
   }, []);
 
-  const formHandler = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-  const updateFormHandler = (e) => {
-    setUpdateForm({ ...updateForm, [e.target.name]: e.target.value });
-  };
+  // const formHandler = (e) => {
+  //   setForm({ ...form, [e.target.name]: e.target.value });
+  // };
   const removePortfolioHandler = async () => {
     try {
       setIsLoading(true);
@@ -51,20 +48,35 @@ function personal() {
   const addPortfolioHandler = async () => {
     try {
       setIsLoading(true);
-      await dispatch(addPortfolio({ ...form, idJobseeker: id }));
-      await dispatch(getPortfolio(id));
+      const formData = new FormData();
+      // formData.append("name", form.name);
+      for (const data in updateForm) {
+        formData.append(data, updateForm[data]);
+      }
+      formData.append("idJobseeker", localStorage.getItem("id"));
+
+      await dispatch(addPortfolio(formData));
+      await dispatch(getPortfolio(localStorage.getItem("id")));
       setShowModal(false);
       setShowToast(true);
       setIsLoading(false);
+      // setUpdateForm({ ...updateForm, idJobseeker: localStorage.getItem("id") });
     } catch (error) {
       setShowErrorToast(true);
       setIsLoading(false);
     }
   };
+
   const updatePortfolioHandler = async () => {
     try {
       setIsLoading(true);
-      await dispatch(updatePortfolio(updateForm, activeItem.id));
+      const formData = new FormData();
+      // formData.append("name", form.name);
+      for (const data in updateForm) {
+        formData.append(data, updateForm[data]);
+      }
+      formData.append("idJobseeker", localStorage.getItem("id"));
+      await dispatch(updatePortfolio(formData, activeItem.id));
       await dispatch(getPortfolio(id));
       setShowUpdateModal(false);
       setShowToast(true);
@@ -72,6 +84,16 @@ function personal() {
     } catch (error) {
       setShowErrorToast(true);
       setIsLoading(false);
+    }
+  };
+
+  const handleChangeFormUpdate = (e) => {
+    e.preventDefault();
+    if (e.target.name === "image") {
+      setUpdateForm({ ...updateForm, [e.target.name]: e.target.files[0] });
+      setImage(URL.createObjectURL(e.target.files[0]));
+    } else {
+      setUpdateForm({ ...updateForm, [e.target.name]: e.target.value });
     }
   };
 
@@ -86,7 +108,7 @@ function personal() {
                 <img
                   src={
                     item.image
-                      ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345355/Hirea%20App/${item.image}`
+                      ? `https://res.cloudinary.com/dnkor5xbu/image/upload/v1666345717/${item.image}`
                       : require("../../assets/images/picture-empty.jpg")
                   }
                   alt="portfolio"
@@ -173,7 +195,7 @@ function personal() {
           </button>
         </div>
       </Modal>
-      <Modal show={showModal} size="m" centered className="modal modal-lg">
+      <Modal show={showModal} size="m" centered className="modal">
         <Modal.Title className="modal-title experience_modal__title">
           Pengalaman Kerja
         </Modal.Title>
@@ -186,7 +208,7 @@ function personal() {
                 placeholder="Masukan nama aplikasi"
                 className="portfolio_input"
                 name="title"
-                onChange={formHandler}
+                onChange={handleChangeFormUpdate}
               />
             </div>
             <div>
@@ -196,7 +218,7 @@ function personal() {
                 placeholder="Masukan link repository"
                 className="portfolio_input"
                 name="url"
-                onChange={formHandler}
+                onChange={handleChangeFormUpdate}
               />
             </div>
             <div>
@@ -206,7 +228,7 @@ function personal() {
                 placeholder="Upload gambar"
                 className="portfolio_input"
                 name="image"
-                // onChange={formHandler}
+                onChange={handleChangeFormUpdate}
               />
             </div>
           </div>
@@ -233,7 +255,7 @@ function personal() {
           <button
             className="experience_modal__button-pasive"
             onClick={() => {
-              setForm({});
+              setUpdateForm({});
               setShowModal(false);
             }}
           >
@@ -241,12 +263,7 @@ function personal() {
           </button>
         </div>
       </Modal>
-      <Modal
-        show={showUpdateModal}
-        size="m"
-        centered
-        className="modal modal-lg"
-      >
+      <Modal show={showUpdateModal} size="m" centered className="modal">
         <Modal.Title className="modal-title experience_modal__title">
           Pengalaman Kerja
         </Modal.Title>
@@ -259,7 +276,7 @@ function personal() {
                 placeholder="Masukan nama aplikasi"
                 className="portfolio_input"
                 name="title"
-                onChange={updateFormHandler}
+                onChange={handleChangeFormUpdate}
                 defaultValue={activeItem.title}
               />
             </div>
@@ -270,7 +287,7 @@ function personal() {
                 placeholder="Masukan link repository"
                 className="portfolio_input"
                 name="url"
-                onChange={updateFormHandler}
+                onChange={handleChangeFormUpdate}
                 defaultValue={activeItem.url}
               />
             </div>
@@ -281,8 +298,15 @@ function personal() {
                 placeholder="Upload gambar"
                 className="portfolio_input"
                 name="image"
-                // onChange={updateFormHandler}
+                onChange={handleChangeFormUpdate}
               />
+              {image && (
+                <img
+                  src={image}
+                  className="profile_profile-image"
+                  alt="view image"
+                />
+              )}
             </div>
           </div>
         </Modal.Body>
@@ -317,7 +341,10 @@ function personal() {
           </button>
         </div>
       </Modal>
-      <ToastContainer position="top-center" className="p-3 position-fixed">
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
         <Toast
           show={showToast}
           onClose={() => {
@@ -331,7 +358,10 @@ function personal() {
           <Toast.Body>Your portfolio has been updated</Toast.Body>
         </Toast>
       </ToastContainer>
-      <ToastContainer position="top-center" className="p-3 position-fixed">
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
         <Toast
           show={showErrorToast}
           onClose={() => {

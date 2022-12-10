@@ -5,24 +5,24 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 import Jobseeker from "../../components/jobseeker";
-import { getUserJobseeker } from "../../redux/action/user";
+import { getAllJobseeker } from "../../redux/action/user";
 
 function Home() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const user = useSelector((state) => state.user);
 
   // const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [pagination] = useState({});
   const [keyword, setKeyword] = useState("");
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    dispatch(getUserJobseeker(keyword));
-  }, []);
+    // dispatch(getUserJobseeker(keyword));
+    dispatch(getAllJobseeker(page, filter));
+  }, [page, filter]);
   // const getDataUserJobseeker = async () => {
   //   try {
   //     const result = await axios.get(`api/user`);
@@ -34,12 +34,8 @@ function Home() {
   //   }
   // };
 
-  const handleUserJobseeker = (id) => {
-    navigate(`/jobseeker/experience/${id}`);
-  };
-
   const handleSearchName = async () => {
-    dispatch(getUserJobseeker(keyword));
+    dispatch(getAllJobseeker(page, filter, keyword));
   };
 
   const handlePrevPage = () => {
@@ -49,6 +45,8 @@ function Home() {
   const handleNextPage = () => {
     setPage(page + 1);
   };
+  // console.log(keyword);
+  // console.log(user.data);
 
   return (
     <>
@@ -80,17 +78,29 @@ function Home() {
                   </a>
                   <ul className="dropdown-menu">
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <a
+                        className="dropdown-item"
+                        id="skill"
+                        onClick={(e) => setFilter(e.target.id)}
+                      >
                         Sortir berdasarkan Skill
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <a
+                        className="dropdown-item"
+                        id="freelance"
+                        onClick={(e) => setFilter(e.target.id)}
+                      >
                         Sortir berdasarkan Freelance
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <a
+                        className="dropdown-item"
+                        id="fulltime"
+                        onClick={(e) => setFilter(e.target.id)}
+                      >
                         Sortir berdasarkan Fulltime
                       </a>
                     </li>
@@ -110,10 +120,7 @@ function Home() {
                 {user.data.length > 0 ? (
                   user.data.map((item) => (
                     <div key={item.id}>
-                      <Jobseeker
-                        data={item}
-                        handleDetail={handleUserJobseeker}
-                      />
+                      <Jobseeker data={item} />
                     </div>
                   ))
                 ) : (
@@ -124,9 +131,50 @@ function Home() {
               </main>
             </div>
             <div className="d-flex gap-2 justify-content-center w-100 my-5">
-              <button className="btn btn-primary" onClick={handlePrevPage}>
+              <button
+                className="btn btn-primary"
+                onClick={handlePrevPage}
+                disabled={page === 1 ? true : false}
+              >
                 &lt;
               </button>
+              <div style={{ width: "200px" }}>
+                <ul
+                  className="d-flex gap-2 align-items-center h-100"
+                  style={{ listStyle: "none" }}
+                >
+                  {(() => {
+                    let td = [];
+                    for (let i = 1; i <= user.pagination.totalPage; i++) {
+                      td.push(
+                        <li
+                          className="w-100 text-center"
+                          style={{
+                            border: "1px solid #E2E5ED",
+                            width: "25px",
+                            height: "50px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: 5,
+                            cursor: "pointer",
+                            color: `${
+                              user.pagination.page === i ? "white" : "#9EA0A5"
+                            }`,
+                            background: `${
+                              user.pagination.page === i ? "#5E50A1" : "white"
+                            }`,
+                          }}
+                          key={i}
+                        >
+                          {i}
+                        </li>
+                      );
+                    }
+                    return td;
+                  })()}
+                </ul>
+              </div>
               <button
                 className="btn btn-primary"
                 onClick={handleNextPage}

@@ -2,16 +2,14 @@
 import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 import { useParams } from "react-router-dom";
 
 export default function SignupRecruiter() {
-  // const navigate = useNavigate();
-  // console.log(navigate);
+  const navigate = useNavigate();
 
   const { otp } = useParams();
-  console.log(otp);
   const [form, setForm] = useState({
     newPassword: "",
     confirmPassword: "",
@@ -24,6 +22,7 @@ export default function SignupRecruiter() {
     try {
       const result = await axios.post(`/api/auth/resetPassword/${otp}`, form);
       alert(result.data.message);
+      navigate("/optionLogin");
     } catch (error) {
       alert(error.response.data.message);
     }
@@ -32,11 +31,13 @@ export default function SignupRecruiter() {
     <div className="container-signup  mt-5 ">
       <div className=" container-auth ">
         <div className="row row-auth ">
-          <div className="col-6 col-left-rec" style={{ height: "600px" }}>
-            <img src={logo} alt="" className="logo-auth" />
-            <h1 className="desc-left">
-              Temukan developer berbakat & terbaik di berbagai bidang keahlian
-            </h1>
+          <div className="col-lg-6 signinRecruiter--page--first__container">
+            <img src={logo} style={{ width: "15%" }} className="" alt="" />
+            <div className="signinRecruiter--content__container">
+              <p className="signinRecruiter--content__style px-4">
+                Temukan developer berbakat & terbaik di berbagai bidang keahlian
+              </p>
+            </div>
           </div>
           <div className="col-6 col-right-rec col-right-cp h-100 ">
             <div
@@ -53,6 +54,7 @@ export default function SignupRecruiter() {
                 type="password"
                 name="newPassword"
                 placeholder="Masukan kata sandi"
+                className="form-control"
                 onChange={handleChangeForm}
               />
 
@@ -60,6 +62,7 @@ export default function SignupRecruiter() {
               <input
                 type="password"
                 name="confirmPassword"
+                className="form-control"
                 onChange={handleChangeForm}
                 placeholder="Masukan konfirmasi kata sandi"
               />

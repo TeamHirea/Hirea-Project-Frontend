@@ -1,32 +1,30 @@
 const initialState = {
-  skill: [],
+  data: {},
   isLoading: false,
   isError: false,
   errorMessage: "",
 };
 
-const skillReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_SKILL_PENDING":
+    case "UPDATE_PROFILE_RECRUITER_PENDING":
       return {
         ...state,
         isLoading: true,
       };
-    case "GET_SKILL_FULFILLED":
+    case "UPDATE_PROFILE_RECRUITER_FULFILLED":
       return {
         ...state,
-        skill: action.payload.data.data[0].skills,
         isLoading: false,
         isError: false,
         errorMessage: "",
       };
-    case "GET_SKILL_REJECTED":
+    case "UPDATE_PROFILE_RECRUITER_REJECTED":
       return {
         ...state,
         isLoading: false,
         isError: true,
-        errorMessage: action.payload.response.data.message,
-        skill: [],
+        errorMessage: action.payload.data.message,
       };
     default: {
       return state;
@@ -34,4 +32,4 @@ const skillReducer = (state = initialState, action) => {
   }
 };
 
-export default skillReducer;
+export default userReducer;

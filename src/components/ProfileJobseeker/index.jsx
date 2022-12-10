@@ -17,6 +17,9 @@ export default function CardProfileJobseeker(props) {
   const handleDetail = () => {
     navigate(`/recruiter/hire/${props.data.id}`);
   };
+
+  const { data } = props;
+  console.log(data);
   return (
     <>
       <main className="profile-seeker">
@@ -49,7 +52,15 @@ export default function CardProfileJobseeker(props) {
           </button>
           <h1 className="name">Skill</h1>
           <div className="list-skill">
-            <button className="button-skill">{props.data.skill}</button>
+            {props.data.skill
+              ? props.data.skill.map((items, index) => {
+                  return (
+                    <div key={index}>
+                      <button className="button-skill">{items}</button>
+                    </div>
+                  );
+                })
+              : ""}
           </div>
           <div className="social-media">
             <div className="social-media-input">

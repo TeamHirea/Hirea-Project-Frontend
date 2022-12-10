@@ -3,18 +3,17 @@
 import "./index.css";
 import success from "../../assets/vectors/success.png";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import wrongLogo from "../../assets/vectors/wrongLogo.png";
 import axios from "../../utils/axios";
 
 export default function EmailVerificationRecruiter() {
-  const navigate = useNavigate();
   const { token } = useParams();
   const [valid, setValid] = useState([]);
-  console.log(navigate);
 
   const verified = () => {
     axios.get(`http://localhost:8080/api/auth/verify/${token}`).then((res) => {
+      console.log(res);
       setValid([res.data.data]);
     });
   };
@@ -26,7 +25,6 @@ export default function EmailVerificationRecruiter() {
     }
   }, []);
 
-  console.log(valid);
   return (
     <>
       {valid.length === 0 ? (

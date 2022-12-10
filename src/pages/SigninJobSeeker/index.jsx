@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 import logoMobile from "../../assets/images/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
-
+import { useDispatch } from "react-redux";
+import { getUserJobseekerById } from "../../redux/action/user";
+import { Toast, ToastContainer } from "react-bootstrap";
 export default function SigninJobSeeker() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  // const [showToast, setShowToast] = useState(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
-  // console.log(form);
+  const [isError, setIsError] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleChangeForm = (e) => {
@@ -25,12 +30,21 @@ export default function SigninJobSeeker() {
       const result = await axios.post("/api/auth/signin/jobseeker", form);
       localStorage.setItem("id", result.data.data.userId);
       localStorage.setItem("token", result.data.data.token);
+      localStorage.setItem("refreshtoken", result.data.data.refreshToken);
+      localStorage.setItem("role", "jobseeker");
       // localStorage.setItem("refreshToken", result.data.data.refreshToken);
-      alert(result.data.message);
+      setMsg(result.data.message);
+      setShowToast(true);
       setLoading(false);
-      navigate("/");
+      setIsError(false);
+      dispatch(getUserJobseekerById(localStorage.getItem("id")));
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } catch (error) {
-      alert(error.response.data.message);
+      setIsError(true);
+      setMsg(error.response.data.message);
+      setShowToast(true);
       setLoading(false);
     }
   };
@@ -42,7 +56,14 @@ export default function SigninJobSeeker() {
           <div className="container">
             <div className="row p-4 signinRecruiter--page__container">
               <div className="col-lg-6 signinRecruiter--page--first__container">
-                <img src={logo} style={{ width: "15%" }} className="" alt="" />
+                <img
+                  src={logo}
+                  style={{ width: "15%", cursor: "pointer" }}
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                  alt=""
+                />
                 <div className="signinRecruiter--content__container">
                   <p className="signinRecruiter--content__style px-4">
                     Temukan developer berbakat & terbaik di berbagai bidang
@@ -54,9 +75,12 @@ export default function SigninJobSeeker() {
                 <div className="signinRecruiter--page--second__container ">
                   <img
                     src={logoMobile}
-                    style={{ width: "25%" }}
+                    style={{ width: "25%", cursor: "pointer" }}
                     className="d-lg-none d-md-none d-sm-none"
                     alt=""
+                    onClick={() => {
+                      navigate("/");
+                    }}
                   />
 
                   <h1 style={{ fontWeight: "600", color: "#1F2A36" }}>
@@ -84,7 +108,6 @@ export default function SigninJobSeeker() {
                         name="email"
                         value={form.email}
                         className="form-control"
-                        id="exampleInputEmail1"
                         aria-describedby="emailHelp"
                         placeholder="Masukkan alamat email"
                       />
@@ -102,9 +125,15 @@ export default function SigninJobSeeker() {
                       />
                     </div>
                     <div className="text-end py-3">
-                      <Link className="singinRecruiter--forgot--password__style">
+                      <div
+                        onClick={() => {
+                          navigate("/reset/send");
+                        }}
+                        className="singinRecruiter--forgot--password__style"
+                      >
+                        {" "}
                         Lupa kata sandi ?
-                      </Link>
+                      </div>
                     </div>
                     <button
                       type="submit"
@@ -123,14 +152,21 @@ export default function SigninJobSeeker() {
                         "Masuk"
                       )}
                     </button>
-                    <p className="py-4" style={{ textAlign: "center" }}>
-                      Anda belum punya akun?{" "}
-                      <Link
-                        style={{ textDecoration: "none", color: "#FBB017" }}
+                    <div className="py-4 d-flex">
+                      Anda belum punya akun?&nbsp;
+                      <div
+                        style={{
+                          textDecoration: "none",
+                          color: "#FBB017",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          navigate("/signup/jobseeker");
+                        }}
                       >
                         Daftar disini
-                      </Link>
-                    </p>
+                      </div>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -138,6 +174,28 @@ export default function SigninJobSeeker() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
+        <Toast
+          show={showToast}
+          onClose={() => {
+            setShowToast(false);
+          }}
+        >
+          <Toast.Header>
+            {isError ? (
+              <strong className="me-auto text-danger">Failed</strong>
+            ) : (
+              <strong className="me-auto text-success">Success</strong>
+            )}
+
+            <small className="text-muted">just now</small>
+          </Toast.Header>
+          <Toast.Body>{msg}</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 }

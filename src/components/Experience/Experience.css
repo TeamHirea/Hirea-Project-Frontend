@@ -4,10 +4,10 @@
   box-sizing: border-box;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Open Sans";
   src: url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
-}
+} */
 
 .experience {
   width: 100%;
@@ -45,7 +45,6 @@
   font-size: 18px;
   font-weight: 400;
   color: rgba(70, 80, 92, 1);
-
 }
 .duration-of-work {
   font-family: "Open Sans";

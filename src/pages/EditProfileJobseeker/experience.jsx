@@ -103,7 +103,7 @@ function experience() {
           Tambah pengalaman kerja
         </div>
       </div>
-      <Modal show={showModal} size="m" centered className="modal modal-lg">
+      <Modal show={showModal} size="m" centered className="modal">
         <Modal.Title className="modal-title experience_modal__title">
           Pengalaman Kerja
         </Modal.Title>
@@ -207,12 +207,7 @@ function experience() {
           </button>
         </div>
       </Modal>
-      <Modal
-        show={showUpdateModal}
-        size="m"
-        centered
-        className="modal modal-lg"
-      >
+      <Modal show={showUpdateModal} size="m" centered className="modal">
         <Modal.Title className="modal-title experience_modal__title">
           Pengalaman Kerja
         </Modal.Title>
@@ -362,7 +357,10 @@ function experience() {
           </button>
         </div>
       </Modal>
-      <ToastContainer position="top-center" className="p-3 position-fixed">
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
         <Toast
           show={showToast}
           onClose={() => {

@@ -4,14 +4,14 @@
   box-sizing: border-box;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Open Sans";
   src: url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
-}
+} */
 
 .profile-seeker {
   width: 30%;
-  background-color:white;
+  background-color: white;
   justify-content: center;
   margin: 5% 0 5% 5%;
   border-radius: 15px;
@@ -31,27 +31,36 @@
 .img-profile-jobseeker {
   width: 150px;
   height: 150px;
+  margin-right: 3%;
+  object-fit: cover;
 }
-.name {
+.card-name {
   font-family: "Open Sans";
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
+  margin-bottom: 2%;
 }
-.description {
+.card-description {
   font-family: "Open Sans";
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
   color: rgba(158, 160, 165, 1);
-  margin: 0;
 }
-.location {
+.card-location {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 2% 0;
+  margin: 0;
+  font-size: 18px;
+}
+.row-card {
+  padding: 0;
+}
+.jobseeker {
+  padding: 1% 5% 0 5%;
 }
 .location img {
-  margin-right: 5%;
+  margin-right: 1%;
   height: 5%;
 }
 .location p {
@@ -73,6 +82,8 @@
   background: rgb(46, 8, 238);
 }
 .button-skill {
+  display: flex;
+  flex-direction: row;
   padding: 2% 5%;
   border: none;
   border-radius: 5px;
@@ -96,8 +107,8 @@
     width: 100%;
     margin: 0;
   }
-  .name {
-    font-size: 14px;
+  .card-name {
+    font-size: 18px;
   }
   .description {
     font-size: 8px;
@@ -113,5 +124,23 @@
   }
   .social-media-img {
     height: 15px;
+  }
+  .profile-image-jobseeker {
+    width: 100px;
+    height: 100px;
+    margin-right: 2%;
+  }
+  .card-location {
+    font-size: 10px;
+  }
+  .card-description {
+    font-size: 10px;
+    margin-bottom: 3%;
+  }
+  .row-card {
+    padding: 0;
+  }
+  .jobseeker {
+    padding: 2% 2%;
   }
 }

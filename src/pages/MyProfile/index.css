@@ -1,0 +1,156 @@
+.my-profile_main {
+  background-color: #e5e5e5;
+  padding: 10vh 10vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+  width: auto;
+  margin-top: 10vh;
+}
+.my-profile_sections {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.my-profile_main-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.my-profile_container {
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 60vw;
+  padding: 40px;
+  row-gap: 15px;
+}
+.my-profile_image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.my-profile_profile-image {
+  height: 150px;
+  width: 150px;
+  border-radius: 150px;
+  object-fit: cover;
+}
+.my-profile_edit-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 56px;
+  color: #9ea0a5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  cursor: pointer;
+}
+.my-profile_edit-button:active {
+  color: black;
+}
+.my-profile_name {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 56px;
+  color: #1f2a36;
+}
+.my-profile_job {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1f2a36;
+}
+.my-profile_text {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #9ea0a5;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  column-gap: 10px;
+}
+.my-profile_purple-button {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #ffffff;
+  background: #5e50a1;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: ; */
+  padding: 20px;
+  cursor: pointer;
+}
+.my-profile_purple-button:active {
+  background: #423583;
+}
+
+@media only screen and (max-width: 768px) {
+  .edit-profile_main {
+    background-color: #e5e5e5;
+    padding: 0 0 50px 0;
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+    width: auto;
+  }
+  .my-profile_container {
+    width: 100vw;
+  }
+  .my-profile_purple-button {
+    width: 90vw;
+    margin: 20px;
+  }
+  .my-profile_white-button {
+    width: 90vw;
+    margin: 20px;
+  }
+  .my-profile_personal {
+    width: 100vw;
+  }
+  .personal_personal {
+    width: 90vw;
+    margin: auto;
+  }
+  .skill_personal {
+    width: 90vw;
+    margin: auto;
+  }
+  .experience_personal {
+    width: 90vw;
+    margin: auto;
+  }
+  .experience_column {
+    flex-wrap: wrap;
+  }
+  .portfolio_personal {
+    width: 90vw;
+    margin: auto;
+  }
+}

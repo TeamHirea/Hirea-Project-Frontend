@@ -1,14 +1,14 @@
 // import React from "react";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/hirea white.png";
 import "./index.css";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import logoMobile from "../../assets/images/logo.png";
 import axios from "../../utils/axios";
+import { useNavigate } from "react-router-dom";
+import { Toast, ToastContainer } from "react-bootstrap";
 export default function SignupRecruiter() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // console.log(navigate);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -18,7 +18,9 @@ export default function SignupRecruiter() {
     password: "",
     confirmPassword: "",
   });
-
+  const [isError, setIsError] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleChangeForm = (e) => {
@@ -30,8 +32,10 @@ export default function SignupRecruiter() {
       setLoading(true);
       const result = await axios.post("/api/auth/register/recruiter", form);
       // dispatch(signupRecruiter(form));
-      alert(result.data.message);
+      setMsg(result.data.message);
+      setShowToast(true);
       setLoading(false);
+      setIsError(false);
       setForm({
         name: "",
         email: "",
@@ -41,16 +45,17 @@ export default function SignupRecruiter() {
         password: "",
         confirmPassword: "",
       });
-      // navigate("/signin");
+      navigate("/signin/recruiter");
     } catch (error) {
+      setIsError(true);
+      setMsg(error.response.data.message);
+      setShowToast(true);
       setLoading(false);
-      alert(error.response.data.message);
-      console.error(error);
     }
   };
   return (
     <div
-      className="container-fluid signinRecruiter--container--second"
+      className="signinRecruiter--container--second"
       style={{ boxSizing: "border-box" }}
     >
       <div className="row px-0 mx-0">
@@ -58,7 +63,14 @@ export default function SignupRecruiter() {
           <div className="container">
             <div className="row p-4 signinRecruiter--page__container">
               <div className="col-lg-6 signinRecruiter--page--first__container">
-                <img src={logo} style={{ width: "15%" }} className="" alt="" />
+                <img
+                  src={logo}
+                  style={{ width: "15%", cursor: "pointer" }}
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                  alt=""
+                />
                 <div className="signinRecruiter--content__container">
                   <p className="signinRecruiter--content__style px-4">
                     Temukan developer berbakat & terbaik di berbagai bidang
@@ -66,13 +78,16 @@ export default function SignupRecruiter() {
                   </p>
                 </div>
               </div>
-              <div className="col-lg-6 signinRecruiter--page--second--form__container pt-3">
+              <div className="col-lg-6 signinRecruiter--page--second--form__container ">
                 <div className="signinRecruiter--page--second__container ">
                   <img
                     src={logoMobile}
                     style={{ width: "25%" }}
                     className="d-lg-none d-md-none d-sm-none"
                     alt=""
+                    onClick={() => {
+                      navigate("/");
+                    }}
                   />
 
                   <h1 style={{ fontWeight: "600", color: "#1F2A36" }}>
@@ -100,7 +115,6 @@ export default function SignupRecruiter() {
                         name="name"
                         value={form.name}
                         className="form-control"
-                        id="exampleInputEmail1"
                         aria-describedby="emailHelp"
                         placeholder="Masukkan nama panjang"
                       />
@@ -113,7 +127,6 @@ export default function SignupRecruiter() {
                         name="email"
                         value={form.email}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
@@ -125,7 +138,6 @@ export default function SignupRecruiter() {
                         name="companyName"
                         value={form.companyName}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
@@ -139,7 +151,6 @@ export default function SignupRecruiter() {
                         name="companyField"
                         value={form.companyField}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
@@ -153,7 +164,6 @@ export default function SignupRecruiter() {
                         name="phone"
                         value={form.phone}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
                     </div>
@@ -165,7 +175,6 @@ export default function SignupRecruiter() {
                         name="password"
                         value={form.password}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan konfirmasi kata sandi"
                       />
                     </div>
@@ -179,19 +188,13 @@ export default function SignupRecruiter() {
                         name="confirmPassword"
                         value={form.confirmPassword}
                         className="form-control"
-                        id="exampleInputPassword1"
                         placeholder="Masukkan kata sandi"
                       />
-                    </div>
-                    <div className="text-end py-1">
-                      <Link className="singinRecruiter--forgot--password__style">
-                        Lupa kata sandi ?
-                      </Link>
                     </div>
                     <button
                       type="submit"
                       disabled={loading}
-                      className="btn w-100 signinRecruiter--button__style"
+                      className="btn w-100 signinRecruiter--button__style mt-2"
                       style={{ background: "#FBB017", color: "white" }}
                     >
                       {loading ? (
@@ -205,14 +208,6 @@ export default function SignupRecruiter() {
                         "Masuk"
                       )}
                     </button>
-                    <p className="py-4" style={{ textAlign: "center" }}>
-                      Anda belum punya akun?{" "}
-                      <Link
-                        style={{ textDecoration: "none", color: "#FBB017" }}
-                      >
-                        Daftar disini
-                      </Link>
-                    </p>
                   </form>
                 </div>
               </div>
@@ -220,6 +215,28 @@ export default function SignupRecruiter() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        className="p-3 position-fixed toast-container"
+      >
+        <Toast
+          show={showToast}
+          onClose={() => {
+            setShowToast(false);
+          }}
+        >
+          <Toast.Header>
+            {isError ? (
+              <strong className="me-auto text-danger">Failed</strong>
+            ) : (
+              <strong className="me-auto text-success">Success</strong>
+            )}
+
+            <small className="text-muted">just now</small>
+          </Toast.Header>
+          <Toast.Body>{msg}</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 }
