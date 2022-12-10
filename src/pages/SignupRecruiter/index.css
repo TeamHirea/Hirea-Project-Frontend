@@ -1,3 +1,6 @@
 .signinRecruiter--page__container--second {
-  height: 150vh;
+  min-height: 100vh;
+}
+.signinRecruiter--page--first__container {
+  min-height: 100vh;
 }
