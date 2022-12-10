@@ -39,4 +39,12 @@
   .button-check-profile {
     padding: 2% 5%;
   }
+  .button-skill-jobseeker {
+    background-color: orange;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-size: 10px;
+    color: white;
+  }
 }
