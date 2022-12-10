@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import Header from "../../../components/Header";
 // import Avatar from "../../assets/images/person-1.png";
 import "./index.css";
@@ -6,18 +7,45 @@ import Footer from "../../../components/Footer";
 import IconInbox from "../../../assets/images/user.png";
 
 export default function Inbox() {
+  // const [state, setstate] = useState(initialState)
+  const [msgReceive, setMsgReceive] = useState("");
+  const [msgSend, setMsgSend] = useState("");
+  const [msg, setMsg] = useState("");
+  const handleOnChange = (e) => {
+    setMsgSend(e.target.value);
+  };
+  const sendMsg = () => {
+    setMsg(msgSend);
+    setMsgSend("");
+  };
+  const showMsg = () => {
+    setMsgReceive("alwdawd");
+  };
   return (
-    <div>
+    <div
+      className="w-100 h-100 "
+      style={{ paddingTop: "20px", backgroundColor: "#E5E5E5" }}
+    >
       <Header />
-      <div className="contchat container-fluid bg-light">
-        <div className="card-deck p-2 mt-4">
-          <div className="cardchat">
-            <div className="upperborder1">
-              <div className="text1">Chat</div>
-            </div>
-            <div className="card-block">
-              <div className="icon_inbox1 d-flex gap-3">
-                <div className="friend-drawer">
+      <div className="container  container-msg">
+        <div
+          className="desc"
+          style={{ marginBottom: "40px", marginTop: "100px" }}
+        >
+          <div className="row ">
+            <div
+              className="col-2 bg-white  colom-chat"
+              style={{ marginRight: "30px", marginLeft: "160px" }}
+            >
+              <div className="upperborder1">
+                <p className="mt-2">Chat</p>
+              </div>
+              <div className="list-chat">
+                <div
+                  className="friend-drawer mb-2 "
+                  style={{ cursor: "pointer" }}
+                  onClick={showMsg}
+                >
                   <div className="img">
                     <img
                       className="profile-image"
@@ -27,45 +55,81 @@ export default function Inbox() {
                       width="100"
                     />
                   </div>
-                  <div className="text3 mt-3">
-                    <h6>Jonas Adam</h6>
-                    <p className="text-muted">Hey, youre arrested!</p>
+                  <div className="text3 ">
+                    <p style={{ marginBottom: "-2px", fontSize: "12px" }}>
+                      Jonas Adam
+                    </p>
+                    <p className="text-muted" style={{ fontSize: "8px" }}>
+                      Hey, youre arrested! awyda
+                    </p>
                   </div>
-                  <span className="time text-muted small mt-3">13:21</span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="card-deck p-2 mt-4">
-          <div className="cardchat">
-            <div className="upperborder2">
-              <div className="icon_inbox d-flex gap-3 mt-2">
-                <img src={IconInbox} alt="" />
-                Jonas Adam
+            <div className="col-6 bg-white">
+              <div className="upperborder1 ">
+                <div className="mt-2 ">
+                  <img src={IconInbox} alt="" style={{ marginRight: "10px" }} />
+                  Jonas Adam
+                </div>
               </div>
-            </div>
-            <div className="bottomborder">
-              <div className="row">
-                <div className="col-12">
-                  <div className="chat-box-tray">
-                    <input
-                      type="text"
-                      placeholder="Type your message here..."
-                    />
-                    <i className="material-icons">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="bi bi-send"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
-                      </svg>
-                    </i>
-                  </div>
+              <div>
+                <div className="msg-receive">
+                  {msgReceive ? (
+                    <p
+                      className="rounded p-2 mt-2 mr-5 shadow-sm text-white float-right"
+                      style={{ backgroundColor: "#5E50A1" }}
+                    >
+                      {msgReceive}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div className="msg-send text-right" style={{ float: "right" }}>
+                  {msg ? (
+                    <p
+                      className=" rounded p-2 mt-2 mr-5 shadow-sm text-white float-left"
+                      style={{ backgroundColor: "#5E50A1" }}
+                    >
+                      {msg}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </div>
+              <div className="input-msg d-flex" style={{ marginTop: "340px" }}>
+                <input
+                  type="text"
+                  className="form-control input-message"
+                  placeholder="input"
+                  style={{ borderRadius: "20px" }}
+                  onChange={handleOnChange}
+                />
+                <div
+                  className="icon-send "
+                  style={{
+                    marginLeft: "5px",
+                    backgroundColor: "#5E50A1",
+                    borderRadius: "50%",
+                    width: "40px",
+                    paddingTop: "5px",
+                    textAlign: "center",
+                    cursor: "pointer",
+                  }}
+                  onClick={sendMsg}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="white"
+                    className="bi bi-send-fill text-center"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
+                  </svg>
                 </div>
               </div>
             </div>
