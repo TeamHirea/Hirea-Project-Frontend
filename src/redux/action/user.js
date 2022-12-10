@@ -19,10 +19,12 @@ export const getUserJobseeker = (page, searchName, column) => {
   };
 };
 
-export const getAllJobseeker = () => {
+export const getAllJobseeker = (page, filter, keyword) => {
   return {
     type: "GET_ALL_JOBSEEKER",
-    payload: axios.get(`api/user/`),
+    payload: axios.get(
+      `/api/user?limit=5&page=${page}&filter=${filter}&search=${keyword}`
+    ),
   };
 };
 
