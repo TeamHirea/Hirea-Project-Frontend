@@ -5,21 +5,53 @@ import Header from "../../../components/Header";
 import "./index.css";
 import Footer from "../../../components/Footer";
 import IconInbox from "../../../assets/images/user.png";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import ChatRecruiter from "../../../components/ChatRecruiter";
+// import { getMessage } from "../../../redux/action/chat";
+
+import axiosApiIntances from "../../../utils/axios";
 
 export default function Inbox() {
   // const [state, setstate] = useState(initialState)
   const [msgReceive, setMsgReceive] = useState("");
   const [msgSend, setMsgSend] = useState("");
-  const [msg, setMsg] = useState("");
+  const [message, setMessage] = useState([]);
+  const id = useSelector((state) => state.user.data.id);
+  const form = { idJobseeker: id };
+  const [data, setData] = useState([]);
+  const [company, setCompany] = useState("");
+  // const dispatch = useDispatch();
+  useEffect(() => {
+    getMessageHandler();
+  }, []);
+
+  const getMessageHandler = async () => {
+    // await dispatch(getMessage(form));
+    try {
+      const result = await axiosApiIntances.get(
+        `/api/message/history/jobseeker/${id}`,
+        form.idJobseeker
+      );
+      const hasil = result.data.data;
+      hasil.reverse();
+      setData(hasil);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleOnChange = (e) => {
     setMsgSend(e.target.value);
   };
+
   const sendMsg = () => {
-    setMsg(msgSend);
+    setMessage((message) => [...message, msgSend]);
     setMsgSend("");
   };
-  const showMsg = () => {
-    setMsgReceive("alwdawd");
+  const showMsg = (data, company) => {
+    setMsgReceive(data);
+    setCompany(company);
+    setMessage([]);
   };
   return (
     <div
@@ -41,39 +73,21 @@ export default function Inbox() {
                 <p className="mt-2">Chat</p>
               </div>
               <div className="list-chat">
-                <div
-                  className="friend-drawer mb-2 "
-                  style={{ cursor: "pointer" }}
-                  onClick={showMsg}
-                >
-                  <div className="img">
-                    <img
-                      className="profile-image"
-                      src={IconInbox}
-                      alt=""
-                      height="100"
-                      width="100"
-                    />
+                {data.map((item, index) => (
+                  <div key={index}>
+                    <ChatRecruiter data={item} showMsg={showMsg} />
                   </div>
-                  <div className="text3 ">
-                    <p style={{ marginBottom: "-2px", fontSize: "12px" }}>
-                      Jonas Adam
-                    </p>
-                    <p className="text-muted" style={{ fontSize: "8px" }}>
-                      Hey, youre arrested! awyda
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             <div className="col-6 bg-white">
               <div className="upperborder1 ">
                 <div className="mt-2 ">
                   <img src={IconInbox} alt="" style={{ marginRight: "10px" }} />
-                  Jonas Adam
+                  {company}
                 </div>
               </div>
-              <div>
+              <div className="chat_inbox">
                 <div className="msg-receive">
                   {msgReceive ? (
                     <p
@@ -87,23 +101,27 @@ export default function Inbox() {
                   )}
                 </div>
                 <div className="msg-send text-right" style={{ float: "right" }}>
-                  {msg ? (
-                    <p
-                      className=" rounded p-2 mt-2 mr-5 shadow-sm text-white float-left"
-                      style={{ backgroundColor: "#5E50A1" }}
-                    >
-                      {msg}
-                    </p>
-                  ) : (
-                    ""
-                  )}
+                  {message
+                    ? message.map((item, index) => {
+                        return (
+                          <p
+                            key={index}
+                            className=" msg-item rounded p-2 mt-2 mr-5 shadow-sm text-white float-left"
+                            style={{ backgroundColor: "#5E50A1" }}
+                          >
+                            {item}
+                          </p>
+                        );
+                      })
+                    : ""}
                 </div>
               </div>
               <div className="input-msg d-flex" style={{ marginTop: "340px" }}>
                 <input
+                  value={msgSend}
                   type="text"
                   className="form-control input-message"
-                  placeholder="input"
+                  placeholder="type message"
                   style={{ borderRadius: "20px" }}
                   onChange={handleOnChange}
                 />
