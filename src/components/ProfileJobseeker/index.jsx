@@ -52,8 +52,8 @@ export default function CardProfileJobseeker(props) {
           </button>
           <h1 className="name">Skill</h1>
           <div className="list-skill">
-            {props.data.skill
-              ? props.data.skill.map((items, index) => {
+            {props.data.skills_backup
+              ? props.data.skills_backup.map((items, index) => {
                   return (
                     <div key={index}>
                       <button className="button-skill">{items}</button>

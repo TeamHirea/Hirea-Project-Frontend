@@ -33,8 +33,8 @@ function Jobseeker(props) {
               <p className="card-location">{props.data.location}</p>
             </div>
             <div className="skill-list">
-              {props.data.skill
-                ? props.data.skill.map((items, index) => {
+              {props.data.skills_backup
+                ? props.data.skills_backup.map((items, index) => {
                     return (
                       <div key={index}>
                         <button className="button-skill-jobseeker">
