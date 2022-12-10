@@ -130,9 +130,9 @@ function Home() {
                 )}
               </main>
             </div>
-            <div className="d-flex gap-2 justify-content-center w-100 my-5">
+            <div className="d-flex justify-content-center w-100 my-5 align-items-center">
               <button
-                className="btn btn-primary"
+                className="btn-pagination"
                 onClick={handlePrevPage}
                 disabled={page === 1 ? true : false}
               >
@@ -140,22 +140,28 @@ function Home() {
               </button>
               <div style={{ width: "200px" }}>
                 <ul
-                  className="d-flex gap-2 align-items-center h-100"
-                  style={{ listStyle: "none" }}
+                  className="page."
+                  style={{
+                    listStyle: "none",
+                    margin: "0",
+                    padding: "0",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                 >
                   {(() => {
                     let td = [];
                     for (let i = 1; i <= user.pagination.totalPage; i++) {
                       td.push(
                         <li
-                          className="w-100 text-center"
+                          className="text-center page"
                           style={{
                             border: "1px solid #E2E5ED",
-                            width: "25px",
-                            height: "50px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
+                            paddingLeft: "20px",
+                            paddingRight: "20px",
+                            paddingTop: "10px",
+                            paddingBottom: "10px",
                             borderRadius: 5,
                             cursor: "pointer",
                             color: `${
@@ -176,7 +182,7 @@ function Home() {
                 </ul>
               </div>
               <button
-                className="btn btn-primary"
+                className="btn-pagination"
                 onClick={handleNextPage}
                 disabled={page === pagination.totalPage ? true : false}
               >

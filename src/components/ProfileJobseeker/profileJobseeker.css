@@ -81,6 +81,11 @@
 .hire-button:hover {
   background: rgb(46, 8, 238);
 }
+.list-skill {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
 .button-skill {
   display: flex;
   flex-direction: row;
@@ -88,6 +93,9 @@
   border: none;
   border-radius: 5px;
   margin: 2% 2%;
+  background-color: orange;
+  color: white;
+  font-size: 14px;
 }
 .social-media {
   margin-bottom: 20%;
